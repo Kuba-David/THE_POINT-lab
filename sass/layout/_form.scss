@@ -1,10 +1,15 @@
+.form-selection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: $spacing-xl $spacing-md $spacing-xl $spacing-md;
+}
+
 .form-container {
     background: $color-primary;
     padding: $spacing-md;
     border-radius: $border-radius;
-    margin: $spacing-xl auto;
-    width: 80%;
-    min-width: 340px;
+    width: 100%;
     max-width: 928px;
 }
 .form-container h2 {

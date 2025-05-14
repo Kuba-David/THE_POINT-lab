@@ -556,13 +556,18 @@ h1 {
     width: 20vh;
   }
 }
+.form-selection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 64px 16px 64px 16px;
+}
+
 .form-container {
   background: #2D2D2B;
   padding: 16px;
   border-radius: 20px;
-  margin: 64px auto;
-  width: 80%;
-  min-width: 340px;
+  width: 100%;
   max-width: 928px;
 }
 
@@ -737,7 +742,7 @@ button:hover {
 }
 
 .footer-logo img {
-  width: 85px;
+  width: 50px;
   height: auto;
 }
 
