@@ -195,7 +195,7 @@ nav ul li a:focus {
   border-radius: 20px;
   overflow: hidden;
   margin: 0 16px 0 16px;
-  background-image: url("/images/Kosmo_woman_1.webp");
+  background-image: url("../images/Kosmo_woman_1.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
