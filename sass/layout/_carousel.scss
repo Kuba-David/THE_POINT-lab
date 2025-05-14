@@ -1,0 +1,64 @@
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 80vh;
+  border-radius: $border-radius;
+  overflow: hidden;
+  margin: 0 $spacing-md 0 $spacing-md;
+  background-image: url("/images/Kosmo_woman_1.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+h1 {
+    position: absolute;
+    font-size: 6rem;
+    right: 15%;
+    font-family: $font-base;
+    line-height: $line-height-base;
+    z-index: 2;
+}
+
+.point {
+   font-size: 8rem;
+   line-height: 0;
+   color: $color-accent;
+   width: 5rem;
+   height: 5rem;
+}
+
+@media (max-width: $breakpoint-sm) {
+    .carousel {
+        height: 60vh;
+    }
+    
+    h1 {
+        font-size:4rem;
+        right: 10%;
+    }
+    
+    .point {
+        font-size: 5rem;
+        width: 4rem;
+        height: 4rem;
+    }
+}
+@media (max-width: $breakpoint-xs) {
+    .carousel {
+        height: 60vh;        
+    }
+    
+    h1 {
+        font-size: 3rem;
+        right: 5%;
+    }
+    
+    .point {
+        font-size: 4rem;
+        width: 3rem;
+        height: 3rem;
+    }
+}

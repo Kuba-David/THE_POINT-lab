@@ -1,0 +1,145 @@
+header {
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.logo {
+    height: 50px;
+    z-index: 20;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+nav ul {
+    margin: 0;
+    display: flex;
+    list-style: none;
+    color: $color-secondary;
+    padding: 0;
+}
+
+nav ul li a {
+    font-family: $font-header;
+    font-size: $font-size-base;
+    letter-spacing: $letter-spacing-tanker;
+    color: $color-secondary;
+    margin-left: $spacing-lg;
+    text-align: center;
+    
+}
+
+nav ul li a:hover, 
+nav ul li a:focus {
+    color: $color-accent;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 30px;
+  cursor: pointer;
+
+  span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    border-radius: 3px;
+    background-color: $color-secondary;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s ease, filter 0.2s ease;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .hamburger {
+    display: flex;
+    z-index: 20;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .show {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    width: 50vw;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    background-color: transparentize($color-primary-dark, 0.02);
+    z-index: 10;
+
+    ul {
+      position: relative;
+      left: 50%;
+      transform: translate(-50%);
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+      gap: $spacing-md;
+    }
+
+    a {
+      font-size: $font-size-large;
+      margin: 0;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-xs) {
+  .hamburger {
+    display: flex;
+    z-index: 20;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .show {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    background-color: transparentize($color-primary-dark, 0.02);
+    z-index: 10;
+
+    ul {
+      position: relative;
+      left: 50%;
+      transform: translate(-50%);
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      margin: 0;
+      gap: $spacing-md;
+    }
+
+    a {
+      font-size: $font-size-large;
+      margin: 0;
+    }
+  }
+}

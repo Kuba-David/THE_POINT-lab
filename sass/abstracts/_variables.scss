@@ -1,0 +1,41 @@
+// === COLORS ===
+$color-primary: #2D2D2B;
+$color-primary-light: #333333;
+$color-primary-dark: #212121;
+$color-secondary: #ECECEC;
+$color-accent: #D41116;
+$color-accent-dark: #880D10;
+
+// === TYPOGRAPHY ===
+$font-header: 'Tanker-Regular', sans-serif;
+$font-base: 'Sentient-Variable', serif;
+$font-size-base: 16px;
+$font-size-small: 10px;
+$font-size-large: 26px;
+$font-size-button: 26px;
+$line-height-base: 1;
+$line-height-large: 1.2;
+$letter-spacing-tanker: 0.1rem;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+// === SPACING ===
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 32px;
+$spacing-xl: 64px;
+$spacing-xxl: 128px;
+
+// === BREAKPOINTS ===
+$breakpoint-xs: 480px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 1024px;
+$breakpoint-lg: 1200px;
+
+// === OTHER ===
+$border-radius: 20px;
+$border-radius-button: 10px;
+$margin-section: 0px 16px 50px 16px;
+$box-shadow-default: 0 0px 7px #2D2D2B;
+$transition-default: all 0.3s ease-in-out;

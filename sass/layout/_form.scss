@@ -1,0 +1,80 @@
+.form-container {
+    background: $color-primary;
+    padding: $spacing-md;
+    border-radius: $border-radius;
+    margin: $spacing-xl auto;
+    width: 80%;
+    min-width: 340px;
+    max-width: 928px;
+}
+.form-container h2 {
+    font-family: $font-header;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: $line-height-large;
+    letter-spacing: $letter-spacing-tanker;
+    color: $color-secondary;
+    margin-bottom: $spacing-md;
+    margin-top: $spacing-md;
+}
+form {
+  label {
+    font-weight: $font-weight-normal;
+    font-family: $font-base;
+    font-size: 1rem;
+    color: $color-secondary;
+    display: block;
+    margin: 10px 0 5px;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    font-weight: $font-weight-normal;
+    font-family: $font-base;
+    font-size: 1rem;
+    color: $color-primary;
+    box-sizing: border-box;
+
+    &:focus {
+      border-color: $color-accent;
+      outline: none;
+    }
+  }
+}
+
+button {
+  margin-top: $spacing-md;
+  width: 100%;
+  background: $color-accent;
+  font-family: $font-header;
+  line-height: 0.8;
+  letter-spacing: 0.05rem;
+  color: $color-secondary;
+  border: none;
+  border-radius: $border-radius-button;
+  padding: 10px;
+  font-size: $font-size-button;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover {
+    background: $color-accent-dark;
+  }
+}
+
+.form-icon {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 10px;
+  left: 10px;
+  fill: $color-primary;
+}

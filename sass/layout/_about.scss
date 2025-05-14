@@ -1,0 +1,50 @@
+.about {
+    display: flex;
+    position: relative;
+    padding: 0 10vw 0 10vw;
+    margin-top: $spacing-xxl;
+    margin-bottom: $spacing-xxl;
+}
+
+.about p {
+    font-size: 56px;
+    font-weight: $font-weight-normal;
+    line-height: $line-height-large;
+    z-index: 20;
+}
+.about span {
+    color: #B1B1B1;
+}
+
+.about img {
+    position: absolute;
+    width: 25vh;
+    height: auto;
+    z-index: 10;
+    bottom: -32px;
+    right: 10vw;
+    opacity: 0.5;
+    
+}
+
+@media (max-width: $breakpoint-md) {
+    .about p {
+        font-size: 48px;
+    }
+    .about img {
+        width: 20vh;
+    }
+}
+
+@media (max-width: $breakpoint-xs) {
+    .about {
+        margin-top: $spacing-xl;
+        margin-bottom: $spacing-xl;
+    }
+    .about p {
+        font-size: 28px;
+    }
+    .about img {
+        width: 20vh;
+    }
+}

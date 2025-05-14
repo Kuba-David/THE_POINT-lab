@@ -1,0 +1,31 @@
+// === MEDIA QUERY MIXIN ===
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == xs {
+    @media (min-width: $breakpoint-xs) { @content; }
+  } @else if $breakpoint == sm {
+    @media (min-width: $breakpoint-sm) { @content; }
+  } @else if $breakpoint == md {
+    @media (min-width: $breakpoint-md) { @content; }
+  } @else if $breakpoint == lg {
+    @media (min-width: $breakpoint-lg) { @content; }
+  }
+}
+
+// === BUTTON MIXIN ===
+@mixin button-base {
+  background: $color-accent;
+  font-family: $font-header;
+  line-height: 0.8;
+  letter-spacing: 0.05rem;
+  color: $color-secondary;
+  border: none;
+  border-radius: $border-radius-button;
+  padding: 10px;
+  font-size: $font-size-button;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover {
+    background: $color-accent-dark;
+  }
+}

@@ -1,0 +1,21 @@
+.footer-content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: $spacing-md;
+}
+
+.footer-logo {
+    display: flex;
+    gap: $spacing-md;
+    align-items: flex-end;
+}
+
+.footer-logo img {
+    width: 85px;
+    height: auto;
+}
+
+.footer-content p {
+    text-align: right;
+}
