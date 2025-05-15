@@ -14,6 +14,7 @@
 // === BUTTON MIXIN ===
 @mixin button-base {
   background: $color-accent;
+  width: 100%;
   font-family: $font-header;
   line-height: 0.8;
   letter-spacing: 0.05rem;
@@ -21,6 +22,7 @@
   border: none;
   border-radius: $border-radius-button;
   padding: 10px;
+  margin-top: $spacing-md;
   font-size: $font-size-button;
   cursor: pointer;
   transition: background 0.2s;
@@ -28,4 +30,32 @@
   &:hover {
     background: $color-accent-dark;
   }
+
+  &:active {
+    background: $color-accent-dark;
+    transform: scale(0.98);
+  }
 }
+
+@mixin button-black-outline {
+      width: fit-content;
+    font-family: $font-header;
+    border: 2px solid $color-primary;
+    padding: 8px 18px;
+    margin-top: $spacing-sm;
+    font-size: $font-size-button;
+    border-radius: $border-radius-button;
+    text-decoration: none;
+    color: $color-primary;
+    transition: background 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      background: $color-primary;
+      color: $color-secondary;
+    }
+
+    &:active {
+      background: $color-primary;
+      transform: scale(0.98);
+    }
+  }

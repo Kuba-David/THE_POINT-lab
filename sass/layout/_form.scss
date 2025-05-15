@@ -2,11 +2,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: $spacing-xl $spacing-md $spacing-xl $spacing-md;
+    margin: $spacing-xxl $spacing-md $spacing-lg $spacing-md;
 }
 
 .form-container {
-    background: $color-primary;
+    background: $color-primary-dark;
     padding: $spacing-md;
     border-radius: $border-radius;
     width: 100%;
@@ -52,23 +52,7 @@ form {
 }
 
 button {
-  margin-top: $spacing-md;
-  width: 100%;
-  background: $color-accent;
-  font-family: $font-header;
-  line-height: 0.8;
-  letter-spacing: 0.05rem;
-  color: $color-secondary;
-  border: none;
-  border-radius: $border-radius-button;
-  padding: 10px;
-  font-size: $font-size-button;
-  cursor: pointer;
-  transition: background 0.2s;
-
-  &:hover {
-    background: $color-accent-dark;
-  }
+  @include button-base;
 }
 
 .form-icon {

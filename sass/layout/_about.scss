@@ -3,7 +3,6 @@
     position: relative;
     padding: 0 10vw 0 10vw;
     margin-top: $spacing-xxl;
-    margin-bottom: $spacing-xxl;
 }
 
 .about p {
@@ -38,8 +37,8 @@
 
 @media (max-width: $breakpoint-xs) {
     .about {
-        margin-top: $spacing-xl;
-        margin-bottom: $spacing-xl;
+        margin-top: $spacing-xxl;
+    
     }
     .about p {
         font-size: 28px;

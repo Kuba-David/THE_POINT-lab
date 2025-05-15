@@ -3,7 +3,7 @@
     display: grid;
     gap: $spacing-md;
     padding: 0 $spacing-md 0 $spacing-md;
-    margin-top: $spacing-xl;
+    margin-top: $spacing-xxl;
     grid-template-columns: auto;
     justify-content: center;
     grid-template-columns: repeat(2, auto);
@@ -123,15 +123,12 @@
 }
 
 .product-attributes {
-  display: flex;
-  justify-content: center;
   margin: $spacing-sm 0;
 }
 
 .product-sizes {
     display: flex;
-    justify-content: center;
-    gap: $spacing-sm;
+    justify-content: space-around;
 
   input {
     display: none;
@@ -161,22 +158,8 @@
 }
 
 .buy-button {
-  margin-top: 0px;
-  background: $color-accent;
-  font-family: $font-header;
-  line-height: 0.8;
-  letter-spacing: 0.05rem;
-  color: $color-secondary;
-  border: none;
-  border-radius: $border-radius-button;
-  padding: 10px;
-  font-size: $font-size-button;
-  cursor: pointer;
-  transition: background 0.2s;
-
-  &:hover {
-    background: $color-accent-dark;
-  }
+   @include button-base;
+   margin-top: 0;
 }
 
 @media (max-width: $breakpoint-xs) {

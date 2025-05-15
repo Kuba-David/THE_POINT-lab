@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: $spacing-md;
-    margin: $spacing-xl auto;
+    margin: $spacing-xxl auto;
     max-width: 960px;
     height: auto;
     padding: 0 $spacing-md;
@@ -39,6 +39,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    max-height: 100%;
     box-shadow: $box-shadow-default;
     font-family: $font-base;
     color: $color-primary;
@@ -47,8 +48,8 @@
   h3 {
     font-family: $font-header;
     font-size: $font-size-large;
+    font-weight: normal;
     margin-bottom: $spacing-md;
-    letter-spacing: $letter-spacing-tanker;
   }
 
   p {
@@ -60,33 +61,20 @@
   }
 
   .btn-link {
-    width: fit-content;
-    font-family: $font-header;
-    border: 2px solid $color-primary;
-    padding: 8px 18px;
-    margin-top: $spacing-sm;
-    font-size: clamp(14px, 2vw, 16px);
-    border-radius: $border-radius-button;
-    text-decoration: none;
-    color: $color-primary;
-    transition: background 0.3s ease, color 0.3s ease;
-
-    &:hover {
-      background: $color-primary;
-      color: $color-secondary;
-    }
+    @include button-black-outline;
   }
 
 
 .collection-tile-img {
     border-radius: $border-radius;
+    max-height: 360px;
     overflow: hidden;
 }
 .collection-tile-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: $border-radius;
+    object-position: center;
     transition: transform 0.3s ease;
 
     &:hover {

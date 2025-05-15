@@ -6,7 +6,7 @@
   border-radius: $border-radius;
   overflow: hidden;
   margin: 0 $spacing-md 0 $spacing-md;
-  background-image: url("images/Kosmo_woman_1.webp");
+  background-image: url("/images/Kosmo_man_1.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -48,7 +48,7 @@ h1 {
 }
 @media (max-width: $breakpoint-xs) {
     .carousel {
-        height: 60vh;        
+        height: 40vh;        
     }
     
     h1 {
