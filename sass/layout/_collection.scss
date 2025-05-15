@@ -16,7 +16,7 @@
   }
 
 
-  @include respond-to(xs) {
+  @media (min-width: $breakpoint-xs) {
     display: grid;
     gap: $spacing-md;
     grid-template-columns: repeat(2, 1fr); 

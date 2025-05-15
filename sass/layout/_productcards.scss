@@ -10,10 +10,14 @@
     justify-content: center;
 
 
-    @include respond-to(md) {
+    @media (min-width: $breakpoint-md) {
         grid-template-columns: repeat(4, auto);
-        justify-content: center;
     }
+
+    @media (max-width: $breakpoint-sm) {
+        margin-top: $spacing-md;
+    }
+    
 }
 
 .product-card {

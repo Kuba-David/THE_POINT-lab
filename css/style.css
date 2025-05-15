@@ -260,7 +260,11 @@ h1 {
 @media (min-width: 1024px) {
   .product-grid {
     grid-template-columns: repeat(4, auto);
-    justify-content: center;
+  }
+}
+@media (max-width: 768px) {
+  .product-grid {
+    margin-top: 16px;
   }
 }
 

@@ -1,4 +1,4 @@
-// === MEDIA QUERY MIXIN ===
+//MEDIA QUERY MIXIN
 @mixin respond-to($breakpoint) {
   @if $breakpoint == xs {
     @media (min-width: $breakpoint-xs) { @content; }
@@ -11,7 +11,7 @@
   }
 }
 
-// === BUTTON MIXIN ===
+//BUTTON MIXIN
 @mixin button-base {
   background: $color-accent;
   width: 100%;
