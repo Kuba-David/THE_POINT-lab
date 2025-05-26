@@ -43,6 +43,8 @@ form {
     font-size: 1rem;
     color: $color-primary;
     box-sizing: border-box;
+    // height: 38px;
+
 
     &:focus {
       border-color: $color-accent;
@@ -50,6 +52,62 @@ form {
     }
   }
 }
+
+ .custom-select {
+    position: relative;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #cccccc;
+    height: 43px;
+    align-content: center;
+    border-radius: 10px;
+    padding: 10px 10px 10px 40px;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+
+  .selected-option {
+    font-weight: bold;
+    color: $color-primary;
+  }
+
+  .custom-select.open .options {
+    display: block;
+  }
+
+  .options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: $color-secondary;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 10;
+  }
+
+  .options li {
+    display: flex;
+    align-items: center;
+    color: $color-primary;
+    gap: 0.75rem;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  .options li:hover {
+    background-color: #f2f2f2;
+  }
+
+  .options img {
+    width: 50px;
+    height: auto;
+    border-radius: 4px;
+  }
 
 button {
   @include button-base;

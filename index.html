@@ -24,8 +24,11 @@
         </div>
     </header>
     <main>
-        <section class="carousel">
-            <h1>řekni to <br>trikem<span class="point">.</span></h1>
+        <section class="hero">
+            <video autoplay muted loop playsinline class="hero-video">
+                <source src="images/thePoint_hero.mp4" type="video/mp4">
+            </video>
+            <h1>wear what<br>you mean<span class="point">.</span></h1>
         </section>
 
         <section class="product-grid">
@@ -270,28 +273,59 @@
             </div>
         </section>
 
-        <section class="form-selection" id="contact">
-            <form class="form-container">
-                <h2>Máš hlad po triku? <br>napiš nám!</h2>
-                <label for="name">jméno máš?</label>
-                    <div class="form-icon">
-                        <svg class="icon"><use href="./icons.svg#user"></use></svg>
-                        <input type="text" id="name" placeholder="sem ho naťukej..." required>
-                    </div>    
-                <label for="name">e-mail máš?</label>
-                    <div class="form-icon">
-                        <svg class="icon"><use href="./icons.svg#email"></use></svg>
-                        <input type="email" id="email" placeholder="poděl se o něj..." required>
-                    </div>
-                <label for="message">co bys od nás chtěl?</label>
-                    <div class="form-icon">
-                        <svg class="icon"><use href="./icons.svg#poll"></use></svg>
-                        <textarea id="message" name="message" rows="8" placeholder="ale moc se nerozepisuj..." required></textarea>
-                    </div>
-                <button type="submit">odeslat</button>    
-            </form>
-        </section>
+<section class="form-selection" id="contact">
+  <form class="form-container">
+    <h2>Máš hlad po triku? <br>napiš nám!</h2>
 
+    <!-- Jméno -->
+    <label for="name">jméno máš?</label>
+    <div class="form-icon">
+      <svg class="icon"><use href="./icons.svg#user"></use></svg>
+      <input type="text" id="name" name="name" placeholder="sem ho naťukej..." required>
+    </div>
+
+    <!-- E-mail -->
+    <label for="email">e-mail máš?</label>
+    <div class="form-icon">
+      <svg class="icon"><use href="./icons.svg#email"></use></svg>
+      <input type="email" id="email" name="email" placeholder="poděl se o něj..." required>
+    </div>
+
+    <!-- Vyber motiv -->
+    <label for="motiv">kterej motiv ti padl do oka?</label>
+    <div class="form-icon" style="position: relative;">
+      <div class="custom-select" id="motiv-dropdown">
+        <svg class="icon"><use href="./icons.svg#email"></use></svg>
+        <div class="selected-option">Vyber motiv</div>
+        <ul class="options">
+          <li data-value="astronaut-balloon">
+            <img src="images/T-Shirt_MOCKUP_black_AB_zoom.webp" alt="Astronaut & Balloon"> Astronaut & Balloon
+          </li>
+          <li data-value="saturn-swing">
+            <img src="images/T-Shirt_MOCKUP_black_SS_zoom.webp" alt="Saturn Swing"> Saturn Swing
+          </li>
+          <li data-value="radsi-bych-byl-jinde">
+            <img src="images/T-Shirt_MOCKUP_black_jinde_zoom.webp" alt="Radši bych byl jinde"> Radši bych byl jinde
+          </li>
+          <li data-value="ticho-se-podcenuje">
+            <img src="images/T-Shirt_MOCKUP_black_ticho_zoom.webp" alt="Ticho se podceňuje"> Ticho se podceňuje
+          </li>
+        </ul>
+        <input type="hidden" name="motiv" id="motiv-hidden">
+      </div>
+    </div>
+
+    <!-- Zpráva -->
+    <label for="message">co bys od nás chtěl?</label>
+    <div class="form-icon">
+      <svg class="icon"><use href="./icons.svg#poll"></use></svg>
+      <textarea id="message" name="message" rows="8" placeholder="ale moc se nerozepisuj..." required></textarea>
+    </div>
+
+    <!-- Odeslat -->
+    <button type="submit">odeslat</button>
+  </form>
+</section>
         <div id="imageModal" class="modal">
             <span class="close">&times;</span>
             <span class="modal-arrow left">&#10094;</span>
