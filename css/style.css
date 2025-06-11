@@ -1,13 +1,13 @@
 @font-face {
   font-family: "Tanker-Regular";
-  src: url("/fonts/Tanker-Regular.woff2") format("woff2"), url("/fonts/Tanker-Regular.woff") format("woff"), url("/fonts/Tanker-Regular.ttf") format("truetype");
+  src: url("../fonts/Tanker-Regular.woff2") format("woff2"), url("../fonts/Tanker-Regular.woff") format("woff"), url("../fonts/Tanker-Regular.ttf") format("truetype");
   font-weight: 400;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
   font-family: "Sentient-Variable";
-  src: url("/fonts/Sentient-Variable.woff2") format("woff2"), url("/fonts/Sentient-Variable.woff") format("woff"), url("/fonts/Sentient-Variable.ttf") format("truetype");
+  src: url("../fonts/Sentient-Variable.woff2") format("woff2"), url("../fonts/Sentient-Variable.woff") format("woff"), url("../fonts/Sentient-Variable.ttf") format("truetype");
   font-weight: 200 700;
   font-display: swap;
   font-style: normal;
@@ -195,7 +195,7 @@ nav ul li a:focus {
   border-radius: 20px;
   overflow: hidden;
   margin: 0 16px 0 16px;
-  background-image: url("/images/Kosmo_man_1.webp");
+  background-image: url("../images/Kosmo_man_1.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
