@@ -43,29 +43,40 @@ document.querySelectorAll('.product-card').forEach(card => {
 
   // Swipe (touch + mouse)
   let startX = 0;
+  let startY = 0;
   let endX = 0;
+  let endY = 0;
 
   slider.addEventListener('touchstart', e => {
     startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
   });
+
   slider.addEventListener('touchend', e => {
     endX = e.changedTouches[0].clientX;
+    endY = e.changedTouches[0].clientY;
     handleSwipe();
   });
 
   slider.addEventListener('mousedown', e => {
     startX = e.clientX;
+    startY = e.clientY;
   });
+
   slider.addEventListener('mouseup', e => {
     endX = e.clientX;
+    endY = e.clientY;
     handleSwipe();
   });
 
   function handleSwipe() {
-    const diff = startX - endX;
-    if (Math.abs(diff) < 30) return;
+    const diffX = startX - endX;
+    const diffY = startY - endY;
 
-    if (diff > 0) {
+    // Vyžaduje převážně horizontální swipe a aspoň 30px pohyb
+    if (Math.abs(diffX) < 30 || Math.abs(diffX) < Math.abs(diffY)) return;
+
+    if (diffX > 0) {
       goToSlide((currentIndex + 1) % slides.length);
     } else {
       goToSlide((currentIndex - 1 + slides.length) % slides.length);
@@ -135,4 +146,11 @@ document.addEventListener('keydown', (e) => {
       modal.style.display = "none";
     }
   }
+});
+
+// Přidání události pro tlačítko "make an order"
+document.querySelectorAll('.buy-button').forEach(button => {
+  button.addEventListener('click', () => {
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+  });
 });
