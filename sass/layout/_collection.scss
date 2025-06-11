@@ -1,11 +1,14 @@
 .collection-grid {
     display: flex;
     flex-wrap: wrap;
+    position: relative;
     gap: $spacing-md;
-    margin: $spacing-xxl auto;
+    margin: 0 auto;
+    margin-top: $spacing-lg;
     max-width: 960px;
     height: auto;
-    padding: 0 $spacing-md;
+    padding: $spacing-md;
+    z-index: 10;
 
   .tile-3 {
     order: 4;
@@ -19,7 +22,9 @@
   @media (min-width: $breakpoint-xs) {
     display: grid;
     gap: $spacing-md;
-    grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: $spacing-xxl;
+
     
   .tile-3 {
     order: 3;

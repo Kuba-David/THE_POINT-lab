@@ -1,13 +1,13 @@
 @font-face {
   font-family: "Tanker-Regular";
-  src: url("/fonts/Tanker-Regular.woff2") format("woff2"), url("/fonts/Tanker-Regular.woff") format("woff"), url("/fonts/Tanker-Regular.ttf") format("truetype");
+  src: url("../fonts/Tanker-Regular.woff2") format("woff2"), url("../fonts/Tanker-Regular.woff") format("woff"), url("../fonts/Tanker-Regular.ttf") format("truetype");
   font-weight: 400;
   font-display: swap;
   font-style: normal;
 }
 @font-face {
   font-family: "Sentient-Variable";
-  src: url("/fonts/Sentient-Variable.woff2") format("woff2"), url("/fonts/Sentient-Variable.woff") format("woff"), url("/fonts/Sentient-Variable.ttf") format("truetype");
+  src: url("../fonts/Sentient-Variable.woff2") format("woff2"), url("../fonts/Sentient-Variable.woff") format("woff"), url("../fonts/Sentient-Variable.ttf") format("truetype");
   font-weight: 200 700;
   font-display: swap;
   font-style: normal;
@@ -195,7 +195,7 @@ nav ul li a:focus {
   border-radius: 20px;
   overflow: hidden;
   margin: 0 16px 0 16px;
-  background-image: url("/images/Kosmo_man_1.webp");
+  background-image: url("../images/Kosmo_man_1.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -528,33 +528,50 @@ h1 {
 
 .about {
   display: flex;
+  flex-direction: column;
   position: relative;
-  padding: 0 10vw 0 10vw;
-  margin-top: 128px;
+  padding: 64px 10vw;
+  margin-top: 32px;
 }
 
 .about p {
-  font-size: 56px;
+  font-size: 28px;
   font-weight: 400;
   line-height: 1.2;
   z-index: 20;
+  margin-bottom: 32px;
+}
+
+.about p:last-of-type {
+  margin-bottom: 0;
 }
 
 .about span {
   color: #B1B1B1;
 }
 
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .about img {
   position: absolute;
-  width: 25vh;
+  width: 20vh;
   height: auto;
-  z-index: 10;
-  bottom: -32px;
-  right: 10vw;
+  z-index: 1;
+  bottom: 32px;
+  right: 5vw;
   opacity: 0.5;
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 480px) {
   .about p {
     font-size: 48px;
   }
@@ -562,21 +579,24 @@ h1 {
     width: 20vh;
   }
 }
-@media (max-width: 480px) {
+@media (min-width: 1024px) {
   .about {
+    padding: 64px 10vw;
     margin-top: 128px;
   }
   .about p {
-    font-size: 28px;
+    font-size: 56px;
   }
   .about img {
-    width: 20vh;
+    width: 25vh;
+    right: 10vw;
   }
 }
 .form-selection {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 16px;
   margin: 128px 16px 32px 16px;
 }
 
@@ -720,11 +740,14 @@ button:active {
 .collection-grid {
   display: flex;
   flex-wrap: wrap;
+  position: relative;
   gap: 16px;
-  margin: 128px auto;
+  margin: 0 auto;
+  margin-top: 32px;
   max-width: 960px;
   height: auto;
-  padding: 0 16px;
+  padding: 16px;
+  z-index: 10;
 }
 .collection-grid .tile-3 {
   order: 4;
@@ -737,6 +760,7 @@ button:active {
     display: grid;
     gap: 16px;
     grid-template-columns: repeat(2, 1fr);
+    margin-top: 128px;
   }
   .collection-grid .tile-3 {
     order: 3;

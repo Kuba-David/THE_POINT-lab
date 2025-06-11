@@ -1,49 +1,69 @@
 .about {
-    display: flex;
-    position: relative;
-    padding: 0 10vw 0 10vw;
-    margin-top: $spacing-xxl;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: $spacing-xl 10vw;
+  margin-top: $spacing-lg;
 }
 
 .about p {
-    font-size: 56px;
-    font-weight: $font-weight-normal;
-    line-height: $line-height-large;
-    z-index: 20;
+  font-size: 28px;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-large;
+  z-index: 20;
+  margin-bottom: $spacing-lg;
 }
+
+.about p:last-of-type {
+  margin-bottom: 0;
+}
+
 .about span {
-    color: #B1B1B1;
+  color: #B1B1B1;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 2s ease, transform 2s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .about img {
-    position: absolute;
+  position: absolute;
+  width: 20vh;
+  height: auto;
+  z-index: 1;
+  bottom: 32px;
+  right: 5vw;
+  opacity: 0.5;
+}
+
+@media (min-width: $breakpoint-xs) {
+  .about p {
+    font-size: 48px;
+  }
+  .about img {
+    width: 20vh;
+  }
+}
+
+@media (min-width: $breakpoint-md) {
+  .about {
+    padding: $spacing-xl 10vw;
+    margin-top: $spacing-xxl;
+
+
+  }
+  .about p {
+    font-size: 56px;
+  }
+  .about img {
     width: 25vh;
-    height: auto;
-    z-index: 10;
-    bottom: -32px;
     right: 10vw;
-    opacity: 0.5;
-    
-}
-
-@media (max-width: $breakpoint-md) {
-    .about p {
-        font-size: 48px;
-    }
-    .about img {
-        width: 20vh;
-    }
-}
-
-@media (max-width: $breakpoint-xs) {
-    .about {
-        margin-top: $spacing-xxl;
-    
-    }
-    .about p {
-        font-size: 28px;
-    }
-    .about img {
-        width: 20vh;
-    }
+  }
 }
