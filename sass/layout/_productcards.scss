@@ -3,18 +3,17 @@
     flex-direction: column;
     align-items: center;
     padding: $spacing-md;
-    margin-top: $spacing-xxl;
+    margin: $spacing-xxl 0 $spacing-md 0;
 
     h2 {
         font-size: $font-size-xlarge;
         font-weight: $font-weight-bold;
-        color: $color-secondary-dark;
+        color: $color-secondary;
     }
 
     @media (max-width: $breakpoint-xs) {
         margin-top: $spacing-lg;
-        padding: $spacing-md 10vw;
-        align-items: start;
+        margin-bottom: $spacing-sm;
         h2 {
             font-size: 28px;
         }

@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     padding-top: $spacing-md;
-    margin: $spacing-xxl $spacing-md $spacing-lg $spacing-md;
+    margin: $spacing-xl $spacing-md;
 }
 
 .form-container {
@@ -22,6 +22,8 @@
     color: $color-secondary;
     margin-bottom: $spacing-md;
     margin-top: $spacing-md;
+    padding-left: $spacing-xs;
+
 }
 form {
   label {
@@ -30,25 +32,27 @@ form {
     font-size: 1rem;
     color: $color-secondary;
     display: block;
-    margin: 10px 0 5px;
+    margin: $spacing-md 0 $spacing-sm;
+    padding-left: $spacing-xs;
+
   }
 
   input,
   textarea {
     width: 100%;
     padding: 10px 10px 10px 40px;
-    border: 1px solid #cccccc;
+    border: 1px solid $color-secondary;
     border-radius: 10px;
     font-weight: $font-weight-normal;
     font-family: $font-base;
     font-size: 1rem;
     color: $color-primary;
     box-sizing: border-box;
-    // height: 38px;
 
 
     &:focus {
       border-color: $color-accent;
+      border-width: 1px;
       outline: none;
     }
   }
@@ -57,8 +61,9 @@ form {
  .custom-select {
     position: relative;
     width: 100%;
-    background: #fff;
-    border: 1px solid #cccccc;
+    background: white;
+    color: $color-primary-light;
+    border: 1px solid $color-secondary;
     height: 43px;
     align-content: center;
     border-radius: 10px;
@@ -68,7 +73,6 @@ form {
   }
 
   .selected-option {
-    font-weight: bold;
     color: $color-primary;
   }
 
@@ -83,7 +87,7 @@ form {
     left: 0;
     right: 0;
     background: $color-secondary;
-    border: 1px solid #ccc;
+    border: 1px solid $color-secondary;
     border-radius: 10px;
     max-height: 300px;
     overflow-y: auto;
@@ -101,7 +105,7 @@ form {
   }
 
   .options li:hover {
-    background-color: #f2f2f2;
+    background-color:white;
   }
 
   .options img {
@@ -109,6 +113,100 @@ form {
     height: auto;
     border-radius: 4px;
   }
+
+  legend {
+    font-weight: $font-weight-normal;
+    font-family: $font-base;
+    font-size: 1rem;
+    color: $color-secondary;
+    display: block;
+    padding-left: $spacing-xs;
+  }
+
+  .size-options {
+    border: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+    margin: $spacing-md 0 $spacing-md;
+    align-items: center;
+  }
+
+  .size-options label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    color: #ececec;
+  }
+
+  .size-options input[type="radio"] {
+    display: none;
+  }
+
+  .size-circle {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid $color-secondary;
+    background-color: $color-primary-dark;
+    display: inline-block;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+  }
+
+  .size-options label:hover .size-circle {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+  }
+
+  .size-options input[type="radio"]:checked + .size-circle {
+    border: 2px solid $color-accent;
+  }
+
+  .color-options {
+    border: none;
+    padding: 0;
+    margin: $spacing-md 0 $spacing-md;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+    align-items: center;
+  }
+
+  .color-options label {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    cursor: pointer;
+  }
+
+  .color-options input[type="radio"] {
+    display: none;
+  }
+
+  .color-options label:hover .color-circle {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+  .color-options input[type="radio"]:checked + .color-circle {
+    border: 2px solid $color-accent;	
+  }
+
+  .color-circle {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--color);
+    border: 2px solid $color-secondary;
+    display: inline-block;
+  }
+
+  .color-circle.dotted {
+    border: 2px dashed $color-secondary;
+  }
+
 
 button {
   @include button-base;

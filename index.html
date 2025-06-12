@@ -32,7 +32,7 @@
         </section>
 
         <div class="featured">
-            <h2>Just landed:</h2>
+            <h2>Pointed picks:</h2>
         </div>
 
         <section class="product-grid">
@@ -283,57 +283,120 @@
 
 <section class="form-selection" id="contact">
   <form class="form-container">
-    <h2>Máš hlad po triku? <br>napiš nám!</h2>
+    <h2>HUNGRY FOR A TEE? <br>Tell us few more things.</h2>
 
     <!-- Jméno -->
-    <label for="name">jméno máš?</label>
-    <div class="form-icon">
-      <svg class="icon"><use href="./icons.svg#user"></use></svg>
-      <input type="text" id="name" name="name" placeholder="sem ho naťukej..." required>
-    </div>
+    <label for="name">got a name?</label>
+        <div class="form-icon">
+            <svg class="icon"><use href="./icons.svg#user"></use></svg>
+            <input type="text" id="name" name="name" placeholder="type it in here..." required>
+        </div>
 
     <!-- E-mail -->
-    <label for="email">e-mail máš?</label>
-    <div class="form-icon">
-      <svg class="icon"><use href="./icons.svg#email"></use></svg>
-      <input type="email" id="email" name="email" placeholder="poděl se o něj..." required>
-    </div>
+    <label for="email">got an email?</label>
+        <div class="form-icon">
+            <svg class="icon"><use href="./icons.svg#email"></use></svg>
+            <input type="email" id="email" name="email" placeholder="share it with us..." required>
+        </div>
+
+    <!-- Adresa -->
+    <label for="address">where should it land?</label>
+        <div class="form-icon">
+            <svg class="icon"><use href="./icons.svg#shipping"></use></svg>
+            <textarea id="address" rows="3" placeholder="street, city, planet..."></textarea>
+        </div>
 
     <!-- Vyber motiv -->
-    <label for="motiv">kterej motiv ti padl do oka?</label>
-    <div class="form-icon" style="position: relative;">
-      <div class="custom-select" id="motiv-dropdown">
-        <svg class="icon"><use href="./icons.svg#email"></use></svg>
-        <div class="selected-option">Vyber motiv</div>
-        <ul class="options">
-          <li data-value="astronaut-balloon">
-            <img src="images/T-Shirt_MOCKUP_black_AB_zoom.webp" alt="Astronaut & Balloon"> Astronaut & Balloon
-          </li>
-          <li data-value="saturn-swing">
-            <img src="images/T-Shirt_MOCKUP_black_SS_zoom.webp" alt="Saturn Swing"> Saturn Swing
-          </li>
-          <li data-value="radsi-bych-byl-jinde">
-            <img src="images/T-Shirt_MOCKUP_black_jinde_zoom.webp" alt="Radši bych byl jinde"> Radši bych byl jinde
-          </li>
-          <li data-value="ticho-se-podcenuje">
-            <img src="images/T-Shirt_MOCKUP_black_ticho_zoom.webp" alt="Ticho se podceňuje"> Ticho se podceňuje
-          </li>
-        </ul>
-        <input type="hidden" name="motiv" id="motiv-hidden">
-      </div>
-    </div>
+    <label for="motiv">which design caught your eye?</label>
+        <div class="form-icon" style="position: relative;">
+        <div class="custom-select" id="motiv-dropdown">
+            <svg class="icon"><use href="./icons.svg#arrowDown"></use></svg>
+            <div class="selected-option">pick a favorite design</div>
+            <ul class="options">
+            <li data-value="astronaut-balloon">
+                <img src="images/T-Shirt_MOCKUP_black_AB_zoom.webp" alt="Astronaut & Balloon"> Astronaut & Balloon
+            </li>
+            <li data-value="saturn-swing">
+                <img src="images/T-Shirt_MOCKUP_black_SS_zoom.webp" alt="Saturn Swing"> Saturn Swing
+            </li>
+            <li data-value="radsi-bych-byl-jinde">
+                <img src="images/T-Shirt_MOCKUP_black_jinde_zoom.webp" alt="Radši bych byl jinde"> Radši bych byl jinde
+            </li>
+            <li data-value="ticho-se-podcenuje">
+                <img src="images/T-Shirt_MOCKUP_black_ticho_zoom.webp" alt="Ticho se podceňuje"> Ticho se podceňuje
+            </li>
+            </ul>
+            <input type="hidden" name="motiv" id="motiv-hidden">
+        </div>
+        </div>
+
+    <!-- Velikost -->
+    <fieldset class="size-options">
+        <legend>what size are you?</legend>
+
+        <label>
+            <input type="radio" name="size" value="XS" />
+            <span class="size-circle"></span> XS
+        </label>
+
+        <label>
+            <input type="radio" name="size" value="S" />
+            <span class="size-circle"></span> S
+        </label>
+
+        <label>
+            <input type="radio" name="size" value="M" />
+            <span class="size-circle"></span> M
+        </label>
+
+        <label>
+            <input type="radio" name="size" value="L" />
+            <span class="size-circle"></span> L
+        </label>
+
+        <label>
+            <input type="radio" name="size" value="XL" />
+            <span class="size-circle"></span> XL
+        </label>
+
+        <label>
+            <input type="radio" name="size" value="XXL" />
+            <span class="size-circle"></span> XXL
+        </label>
+    </fieldset>
+
+    <!-- Barva -->
+    <fieldset class="color-options">
+        <legend>pick your shade</legend>
+
+        <label style="--color: #000">
+            <input type="radio" name="color" value="Black" />
+            <span class="color-circle"></span> Black
+        </label>
+
+        <label style="--color: #fff">
+            <input type="radio" name="color" value="White" />
+            <span class="color-circle border"></span> White
+        </label>
+
+        <label style="--color: transparent">
+            <input type="radio" name="color" value="Surprise Me" />
+            <span class="color-circle border dotted"></span> Surprise me
+        </label>
+    </fieldset>
 
     <!-- Zpráva -->
-    <label for="message">co bys od nás chtěl?</label>
+    <label for="message">anything else on your mind?</label>
     <div class="form-icon">
       <svg class="icon"><use href="./icons.svg#poll"></use></svg>
-      <textarea id="message" name="message" rows="8" placeholder="ale moc se nerozepisuj..." required></textarea>
+      <textarea id="message" name="message" rows="8" placeholder="but like, don’t write an essay..." required></textarea>
     </div>
 
     <!-- Odeslat -->
-    <button type="submit">odeslat</button>
+    <button type="submit">MAKE IT REAL</button>
   </form>
 </section>
+
         <div id="imageModal" class="modal">
             <span class="close">&times;</span>
             <span class="modal-arrow left">&#10094;</span>
@@ -344,7 +407,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <p>Tvoříme trička,<br>který mají co říct.</p>
+                <p>We make T-shirts that<br>have something to say.</p>
                 <a href="#home"><img src="images/THEPOINT_LOGO.svg"></a>
             </div>
         </div>

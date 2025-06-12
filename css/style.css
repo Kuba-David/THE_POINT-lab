@@ -264,18 +264,17 @@ h1 {
   flex-direction: column;
   align-items: center;
   padding: 16px;
-  margin-top: 128px;
+  margin: 128px 0 16px 0;
 }
 .featured h2 {
   font-size: 56px;
   font-weight: 700;
-  color: #B1B1B1;
+  color: #ECECEC;
 }
 @media (max-width: 480px) {
   .featured {
     margin-top: 32px;
-    padding: 16px 10vw;
-    align-items: start;
+    margin-bottom: 8px;
   }
   .featured h2 {
     font-size: 28px;
@@ -618,7 +617,7 @@ h1 {
   justify-content: center;
   align-items: center;
   padding-top: 16px;
-  margin: 128px 16px 32px 16px;
+  margin: 64px 16px;
 }
 
 .form-container {
@@ -638,6 +637,7 @@ h1 {
   color: #ECECEC;
   margin-bottom: 16px;
   margin-top: 16px;
+  padding-left: 4px;
 }
 
 form label {
@@ -646,13 +646,14 @@ form label {
   font-size: 1rem;
   color: #ECECEC;
   display: block;
-  margin: 10px 0 5px;
+  margin: 16px 0 8px;
+  padding-left: 4px;
 }
 form input,
 form textarea {
   width: 100%;
   padding: 10px 10px 10px 40px;
-  border: 1px solid #cccccc;
+  border: 1px solid #ECECEC;
   border-radius: 10px;
   font-weight: 400;
   font-family: "Sentient-Variable", serif;
@@ -663,14 +664,16 @@ form textarea {
 form input:focus,
 form textarea:focus {
   border-color: #D41116;
+  border-width: 1px;
   outline: none;
 }
 
 .custom-select {
   position: relative;
   width: 100%;
-  background: #fff;
-  border: 1px solid #cccccc;
+  background: white;
+  color: #333333;
+  border: 1px solid #ECECEC;
   height: 43px;
   align-content: center;
   border-radius: 10px;
@@ -680,7 +683,6 @@ form textarea:focus {
 }
 
 .selected-option {
-  font-weight: bold;
   color: #2D2D2B;
 }
 
@@ -695,7 +697,7 @@ form textarea:focus {
   left: 0;
   right: 0;
   background: #ECECEC;
-  border: 1px solid #ccc;
+  border: 1px solid #ECECEC;
   border-radius: 10px;
   max-height: 300px;
   overflow-y: auto;
@@ -713,13 +715,106 @@ form textarea:focus {
 }
 
 .options li:hover {
-  background-color: #f2f2f2;
+  background-color: white;
 }
 
 .options img {
   width: 50px;
   height: auto;
   border-radius: 4px;
+}
+
+legend {
+  font-weight: 400;
+  font-family: "Sentient-Variable", serif;
+  font-size: 1rem;
+  color: #ECECEC;
+  display: block;
+  padding-left: 4px;
+}
+
+.size-options {
+  border: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 16px;
+  align-items: center;
+}
+
+.size-options label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ececec;
+}
+
+.size-options input[type=radio] {
+  display: none;
+}
+
+.size-circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #ECECEC;
+  background-color: #212121;
+  display: inline-block;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+.size-options label:hover .size-circle {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+.size-options input[type=radio]:checked + .size-circle {
+  border: 2px solid #D41116;
+}
+
+.color-options {
+  border: none;
+  padding: 0;
+  margin: 16px 0 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.color-options label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.color-options input[type=radio] {
+  display: none;
+}
+
+.color-options label:hover .color-circle {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+.color-options input[type=radio]:checked + .color-circle {
+  border: 2px solid #D41116;
+}
+
+.color-circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--color);
+  border: 2px solid #ECECEC;
+  display: inline-block;
+}
+
+.color-circle.dotted {
+  border: 2px dashed #ECECEC;
 }
 
 button {
