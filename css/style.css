@@ -146,7 +146,7 @@ nav ul li a:focus {
     gap: 16px;
   }
   .show a {
-    font-size: 26px;
+    font-size: 28px;
     margin: 0;
   }
 }
@@ -183,7 +183,7 @@ nav ul li a:focus {
     gap: 16px;
   }
   .show a {
-    font-size: 26px;
+    font-size: 28px;
     margin: 0;
   }
 }
@@ -267,9 +267,12 @@ h1 {
   margin: 128px 0 16px 0;
 }
 .featured h2 {
-  font-size: 56px;
+  font-size: 32px;
   font-weight: 700;
   color: #ECECEC;
+}
+.featured .featuredPoint {
+  color: #D41116;
 }
 @media (max-width: 480px) {
   .featured {
@@ -302,8 +305,12 @@ h1 {
 }
 
 .product-card {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 230px;
+  min-height: -moz-max-content;
+  min-height: max-content;
   margin: 0 auto;
   background: #ECECEC;
   border-radius: 20px;
@@ -380,6 +387,7 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  flex-grow: 1;
 }
 
 .product-price,
@@ -391,7 +399,7 @@ h1 {
 }
 
 .product-price {
-  font-size: 26px;
+  font-size: 28px;
 }
 
 .product-title {
@@ -404,40 +412,11 @@ h1 {
   font-weight: 400;
   line-height: 1;
   color: #333333;
+  margin-bottom: 8px;
 }
 
 .product-attributes {
   margin: 8px 0;
-}
-
-.product-sizes {
-  display: flex;
-  justify-content: space-around;
-}
-.product-sizes input {
-  display: none;
-}
-
-.size-option {
-  display: flex;
-  width: 22px;
-  height: 22px;
-  border: 1px solid #2D2D2B;
-  border-radius: 50%;
-  align-items: center;
-  justify-content: center;
-  font-family: "Sentient-Variable", serif;
-  color: #2D2D2B;
-  font-size: 10px;
-  line-height: 50%;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.product-sizes input:checked + .size-option {
-  border-color: #2D2D2B;
-  background-color: #2D2D2B;
-  color: #ECECEC;
 }
 
 .buy-button {
@@ -450,7 +429,7 @@ h1 {
   border: none;
   border-radius: 10px;
   padding: 10px;
-  margin-top: 8px;
+  margin-top: auto;
   font-size: 22px;
   cursor: pointer;
   transition: background 0.2s;
@@ -465,17 +444,10 @@ h1 {
 
 @media (max-width: 480px) {
   .product-info {
-    gap: 8px;
     padding: 16px 10px 10px 10px;
-  }
-  .product-price {
-    font-size: 20px;
   }
   .product-title {
     font-size: 14px;
-  }
-  .product-description {
-    font-size: 9px;
   }
   .product-attributes {
     margin: 4px 0;
@@ -593,7 +565,7 @@ h1 {
 
 @media (min-width: 480px) {
   .about p {
-    font-size: 48px;
+    font-size: 32px;
   }
   .about img {
     width: 20vh;
@@ -641,7 +613,7 @@ h1 {
 }
 
 form label {
-  font-weight: 400;
+  font-weight: 700;
   font-family: "Sentient-Variable", serif;
   font-size: 1rem;
   color: #ECECEC;
@@ -725,7 +697,7 @@ form textarea:focus {
 }
 
 legend {
-  font-weight: 400;
+  font-weight: 700;
   font-family: "Sentient-Variable", serif;
   font-size: 1rem;
   color: #ECECEC;
@@ -748,6 +720,7 @@ legend {
   align-items: center;
   gap: 8px;
   color: #ececec;
+  font-weight: 400;
 }
 
 .size-options input[type=radio] {
@@ -789,6 +762,7 @@ legend {
   align-items: center;
   gap: 8px;
   cursor: pointer;
+  font-weight: 400;
 }
 
 .color-options input[type=radio] {
@@ -827,10 +801,11 @@ button {
   border: none;
   border-radius: 10px;
   padding: 10px;
-  margin-top: 8px;
+  margin-top: auto;
   font-size: 22px;
   cursor: pointer;
   transition: background 0.2s;
+  margin-top: 16px;
 }
 button:hover {
   background: #880D10;
@@ -901,7 +876,7 @@ button:active {
 }
 .collection-tile h3 {
   font-family: "Tanker-Regular", sans-serif;
-  font-size: 26px;
+  font-size: 32px;
   font-weight: normal;
   margin-bottom: 16px;
 }

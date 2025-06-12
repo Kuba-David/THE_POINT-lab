@@ -6,9 +6,12 @@
     margin: $spacing-xxl 0 $spacing-md 0;
 
     h2 {
-        font-size: $font-size-xlarge;
-        font-weight: $font-weight-bold;
-        color: $color-secondary;
+      font-size: $font-size-xlarge;
+      font-weight: $font-weight-bold;
+      color: $color-secondary;
+    }
+    .featuredPoint {
+      color: $color-accent;
     }
 
     @media (max-width: $breakpoint-xs) {
@@ -42,9 +45,13 @@
 }
 
 .product-card {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     max-width: 230px;
+    min-height: max-content;
     margin: 0 auto;
+    
     background: $color-secondary;
     border-radius: $border-radius;
     overflow: hidden;
@@ -121,6 +128,7 @@
   display: flex;
   flex-direction: column;
   gap: $spacing-sm;
+  flex-grow: 1;
 }
 
 .product-price,
@@ -145,41 +153,11 @@
   font-weight: $font-weight-normal;
   line-height: $line-height-base;
   color: $color-primary-light;
+  margin-bottom: $spacing-sm;
 }
 
 .product-attributes {
   margin: $spacing-sm 0;
-}
-
-.product-sizes {
-    display: flex;
-    justify-content: space-around;
-
-  input {
-    display: none;
-  }
-}
-
-.size-option {
-  display: flex;
-  width: 22px;
-  height: 22px;
-  border: 1px solid $color-primary;
-  border-radius: 50%;
-  align-items: center;
-  justify-content: center;
-  font-family: $font-base;
-  color: $color-primary;
-  font-size: 10px;
-  line-height: 50%;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.product-sizes input:checked + .size-option {
-  border-color: $color-primary;
-  background-color: $color-primary;
-  color: $color-secondary;
 }
 
 .buy-button {
@@ -188,17 +166,11 @@
 
 @media (max-width: $breakpoint-xs) {
     .product-info {
-        gap: $spacing-sm;
         padding: 16px 10px 10px 10px;
     }
-    .product-price {
-        font-size: 20px;
-    }
+
     .product-title {
-        font-size: 14px;
-    }   
-    .product-description {
-        font-size: 9px;
+        font-size: $font-size-medium;
     }
     .product-attributes {
         margin: $spacing-xs 0;

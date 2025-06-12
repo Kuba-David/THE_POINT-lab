@@ -27,7 +27,7 @@
 }
 form {
   label {
-    font-weight: $font-weight-normal;
+    font-weight: $font-weight-bold;
     font-family: $font-base;
     font-size: 1rem;
     color: $color-secondary;
@@ -115,7 +115,7 @@ form {
   }
 
   legend {
-    font-weight: $font-weight-normal;
+    font-weight: $font-weight-bold;
     font-family: $font-base;
     font-size: 1rem;
     color: $color-secondary;
@@ -138,6 +138,7 @@ form {
     align-items: center;
     gap: $spacing-sm;
     color: #ececec;
+    font-weight: $font-weight-normal;
   }
 
   .size-options input[type="radio"] {
@@ -179,6 +180,8 @@ form {
     align-items: center;
     gap: $spacing-sm;
     cursor: pointer;
+    font-weight: $font-weight-normal;
+
   }
 
   .color-options input[type="radio"] {
@@ -210,7 +213,9 @@ form {
 
 button {
   @include button-base;
+  margin-top: $spacing-md;
 }
+
 
 .form-icon {
   position: relative;

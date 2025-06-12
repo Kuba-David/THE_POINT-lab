@@ -7,7 +7,7 @@
 }
 
 .about p {
-  font-size: 28px;
+  font-size: $font-size-large;
   font-weight: $font-weight-normal;
   line-height: $line-height-large;
   z-index: 20;
@@ -45,7 +45,7 @@
 
 @media (min-width: $breakpoint-xs) {
   .about p {
-    font-size: 48px;
+    font-size: $font-size-xlarge;
   }
   .about img {
     width: 20vh;
@@ -60,7 +60,7 @@
 
   }
   .about p {
-    font-size: 56px;
+    font-size: $font-size-xxlarge;
   }
   .about img {
     width: 25vh;

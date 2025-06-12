@@ -9,7 +9,7 @@
   border: none;
   border-radius: $border-radius-button;
   padding: 10px;
-  margin-top: $spacing-sm;
+  margin-top: auto;
   font-size: $font-size-button;
   cursor: pointer;
   transition: background 0.2s;
@@ -25,7 +25,7 @@
 }
 
 @mixin button-black-outline {
-      width: fit-content;
+    width: fit-content;
     font-family: $font-header;
     border: 2px solid $color-primary;
     padding: 8px 18px;
