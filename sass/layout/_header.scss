@@ -22,6 +22,13 @@ nav ul {
     list-style: none;
     color: $color-secondary;
     padding: 0;
+    gap: $spacing-lg;
+}
+
+nav ul li {
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 nav ul li a {
@@ -29,14 +36,39 @@ nav ul li a {
     font-size: $font-size-base;
     letter-spacing: $letter-spacing-tanker;
     color: $color-secondary;
-    margin-left: $spacing-lg;
     text-align: center;
+    align-content: center;
     
 }
 
 nav ul li a:hover, 
 nav ul li a:focus {
     color: $color-accent;
+}
+
+ .navIcon {
+    width: 24px;
+    height: 24px;
+    fill: $color-secondary;
+  }
+  .cart-badge {
+    display: none;
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: $color-accent;
+    color: $color-secondary;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    font-family: $font-base;
+    font-weight: bold;
+    font-size: 0.75rem;
+
+    &.visible {
+      display: inline-block;
+  }
 }
 
 .hamburger {
@@ -56,7 +88,7 @@ nav ul li a:focus {
 
   &:hover {
     transform: scale(1.05);
-    transition: transform 0.2s ease, filter 0.2s ease;
+    transition: transform 0.1s ease-out, filter 0.1s ease-out;
   }
 }
 
@@ -92,7 +124,7 @@ nav ul li a:focus {
       align-items: center;
       padding: 0;
       margin: 0;
-      gap: $spacing-md;
+      gap: $spacing-lg;
     }
 
     a {
@@ -134,7 +166,7 @@ nav ul li a:focus {
       align-items: center;
       padding: 0;
       margin: 0;
-      gap: $spacing-md;
+      gap: $spacing-lg;
     }
 
     a {

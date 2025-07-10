@@ -1,4 +1,6 @@
 import './hamburger.js';
-import './product-card.js';
+import './productCard.js';
 import './about.js';
-import './form.js';
+import './cart.js';
+import './cartPage.js';
+import './collection.js';

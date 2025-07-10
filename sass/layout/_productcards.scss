@@ -26,22 +26,20 @@
 
 .product-grid {
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 230px));
     gap: $spacing-md;
     padding: 0 $spacing-md 0 $spacing-md;
-    grid-template-columns: auto;
     justify-content: center;
-    grid-template-columns: repeat(2, auto);
-    justify-content: center;
-
-
-    @media (min-width: $breakpoint-md) {
-        grid-template-columns: repeat(4, auto);
-    }
 
     @media (max-width: $breakpoint-sm) {
         margin-top: 0;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 210px));
     }
-    
+
+    @media (max-width: $breakpoint-xs) {
+        margin-top: 0;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    }
 }
 
 .product-card {
@@ -51,19 +49,12 @@
     max-width: 230px;
     min-height: max-content;
     margin: 0 auto;
-    
     background: $color-secondary;
     border-radius: $border-radius;
     overflow: hidden;
     box-shadow: $box-shadow-default;
     font-family: $font-base;
     transition: $transition-default;
-
-    @media (hover: hover) and (pointer: fine) {
-        &:hover {
-        transform: scale(1.01);
-        }
-    }
 }
 
 .product-image {
@@ -127,6 +118,7 @@
   padding: $spacing-md;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: $spacing-sm;
   flex-grow: 1;
 }
@@ -153,11 +145,73 @@
   font-weight: $font-weight-normal;
   line-height: $line-height-base;
   color: $color-primary-light;
-  margin-bottom: $spacing-sm;
+  // margin-bottom: $spacing-sm;
 }
 
-.product-attributes {
+.product-options {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
   margin: $spacing-sm 0;
+
+  .sizes, .divider, .colors {
+    display: flex;
+    gap: $spacing-sm;
+    justify-content: space-between;
+  }
+
+  .divider {
+    width: $spacing-xs;
+    height: $spacing-xs;
+    border-radius: 50%;
+    background-color: $color-primary;
+  }
+
+  .size-option {
+    width: $circle-size;
+    height: $circle-size;
+    border-radius: 50%;
+    outline: 1px solid $color-primary;
+    outline-offset: 2px;
+    background: none;
+    font-family: $font-base;
+    font-size: $font-size-small;
+    font-weight: $font-weight-normal;
+    color: $color-primary;
+    cursor: pointer;
+    transition: 0.1s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: $spacing-sm;
+
+    &.selected {
+      outline: 3px solid $color-primary-dark;
+      outline-offset: 1px;
+      background-color: $color-primary;
+      color: $color-secondary;
+    }
+  }
+
+  .color-dot {
+    width: $circle-size;
+    height: $circle-size;
+    border-radius: 50%;
+    outline: 1px solid $color-primary;
+    outline-offset: 2px;
+    cursor: pointer;
+    transition: 0.1s ease-out;
+    background-color: transparent;
+    margin: 0;
+    padding: $spacing-sm;
+
+    &.selected {
+      outline: 3px solid $color-primary-dark;
+      outline-offset: 1px;
+    }
+  }
 }
 
 .buy-button {

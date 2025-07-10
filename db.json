@@ -1,0 +1,220 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Saturn's swing",
+      "price": 30,
+      "images": [
+        "images/T-Shirt_MOCKUP_black_SS.webp",
+        "images/T-Shirt_MOCKUP_black_SS_zoom.webp",
+        "images/Kosmo_man_1_1ku1.webp"
+      ],
+      "description": "Do you remember the days when imagination knew no limits? When Saturn's rings had a swing?",
+      "sizes": ["S","M","L","XL"],
+      "colors": [
+        { "name": "white", "code": "#ffffff" },
+        { "name": "black", "code": "#000000" }
+      ],
+      "featured": true,
+      "collection": "space"
+    },
+    {
+      "id": 2,
+      "name": "Astronaut & balloons",
+      "price": 30,
+      "images": [
+        "images/T-Shirt_MOCKUP_black_AB.webp",
+        "images/T-Shirt_MOCKUP_black_AB_zoom.webp",
+        "images/Kosmo_woman_1_1ku1.webp"
+      ],
+      "description": "Nothing wakes you up from the dream like the sensation of falling. So don’t let go of the balloons!",
+      "sizes": ["S","M","L","XL"],
+      "colors": [
+        { "name": "white", "code": "#ffffff" },
+        { "name": "black", "code": "#000000" }
+      ],
+      "featured": true,
+      "collection": "space"
+    },
+    {
+      "id": 3,
+      "name": "Rather be somewhere else",
+      "price": 25,
+      "images": [
+        "images/T-Shirt_MOCKUP_black_jinde.webp",
+        "images/T-Shirt_MOCKUP_black_jinde_zoom.webp",
+        "images/Bar_man_1_1ku1.webp"
+      ],
+      "description": "Do you ever feel like you’re in the wrong place? That you’d rather be somewhere else?",
+      "sizes": ["S","M","L","XL"],
+      "colors": [
+        { "name": "white", "code": "#ffffff" },
+        { "name": "black", "code": "#000000" }
+      ],
+      "featured": true,
+      "collection": "quotes"
+    },
+    {
+      "id": 4,
+      "name": "Silence is underestimated",
+      "price": 25,
+      "images": [
+        "images/T-Shirt_MOCKUP_black_ticho.webp",
+        "images/T-Shirt_MOCKUP_black_ticho_zoom.webp",
+        "images/Bar_woman_1_1ku1.webp"
+      ],
+      "description": "In a world that often overlooks silence, this design speaks volumes. Let everyone hear it.",
+      "sizes": ["S","M","L","XL"],
+      "colors": [
+        { "name": "white", "code": "#ffffff" },
+        { "name": "black", "code": "#000000" }
+      ],
+      "featured": true,
+      "collection": "quotes"
+    },
+        {
+      "id": 5,
+      "name": "XXX",
+      "price": 25,
+      "images": [
+        "images/xxx.webp",
+        "images/xxx_zoom.webp",
+        "images/xxx_1ku1.webp"
+      ],
+      "description": "Xxxxxxxxxxxxxxxx.",
+      "sizes": ["S","M","L","XL"],
+      "colors": [
+        { "name": "white", "code": "#ffffff" },
+        { "name": "black", "code": "#000000" }
+      ],
+      "featured": false,
+      "collection": "quotes"
+    },
+    {
+      "id": 6,
+      "name": "XXX",
+      "price": 25,
+      "images": [
+        "images/xxx.webp",
+        "images/xxx_zoom.webp",
+        "images/xxx_1ku1.webp"
+      ],
+      "description": "Xxxxxxxxxxxxxxxx.",
+      "sizes": ["S","M","L","XL"],
+      "colors": [
+        { "name": "white", "code": "#ffffff" },
+        { "name": "black", "code": "#000000" }
+      ],
+      "featured": false,
+      "collection": "quotes"
+    },
+    {
+      "id": 7,
+      "name": "XXX",
+      "price": 25,
+      "images": [
+        "images/xxx.webp",
+        "images/xxx_zoom.webp",
+        "images/xxx_1ku1.webp"
+      ],
+      "description": "Xxxxxxxxxxxxxxxx.",
+      "sizes": ["S","M","L","XL"],
+      "colors": [
+        { "name": "white", "code": "#ffffff" },
+        { "name": "black", "code": "#000000" }
+      ],
+      "featured": false,
+      "collection": "quotes"
+    },
+    {
+      "id": 8,
+      "name": "XXX",
+      "price": 25,
+      "images": [
+        "images/xxx.webp",
+        "images/xxx_zoom.webp",
+        "images/xxx_1ku1.webp"
+      ],
+      "description": "Xxxxxxxxxxxxxxxx.",
+      "sizes": ["S","M","L","XL"],
+      "colors": [ 
+        { "name": "white", "code": "#ffffff" },
+        { "name": "black", "code": "#000000" }
+      ],
+      "featured": false,
+      "collection": "quotes"
+    },
+    {
+      "id": 9,
+      "name": "XXX",
+      "price": 30,
+      "images": [
+        "images/xxx.webp",
+        "images/xxx_zoom.webp",
+        "images/xxx_1ku1.webp"
+      ],
+      "description": "Xxxxxxxxxxxxxxxx.",
+      "sizes": ["S","M","L","XL"],
+      "colors": [
+        { "name": "white", "code": "#ffffff" },
+        { "name": "black", "code": "#000000" }
+      ],
+      "featured": false,
+      "collection": "space"
+    },
+    {
+      "id": 10,
+      "name": "XXX",
+      "price": 30,
+      "images": [
+        "images/xxx.webp",
+        "images/xxx_zoom.webp",
+        "images/xxx_1ku1.webp"
+      ],
+      "description": "Xxxxxxxxxxxxxxxx.",
+      "sizes": ["S","M","L","XL"],
+      "colors": [
+        { "name": "white", "code": "#ffffff" },
+        { "name": "black", "code": "#000000" }
+      ],
+      "featured": false,
+      "collection": "space"
+    },
+    {
+      "id": 11,
+      "name": "XXX",
+      "price": 30,
+      "images": [
+        "images/xxx.webp",
+        "images/xxx_zoom.webp",
+        "images/xxx_1ku1.webp"
+      ],
+      "description": "Xxxxxxxxxxxxxxxx.",
+      "sizes": ["S","M","L","XL"],
+      "colors": [
+        { "name": "white", "code": "#ffffff" },
+        { "name": "black", "code": "#000000" }
+      ],
+      "featured": false,
+      "collection": "space"
+    },
+    {
+      "id": 12,
+      "name": "XXX",
+      "price": 30,
+      "images": [
+        "images/xxx.webp",
+        "images/xxx_zoom.webp",
+        "images/xxx_1ku1.webp"
+      ],
+      "description": "Xxxxxxxxxxxxxxxx.",
+      "sizes": ["S","M","L","XL"],
+      "colors": [
+        { "name": "white", "code": "#ffffff" },
+        { "name": "black", "code": "#000000" }
+      ],
+      "featured": false,
+      "collection": "space"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 .collection-grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-template-rows: auto;
     position: relative;
     gap: $spacing-md;
     margin: 0 auto;
@@ -58,7 +59,7 @@
   }
 
   p {
-    font-size: $font-size-base;
+    font-size: clamp($font-size-medium, 1.5vw, $font-size-base);
     line-height: $line-height-mid;
     margin-bottom: $spacing-sm;
      }
@@ -72,7 +73,6 @@
 
 .collection-tile-img {
     border-radius: $border-radius;
-    max-height: 360px;
     overflow: hidden;
 }
 .collection-tile-img img {

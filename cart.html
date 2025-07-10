@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE POINT | lab</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="cartPage">
+    <header  id="home">
+        <a class="logo" href="index.html#home"><img class="logo" src="images/THEPOINT_LOGO.svg"></a>
+        <nav>
+            <ul>
+                <li><a href="index.html#about">who are we?</a></li>
+                <li><a href="index.html#collection">collection</a></li>
+                <li><a href="index.html#contact">contact</a></li>
+                <li><a href="https://www.instagram.com/thepoint.lab/" target="_blank">
+                    <svg class="navIcon"><use href="./icons.svg#insta"></use></svg>
+                </a></li>
+                <li><a href="cart.html" class="cart-link">
+                    <svg class="navIcon"><use href="./icons.svg#cart"></use></svg>
+                    <span class="cart-badge" id="cart-badge">0</span>
+                </a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+
+    <main>
+        <section class="cartBg">
+            <h2>YOU ARE MAKING YOUR POINT<span class="cartPoint">.</span></h2>
+            <div id="cart-container"></div>
+            <div id="cart-summary">
+            <span>Total: <strong id="cart-total">0 €</strong></span>
+            <button id="checkout-button">Checkout</button>
+            </div>
+        </section>
+    </main>
+                
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <p>We make T-shirts that<br>have something to say.</p>
+                <a href="index.html#home"><img src="images/THEPOINT_LOGO.svg"></a>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="scripts/main.js"></script>
+</body>
+</html>
