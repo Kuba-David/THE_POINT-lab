@@ -11,8 +11,8 @@
         <a class="logo" href="index.html#home"><img class="logo" src="images/THEPOINT_LOGO.svg"></a>
         <nav>
             <ul>
-                <li><a href="index.html#about">who are we?</a></li>
-                <li><a href="index.html#collection">collection</a></li>
+                <li><a href="index.html#about">our manifesto</a></li>
+                <li><a href="index.html#collection">collections</a></li>
                 <li><a href="index.html#contact">contact</a></li>
                 <li><a href="https://www.instagram.com/thepoint.lab/" target="_blank">
                     <svg class="navIcon"><use href="./icons.svg#insta"></use></svg>
@@ -30,13 +30,15 @@
         </div>
     </header>
 
-    <main>
+    <main class="cartMain">
         <section class="cartBg">
             <h2>YOU ARE MAKING YOUR POINT<span class="cartPoint">.</span></h2>
             <div id="cart-container"></div>
             <div id="cart-summary">
             <span>Total: <strong id="cart-total">0 €</strong></span>
-            <button id="checkout-button">Checkout</button>
+            <div class="cart-buttons">
+                <button id="back-button">Back to shopping</button>
+                <button id="checkout-button">Checkout</button>
             </div>
         </section>
     </main>

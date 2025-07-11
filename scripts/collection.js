@@ -7,11 +7,16 @@ import {
 } from './productCard.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // najde všechny kontejnery s patternem collection-<name>-grid
+  const spinner = document.getElementById('loading-spinner');
+  if (spinner) spinner.classList.remove('hidden');
+
   const containers = Array.from(
     document.querySelectorAll('[id^="collection-"][id$="-grid"]')
   );
-  if (containers.length === 0) return;  // ← pokud žádné nesedí, končíme
+  if (containers.length === 0) {
+    if (spinner) spinner.classList.add('hidden');
+    return;
+  }
 
   fetch('db.json')
     .then(res => res.json())
@@ -20,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const col = container.id
           .replace('collection-', '')
           .replace('-grid', '');
+
         data.products
           .filter(p => p.collection === col)
           .forEach(p => {
@@ -27,12 +33,16 @@ document.addEventListener('DOMContentLoaded', () => {
             container.appendChild(card);
             initializeOptionSelection(card);
           });
-
-        // A opět inicializace ui prvků
-        initializeSliders();
-        initializeModals();
-        initializeBuyButtons();
       });
+
+      initializeSliders();
+      initializeModals();
+      initializeBuyButtons();
+
+      if (spinner) spinner.classList.add('hidden');
     })
-    .catch(err => console.error('Chyba při načítání db pro kolekce:', err));
+    .catch(err => {
+      console.error('Chyba při načítání db pro kolekce:', err);
+      if (spinner) spinner.classList.add('hidden');
+    });
 });

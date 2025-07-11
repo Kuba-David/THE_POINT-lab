@@ -38,7 +38,7 @@
 
     @media (max-width: $breakpoint-xs) {
         margin-top: 0;
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     }
 }
 
@@ -145,7 +145,6 @@
   font-weight: $font-weight-normal;
   line-height: $line-height-base;
   color: $color-primary-light;
-  // margin-bottom: $spacing-sm;
 }
 
 .product-options {
@@ -153,7 +152,7 @@
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  margin: $spacing-sm 0;
+  margin: 10px 0;
 
   .sizes, .divider, .colors {
     display: flex;

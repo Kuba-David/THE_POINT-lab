@@ -88,3 +88,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   renderCart();
 });
+
+const backToCollectionBtn = document.getElementById('back-button');
+if (backToCollectionBtn) {
+  backToCollectionBtn.addEventListener('click', () => {
+    window.location.href = 'collections.html';
+  });
+}
+
+const checkoutButton = document.getElementById('checkout-button');
+if (checkoutButton) {
+  checkoutButton.addEventListener('click', () => {
+    alert('Checkout functionality is not implemented yet.');
+  });
+}

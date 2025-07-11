@@ -24,13 +24,11 @@
 
 .fade-in {
   opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 1.5s ease, transform 1.5s ease-in-out;
+  transition: opacity 2s ease-in-out;
 }
 
 .fade-in.visible {
   opacity: 1;
-  transform: translateY(0);
 }
 
 .about img {
