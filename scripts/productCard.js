@@ -222,10 +222,16 @@ export function showAddToCartModal(product) {
   modal.querySelector("#modal-product-price").textContent = `${product.price} €`;
 
   modal.classList.remove("hidden");
+  modal.classList.add("visible");
 
   // zavření modalu
   modal.querySelector("#continue-shopping").addEventListener("click", () => {
-    modal.classList.add("hidden");
+    modal.classList.remove("visible");
+    modal.classList.add("closing");
+
+    setTimeout(() => {
+      modal.classList.remove("closing");
+    }, 200);
   });
 
   // přesměrování do košíku
@@ -235,7 +241,14 @@ export function showAddToCartModal(product) {
 
   // klik mimo modal-content zavře modal
   modal.addEventListener("click", (e) => {
-    if (e.target === modal) modal.classList.add("hidden");
+    if (e.target === modal) {
+      modal.classList.remove("visible");
+      modal.classList.add("closing");
+    
+      setTimeout(() => {
+        modal.classList.remove("closing");
+      }, 200);
+    }
   });
 }
 
