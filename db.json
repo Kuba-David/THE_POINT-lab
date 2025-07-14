@@ -12,8 +12,8 @@
       "description": "Do you remember the days when imagination knew no limits? When Saturn's rings had a swing?",
       "sizes": ["S","M","L","XL"],
       "colors": [
-        { "name": "white", "code": "#ffffff" },
-        { "name": "black", "code": "#000000" }
+        { "name": "White", "code": "#ffffff" },
+        { "name": "Black", "code": "#000000" }
       ],
       "featured": true,
       "collection": "space"
@@ -30,8 +30,8 @@
       "description": "Nothing wakes you up from the dream like the sensation of falling. So don’t let go of the balloons!",
       "sizes": ["S","M","L","XL"],
       "colors": [
-        { "name": "white", "code": "#ffffff" },
-        { "name": "black", "code": "#000000" }
+        { "name": "White", "code": "#ffffff" },
+        { "name": "Black", "code": "#000000" }
       ],
       "featured": true,
       "collection": "space"
@@ -48,8 +48,8 @@
       "description": "Do you ever feel like you’re in the wrong place? That you’d rather be somewhere else?",
       "sizes": ["S","M","L","XL"],
       "colors": [
-        { "name": "white", "code": "#ffffff" },
-        { "name": "black", "code": "#000000" }
+        { "name": "White", "code": "#ffffff" },
+        { "name": "Black", "code": "#000000" }
       ],
       "featured": true,
       "collection": "quotes"
@@ -66,8 +66,8 @@
       "description": "In a world that often overlooks silence, this design speaks volumes. Let everyone hear it.",
       "sizes": ["S","M","L","XL"],
       "colors": [
-        { "name": "white", "code": "#ffffff" },
-        { "name": "black", "code": "#000000" }
+        { "name": "White", "code": "#ffffff" },
+        { "name": "Black", "code": "#000000" }
       ],
       "featured": true,
       "collection": "quotes"
@@ -84,8 +84,8 @@
       "description": "Xxxxxxxxxxxxxxxx.",
       "sizes": ["S","M","L","XL"],
       "colors": [
-        { "name": "white", "code": "#ffffff" },
-        { "name": "black", "code": "#000000" }
+        { "name": "White", "code": "#ffffff" },
+        { "name": "Black", "code": "#000000" }
       ],
       "featured": false,
       "collection": "quotes"
@@ -102,8 +102,8 @@
       "description": "Xxxxxxxxxxxxxxxx.",
       "sizes": ["S","M","L","XL"],
       "colors": [
-        { "name": "white", "code": "#ffffff" },
-        { "name": "black", "code": "#000000" }
+        { "name": "White", "code": "#ffffff" },
+        { "name": "Black", "code": "#000000" }
       ],
       "featured": false,
       "collection": "quotes"
@@ -120,8 +120,8 @@
       "description": "Xxxxxxxxxxxxxxxx.",
       "sizes": ["S","M","L","XL"],
       "colors": [
-        { "name": "white", "code": "#ffffff" },
-        { "name": "black", "code": "#000000" }
+        { "name": "White", "code": "#ffffff" },
+        { "name": "Black", "code": "#000000" }
       ],
       "featured": false,
       "collection": "quotes"
@@ -138,8 +138,8 @@
       "description": "Xxxxxxxxxxxxxxxx.",
       "sizes": ["S","M","L","XL"],
       "colors": [ 
-        { "name": "white", "code": "#ffffff" },
-        { "name": "black", "code": "#000000" }
+        { "name": "White", "code": "#ffffff" },
+        { "name": "Black", "code": "#000000" }
       ],
       "featured": false,
       "collection": "quotes"
@@ -156,8 +156,8 @@
       "description": "Xxxxxxxxxxxxxxxx.",
       "sizes": ["S","M","L","XL"],
       "colors": [
-        { "name": "white", "code": "#ffffff" },
-        { "name": "black", "code": "#000000" }
+        { "name": "White", "code": "#ffffff" },
+        { "name": "Black", "code": "#000000" }
       ],
       "featured": false,
       "collection": "space"
@@ -174,8 +174,8 @@
       "description": "Xxxxxxxxxxxxxxxx.",
       "sizes": ["S","M","L","XL"],
       "colors": [
-        { "name": "white", "code": "#ffffff" },
-        { "name": "black", "code": "#000000" }
+        { "name": "White", "code": "#ffffff" },
+        { "name": "Black", "code": "#000000" }
       ],
       "featured": false,
       "collection": "space"
@@ -192,8 +192,8 @@
       "description": "Xxxxxxxxxxxxxxxx.",
       "sizes": ["S","M","L","XL"],
       "colors": [
-        { "name": "white", "code": "#ffffff" },
-        { "name": "black", "code": "#000000" }
+        { "name": "White", "code": "#ffffff" },
+        { "name": "Black", "code": "#000000" }
       ],
       "featured": false,
       "collection": "space"
@@ -210,8 +210,8 @@
       "description": "Xxxxxxxxxxxxxxxx.",
       "sizes": ["S","M","L","XL"],
       "colors": [
-        { "name": "white", "code": "#ffffff" },
-        { "name": "black", "code": "#000000" }
+        { "name": "White", "code": "#ffffff" },
+        { "name": "Black", "code": "#000000" }
       ],
       "featured": false,
       "collection": "space"

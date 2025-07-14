@@ -18,12 +18,12 @@
           <li><a href="index.html#contact">contact</a></li>
           <li>
             <a href="https://www.instagram.com/thepoint.lab/" target="_blank">
-              <svg class="navIcon"><use href="./icons.svg#insta"></use></svg>
+              <svg class="nav-icon"><use href="./icons.svg#insta"></use></svg>
             </a>
           </li>
           <li>
             <a href="cart.html" class="cart-link">
-              <svg class="navIcon"><use href="./icons.svg#cart"></use></svg>
+              <svg class="nav-icon"><use href="./icons.svg#cart"></use></svg>
               <span class="cart-badge" id="cart-badge">0</span>
             </a>
           </li>
@@ -34,31 +34,59 @@
         <span></span>
         <span></span>
       </div>
+
+        <div id="floating-cart" class="floating-cart hidden">
+            <a href="cart.html" class="cart-link" aria-label="Cart">
+            <svg class="nav-icon"><use href="./icons.svg#cart"></use></svg>
+            <span class="floating-badge" id="floating-cart-badge">0</span>
+            </a>
+        </div>
+
     </header>
 
     <div id="loading-spinner" class="spinner hidden" aria-hidden="true"></div>
 
-    <!-- Sekce pro první kolekci -->
-    <section id="collSpace">
-      <div class="collHeadline">
-        <h2>To the universe<span class="collPoint">:</span></h2>
-      </div>
-      <div id="collection-space-grid" class="product-grid"></div>
-    </section>
+    <div id="collections-wrapper" class="collections-hidden">
+      <!-- Sekce pro první kolekci -->
+      <section id="collSpace">
+        <div class="collHeadline">
+          <h2>To the universe<span class="collPoint">:</span></h2>
+        </div>
+        <div id="collection-space-grid" class="product-grid"></div>
+      </section>
 
-    <!-- Sekce pro druhou kolekci -->
-    <section id="collQuotes">
-      <div class="collHeadline">
-        <h2>Wear what you mean<span class="collPoint">:</span></h2>
-      </div>
-      <div id="collection-quotes-grid" class="product-grid"></div>
-    </section>
+      <!-- Sekce pro druhou kolekci -->
+      <section id="collQuotes">
+        <div class="collHeadline">
+          <h2>Wear what you mean<span class="collPoint">:</span></h2>
+        </div>
+        <div id="collection-quotes-grid" class="product-grid"></div>
+      </section>
+    </div>
 
-    <div id="imageModal" class="modal">
+    <div id="image-modal" class="modal">
       <span class="close">&times;</span>
       <span class="modal-arrow left">&#10094;</span>
-      <img class="modal-content" id="modalImg" alt="Zvětšený obrázek" />
+      <img class="modal-content" id="modal-img" alt="Zvětšený obrázek" />
       <span class="modal-arrow right">&#10095;</span>
+    </div>
+
+    <div id="addToCartModal" class="addToCartModal hidden">
+        <div class="modal-content">
+            <h2>You've just made a&nbsp;point<span class="modal-point">.</span></h2>
+            <div class="modal-product">
+            <img id="modal-product-img" src="" alt="Product">
+            <div class="modal-product-details">
+                <h4 id="modal-product-name"></h4>
+                <p><span id="modal-product-color"></span> / <span id="modal-product-size"></span></p>
+                <p id="modal-product-price"></p>
+            </div>
+            </div>
+            <div class="modal-buttons">
+                <button id="continue-shopping">Keep exploring</button>
+                <button id="modal-to-cart" class="modal-to-cart">Take me to the cart</button>
+            </div>
+        </div>
     </div>
 
     <footer>

@@ -144,8 +144,8 @@ function goToSlide(slides, dots, idx) {
 
 // ===== Iniciace modalů =====
 export function initializeModals() {
-  const modal = document.getElementById("imageModal");
-  const modalImg = document.getElementById("modalImg");
+  const modal = document.getElementById("image-modal");
+  const modalImg = document.getElementById("modal-img");
   const closeBtn = document.querySelector(".close");
   const arrowLeft = document.querySelector(".modal-arrow.left");
   const arrowRight = document.querySelector(".modal-arrow.right");
@@ -211,6 +211,34 @@ export function initializeModals() {
 
 import { addToCart } from "./cart.js";
 
+export function showAddToCartModal(product) {
+  const modal = document.getElementById("addToCartModal");
+  if (!modal) return;
+
+  modal.querySelector("#modal-product-img").src = product.image;
+  modal.querySelector("#modal-product-name").textContent = product.name;
+  modal.querySelector("#modal-product-color").textContent = product.color;
+  modal.querySelector("#modal-product-size").textContent = product.size;
+  modal.querySelector("#modal-product-price").textContent = `${product.price} €`;
+
+  modal.classList.remove("hidden");
+
+  // zavření modalu
+  modal.querySelector("#continue-shopping").addEventListener("click", () => {
+    modal.classList.add("hidden");
+  });
+
+  // přesměrování do košíku
+  modal.querySelector("#modal-to-cart").addEventListener("click", () => {
+    window.location.href = "cart.html";
+  });
+
+  // klik mimo modal-content zavře modal
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) modal.classList.add("hidden");
+  });
+}
+
 // ===== Iniciace tlačítek buy-button =====
 export function initializeBuyButtons() {
   document.querySelectorAll(".buy-button").forEach((btn) => {
@@ -249,6 +277,7 @@ export function initializeBuyButtons() {
       };
 
       addToCart(product);
+      showAddToCartModal(product);
     });
   });
 }

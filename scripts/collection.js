@@ -8,13 +8,17 @@ import {
 
 document.addEventListener('DOMContentLoaded', () => {
   const spinner = document.getElementById('loading-spinner');
+  const wrapper = document.getElementById('collections-wrapper');
+
   if (spinner) spinner.classList.remove('hidden');
+  if (wrapper) wrapper.classList.add('collections-hidden');
 
   const containers = Array.from(
     document.querySelectorAll('[id^="collection-"][id$="-grid"]')
   );
   if (containers.length === 0) {
     if (spinner) spinner.classList.add('hidden');
+    if (wrapper) wrapper.classList.remove('collections-hidden');
     return;
   }
 
@@ -40,9 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
       initializeBuyButtons();
 
       if (spinner) spinner.classList.add('hidden');
+      if (wrapper) wrapper.classList.remove('collections-hidden');
     })
     .catch(err => {
       console.error('Chyba při načítání db pro kolekce:', err);
       if (spinner) spinner.classList.add('hidden');
+      if (wrapper) wrapper.classList.remove('collections-hidden');
     });
 });
+

@@ -8,17 +8,23 @@ export function saveCart(cart) {
   localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-// ====== AKTUALIZACE BADGE ======
+// ====== AKTUALIZACE BADGÍ ======
 
 export function updateBadge() {
   const cart = getCart();
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const badge = document.getElementById('cart-badge');
-  if (!badge) return;
 
-  badge.textContent = totalItems;
-  if (totalItems > 0) badge.classList.add('visible');
-  else badge.classList.remove('visible');
+  const badge = document.getElementById('cart-badge');
+  if (badge) {
+    badge.textContent = totalItems;
+    badge.classList.toggle('visible', totalItems > 0);
+  }
+
+  const floatingBadge = document.getElementById('floating-cart-badge');
+  if (floatingBadge) {
+    floatingBadge.textContent = totalItems;
+    floatingBadge.classList.toggle('visible', totalItems > 0);
+  }
 }
 
 // ====== PŘIDÁNÍ PRODUKTU DO KOŠÍKU ======
@@ -43,8 +49,25 @@ export function addToCart(product) {
   updateBadge();
 }
 
-// ====== INIT BADGE NAČTENÍ ======
+// ====== ZOBRAZENÍ FLOATING CART BUTTONU ======
+
+function handleFloatingCartVisibility() {
+  const header = document.querySelector('header');
+  const floatingCart = document.getElementById('floating-cart');
+  if (!header || !floatingCart) return;
+
+  const headerBottom = header.getBoundingClientRect().bottom;
+  if (headerBottom < 0) {
+    floatingCart.classList.remove('hidden');
+  } else {
+    floatingCart.classList.add('hidden');
+  }
+}
+
+// ====== INIT PO NAČTENÍ STRÁNKY ======
 
 document.addEventListener('DOMContentLoaded', () => {
   updateBadge();
+  handleFloatingCartVisibility();
+  window.addEventListener('scroll', handleFloatingCartVisibility);
 });

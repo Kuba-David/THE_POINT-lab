@@ -8,7 +8,7 @@ header {
 
 .logo {
     height: 50px;
-    z-index: 20;
+    z-index: 9500;
 }
 
 ul {
@@ -46,7 +46,7 @@ nav ul li a:focus {
     color: $color-accent;
 }
 
- .navIcon {
+ .nav-icon {
     width: 24px;
     height: 24px;
     fill: $color-secondary;
@@ -63,8 +63,10 @@ nav ul li a:focus {
     height: 20px;
     padding: 5px;
     font-family: $font-base;
+    text-align: center;
     font-weight: bold;
-    font-size: 0.75rem;
+    font-size: 12px;
+    z-index: 1000;
 
     &.visible {
       display: inline-block;
@@ -95,7 +97,7 @@ nav ul li a:focus {
 @media (max-width: $breakpoint-sm) {
   .hamburger {
     display: flex;
-    z-index: 20;
+    z-index: 9500;
   }
 
   nav {
@@ -114,7 +116,7 @@ nav ul li a:focus {
     padding: 0;
     margin: 0 auto;
     background-color: transparentize($color-primary-dark, 0.02);
-    z-index: 10;
+    z-index: 9000;
 
     ul {
       position: relative;
@@ -137,7 +139,7 @@ nav ul li a:focus {
 @media (max-width: $breakpoint-xs) {
   .hamburger {
     display: flex;
-    z-index: 20;
+    z-index: 9500;
   }
 
   nav {
@@ -156,7 +158,7 @@ nav ul li a:focus {
     padding: 0;
     margin: 0 auto;
     background-color: transparentize($color-primary-dark, 0.02);
-    z-index: 10;
+    z-index: 9000;
 
     ul {
       position: relative;
@@ -172,6 +174,49 @@ nav ul li a:focus {
     a {
       font-size: $font-size-large;
       margin: 0;
+    }
+  }
+}
+
+.floating-cart {
+  position: fixed;
+  top: 20px;
+  right: 18px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $color-primary-dark;
+  border-radius: 50%;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+
+  &.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .floating-badge {
+    display: none;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: $color-accent;
+    color: $color-secondary;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    font-family: $font-base;
+    text-align: center;
+    font-weight: bold;
+    font-size: 12px;
+    z-index: 1000;
+
+    &.visible {
+      display: inline-block;
     }
   }
 }

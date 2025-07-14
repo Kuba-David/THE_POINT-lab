@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="cart-item-info">
         <h4>${item.name}</h4>
         <p class="cart-item-options">
-          Color: <span class="tag">${item.color}</span> &nbsp; 
-          Size: <span class="tag">${item.size}</span>
+          <span class="tag">${item.color}</span> &nbsp;/&nbsp;
+          <span class="tag">${item.size}</span>
         </p>
         <p class="cart-item-paragraph">${item.price} € × 
           <button class="qty-decrease">−</button>

@@ -51,6 +51,7 @@
 
 .cart-item {
         display: flex;
+        align-items: center;
         gap: $spacing-lg;
         margin-bottom: $spacing-lg;
 
@@ -72,7 +73,7 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: $spacing-md;
+            gap: $spacing-sm;
 
             h4 {
                 font-size: $font-size-base;
@@ -110,7 +111,7 @@
         }
 
         .remove-item {
-            background-color: $color-accent-dark;
+            background-color: $color-primary-light;
             color: $color-secondary;
             width: auto;
             border: none;
@@ -122,7 +123,7 @@
             transition: $transition-default;
 
             &:hover {
-                background-color: darken($color-accent-dark, 10%);
+                background-color: darken($color-secondary-dark, 10%);
             }
         }
         .qty {
@@ -158,5 +159,6 @@
 
     #checkout-button {
         flex: 3;
+        line-height: 1.1;
     }
 }

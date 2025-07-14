@@ -83,6 +83,12 @@
   }
 }
 
+.collections-hidden {
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
 .spinner {
   position: fixed;
   top: 50%;
