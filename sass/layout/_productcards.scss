@@ -335,7 +335,7 @@
   z-index: 9999;
   top: 0;
   left: 0;
-  background: transparentize($color-primary-light, 0.01);
+  background: transparentize($color-primary-light, 0.5);
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -344,7 +344,7 @@
   padding: 0 $spacing-md;
   opacity: 0;
   pointer-events: none;
-  transform: scale(0.7); // fallback
+  transform: scale(0.7);
   transition: opacity 0.3s ease;
 
   &.hidden {
