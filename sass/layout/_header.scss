@@ -189,7 +189,7 @@ nav ul li a:focus {
   justify-content: center;
   background: $color-primary-dark;
   border-radius: 50%;
-  z-index: 1000;
+  z-index: 5000;
   opacity: 1;
   transition: opacity 0.2s ease;
 
@@ -213,7 +213,7 @@ nav ul li a:focus {
     text-align: center;
     font-weight: bold;
     font-size: 12px;
-    z-index: 1000;
+    z-index: 5000;
 
     &.visible {
       display: inline-block;

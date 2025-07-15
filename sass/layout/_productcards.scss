@@ -11,7 +11,7 @@
     color: $color-secondary;
   }
 
-  .featuredPoint {
+  .featured-point {
     color: $color-accent;
   }
 
@@ -30,7 +30,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 230px));
   gap: $spacing-md;
-  padding: 0 $spacing-md 0 $spacing-md;
+  // padding: 0 $spacing-md 0 $spacing-md;
   justify-content: center;
 
   @media (max-width: $breakpoint-sm) {

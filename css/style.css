@@ -25,6 +25,9 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   min-height: 100dvh;
   line-height: 1;
   font-size: 16px;
@@ -232,7 +235,7 @@ nav ul li a:focus {
   justify-content: center;
   background: #212121;
   border-radius: 50%;
-  z-index: 1000;
+  z-index: 5000;
   opacity: 1;
   transition: opacity 0.2s ease;
 }
@@ -255,7 +258,7 @@ nav ul li a:focus {
   text-align: center;
   font-weight: bold;
   font-size: 12px;
-  z-index: 1000;
+  z-index: 5000;
 }
 .floating-cart .floating-badge.visible {
   display: inline-block;
@@ -345,7 +348,7 @@ h1 {
   font-weight: 700;
   color: #ECECEC;
 }
-.featured .featuredPoint {
+.featured .featured-point {
   color: #D41116;
 }
 @media (max-width: 480px) {
@@ -362,7 +365,6 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 230px));
   gap: 16px;
-  padding: 0 16px 0 16px;
   justify-content: center;
 }
 @media (max-width: 768px) {
@@ -1092,7 +1094,6 @@ button:active {
   max-width: 960px;
   height: auto;
   padding: 16px;
-  z-index: 10;
 }
 .collection-grid .tile-3 {
   order: 4;
@@ -1177,7 +1178,7 @@ button:active {
   transition: transform 0.3s ease;
 }
 .collection-tile-img img:hover {
-  transform: scale(1.05);
+  transform: scale(1.5);
 }
 
 .collections-hidden {
@@ -1234,29 +1235,53 @@ button:active {
   text-align: right;
 }
 
-.collHeadline {
-  display: flex;
+.collection-inner {
+  padding: 16px;
   flex-direction: column;
   align-items: center;
-  padding: 16px;
-  margin: 64px 0 16px 0;
 }
-.collHeadline h2 {
+
+.coll-headline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  height: 180px;
+  width: 100%;
+  max-width: 1460px;
+  text-align: center;
+  margin-bottom: 16px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+.coll-headline h2 {
   font-size: 32px;
   font-weight: 700;
   color: #ECECEC;
+  width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.collHeadline .collPoint {
+.coll-headline .coll-point {
   color: #D41116;
 }
+.coll-headline img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 @media (max-width: 480px) {
-  .collHeadline {
-    margin-top: 32px;
-    margin-bottom: 8px;
-  }
-  .collHeadline h2 {
+  .coll-headline h2 {
     font-size: 28px;
   }
+}
+
+section + section .collection-inner {
+  margin-top: 128px;
 }
 
 .cartPage {
