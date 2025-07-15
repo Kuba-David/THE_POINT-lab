@@ -781,6 +781,7 @@ h1 {
   position: relative;
   padding: 64px 10vw;
   margin-top: 32px;
+  z-index: 2;
 }
 
 .about p {
@@ -1256,17 +1257,16 @@ button:active {
   position: relative;
 }
 .coll-headline h2 {
-  font-size: 32px;
-  font-weight: 700;
+  font-family: "Tanker-Regular", sans-serif;
+  font-size: 56px;
+  font-weight: normal;
+  letter-spacing: 0.1rem;
   color: #ECECEC;
   width: 90%;
   position: absolute;
-  top: 50%;
+  bottom: 10%;
   left: 50%;
-  transform: translate(-50%, -50%);
-}
-.coll-headline .coll-point {
-  color: #D41116;
+  transform: translate(-50%);
 }
 .coll-headline img {
   width: 100%;
@@ -1276,7 +1276,8 @@ button:active {
 }
 @media (max-width: 480px) {
   .coll-headline h2 {
-    font-size: 28px;
+    font-size: 36px;
+    bottom: 15%;
   }
 }
 

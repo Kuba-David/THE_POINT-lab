@@ -19,17 +19,16 @@
   position: relative;
 
     h2 {
-      font-size: $font-size-xlarge;
-      font-weight: $font-weight-bold;
+      font-family: $font-header;
+      font-size: $font-size-xxlarge;
+      font-weight: normal;
+      letter-spacing: $letter-spacing-tanker;
       color: $color-secondary;
       width: 90%;
       position: absolute;
-      top: 50%;
+      bottom: 10%;
       left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    .coll-point {
-      color: $color-accent;
+      transform: translate(-50%);
     }
 
     img {
@@ -41,7 +40,9 @@
     @media (max-width: $breakpoint-xs) {
 
         h2 {
-            font-size: 28px;
+            font-size: 36px;
+            bottom: 15%;
+
         }
       
     }

@@ -8,7 +8,7 @@ export function saveCart(cart) {
   localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-// ====== AKTUALIZACE BADGÍ ======
+// ====== AKTUALIZACE BADGE ======
 
 export function updateBadge() {
   const cart = getCart();
@@ -57,7 +57,7 @@ function handleFloatingCartVisibility() {
   if (!header || !floatingCart) return;
 
   const headerBottom = header.getBoundingClientRect().bottom;
-  if (headerBottom < 0) {
+  if (headerBottom < 45) {
     floatingCart.classList.remove('hidden');
   } else {
     floatingCart.classList.add('hidden');

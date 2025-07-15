@@ -2,11 +2,11 @@
   "products": [
     {
       "id": 1,
-      "name": "Saturn's swing",
+      "name": "Saturn's Swing",
       "price": 30,
       "images": [
-        "images/T-Shirt_MOCKUP_black_SS.webp",
-        "images/T-Shirt_MOCKUP_black_SS_zoom.webp",
+        "images/SpacePIC/T-Shirt_MOCKUP_black_SS.webp",
+        "images/SpacePIC/T-Shirt_MOCKUP_black_SS_zoom.webp",
         "images/Kosmo_man_1_1ku1.webp"
       ],
       "description": "Do you remember the days when imagination knew no limits? When Saturn's rings had a swing?",
@@ -20,11 +20,11 @@
     },
     {
       "id": 2,
-      "name": "Astronaut & balloons",
+      "name": "Astronaut & Balloons",
       "price": 30,
       "images": [
-        "images/T-Shirt_MOCKUP_black_AB.webp",
-        "images/T-Shirt_MOCKUP_black_AB_zoom.webp",
+        "images/SpacePIC/T-Shirt_MOCKUP_black_AB.webp",
+        "images/SpacePIC/T-Shirt_MOCKUP_black_AB_zoom.webp",
         "images/Kosmo_woman_1_1ku1.webp"
       ],
       "description": "Nothing wakes you up from the dream like the sensation of falling. So don’t let go of the balloons!",
@@ -38,11 +38,79 @@
     },
     {
       "id": 3,
-      "name": "Rather be somewhere else",
+      "name": "Galactic Rex",
+      "price": 30,
+      "images": [
+        "images/SpacePIC/T-Shirt_MOCKUP_black_AD.webp",
+        "images/SpacePIC/T-Shirt_MOCKUP_black_AD_zoom.webp"
+      ],
+      "description": "When the king of dinosaurs looked up, the only place big enough for its roar was the cosmos.",
+      "sizes": ["S","M","L","XL"],
+      "colors": [
+        { "name": "White", "code": "#ffffff" },
+        { "name": "Black", "code": "#000000" }
+      ],
+      "featured": false,
+      "collection": "space"
+    },
+    {
+      "id": 4,
+      "name": "Blackhole Agenda",
+      "price": 30,
+      "images": [
+        "images/SpacePIC/T-Shirt_MOCKUP_black_BhB.webp",
+        "images/SpacePIC/T-Shirt_MOCKUP_black_BhB_zoom.webp"
+      ],
+      "description": "When your to-do list keeps growing, sometimes the only escape is letting everything get sucked in a black hole.",
+      "sizes": ["S","M","L","XL"],
+      "colors": [
+        { "name": "White", "code": "#ffffff" },
+        { "name": "Black", "code": "#000000" }
+      ],
+      "featured": false,
+      "collection": "space"
+    },
+        {
+      "id": 5,
+      "name": "Planetary Alignment",
+      "price": 30,
+      "images": [
+        "images/SpacePIC/T-Shirt_MOCKUP_black_P.webp",
+        "images/SpacePIC/T-Shirt_MOCKUP_black_P_zoom.webp"
+      ],
+      "description": "In a universe of chaos, even the smallest spheres can find perfect harmony.",
+      "sizes": ["S","M","L","XL"],
+      "colors": [
+        { "name": "White", "code": "#ffffff" },
+        { "name": "Black", "code": "#000000" }
+      ],
+      "featured": false,
+      "collection": "space"
+    },
+    {
+      "id": 6,
+      "name": "Cosmic Spin",
+      "price": 30,
+      "images": [
+        "images/SpacePIC/T-Shirt_MOCKUP_black_SO.webp",
+        "images/SpacePIC/T-Shirt_MOCKUP_black_SO_zoom.webp"
+      ],
+      "description": "Every groove is a galaxy—drop the needle and let Bowie guide your orbit.",
+      "sizes": ["S","M","L","XL"],
+      "colors": [
+        { "name": "White", "code": "#ffffff" },
+        { "name": "Black", "code": "#000000" }
+      ],
+      "featured": false,
+      "collection": "space"
+    },
+    {
+      "id": 7,
+      "name": "Rather Be Somewhere Else",
       "price": 25,
       "images": [
-        "images/T-Shirt_MOCKUP_black_jinde.webp",
-        "images/T-Shirt_MOCKUP_black_jinde_zoom.webp",
+        "images/QuotesPIC/T-Shirt_MOCKUP_black_RATHER.webp",
+        "images/QuotesPIC/T-Shirt_MOCKUP_black_RATHER_zoom.webp",
         "images/Bar_man_1_1ku1.webp"
       ],
       "description": "Do you ever feel like you’re in the wrong place? That you’d rather be somewhere else?",
@@ -55,166 +123,90 @@
       "collection": "quotes"
     },
     {
-      "id": 4,
-      "name": "Silence is underestimated",
+      "id": 8,
+      "name": "Silence Is Underrated",
       "price": 25,
       "images": [
-        "images/T-Shirt_MOCKUP_black_ticho.webp",
-        "images/T-Shirt_MOCKUP_black_ticho_zoom.webp",
+        "images/QuotesPIC/T-Shirt_MOCKUP_black_SILENCE.webp",
+        "images/QuotesPIC/T-Shirt_MOCKUP_black_SILENCE_zoom.webp",
         "images/Bar_woman_1_1ku1.webp"
       ],
       "description": "In a world that often overlooks silence, this design speaks volumes. Let everyone hear it.",
       "sizes": ["S","M","L","XL"],
-      "colors": [
+      "colors": [ 
         { "name": "White", "code": "#ffffff" },
         { "name": "Black", "code": "#000000" }
       ],
       "featured": true,
       "collection": "quotes"
     },
-        {
-      "id": 5,
-      "name": "XXX",
-      "price": 25,
-      "images": [
-        "images/xxx.webp",
-        "images/xxx_zoom.webp",
-        "images/xxx_1ku1.webp"
-      ],
-      "description": "Xxxxxxxxxxxxxxxx.",
-      "sizes": ["S","M","L","XL"],
-      "colors": [
-        { "name": "White", "code": "#ffffff" },
-        { "name": "Black", "code": "#000000" }
-      ],
-      "featured": false,
-      "collection": "quotes"
-    },
-    {
-      "id": 6,
-      "name": "XXX",
-      "price": 25,
-      "images": [
-        "images/xxx.webp",
-        "images/xxx_zoom.webp",
-        "images/xxx_1ku1.webp"
-      ],
-      "description": "Xxxxxxxxxxxxxxxx.",
-      "sizes": ["S","M","L","XL"],
-      "colors": [
-        { "name": "White", "code": "#ffffff" },
-        { "name": "Black", "code": "#000000" }
-      ],
-      "featured": false,
-      "collection": "quotes"
-    },
-    {
-      "id": 7,
-      "name": "XXX",
-      "price": 25,
-      "images": [
-        "images/xxx.webp",
-        "images/xxx_zoom.webp",
-        "images/xxx_1ku1.webp"
-      ],
-      "description": "Xxxxxxxxxxxxxxxx.",
-      "sizes": ["S","M","L","XL"],
-      "colors": [
-        { "name": "White", "code": "#ffffff" },
-        { "name": "Black", "code": "#000000" }
-      ],
-      "featured": false,
-      "collection": "quotes"
-    },
-    {
-      "id": 8,
-      "name": "XXX",
-      "price": 25,
-      "images": [
-        "images/xxx.webp",
-        "images/xxx_zoom.webp",
-        "images/xxx_1ku1.webp"
-      ],
-      "description": "Xxxxxxxxxxxxxxxx.",
-      "sizes": ["S","M","L","XL"],
-      "colors": [ 
-        { "name": "White", "code": "#ffffff" },
-        { "name": "Black", "code": "#000000" }
-      ],
-      "featured": false,
-      "collection": "quotes"
-    },
     {
       "id": 9,
-      "name": "XXX",
-      "price": 30,
+      "name": "All You Need Is Less",
+      "price": 25,
       "images": [
-        "images/xxx.webp",
-        "images/xxx_zoom.webp",
-        "images/xxx_1ku1.webp"
+        "images/QuotesPIC/T-Shirt_MOCKUP_black_LESS.webp",
+        "images/QuotesPIC/T-Shirt_MOCKUP_black_LESS_zoom.webp"
       ],
-      "description": "Xxxxxxxxxxxxxxxx.",
+      "description": "Strip away the noise and discover freedom in simplicity.",
       "sizes": ["S","M","L","XL"],
       "colors": [
         { "name": "White", "code": "#ffffff" },
         { "name": "Black", "code": "#000000" }
       ],
       "featured": false,
-      "collection": "space"
+      "collection": "quotes"
     },
     {
       "id": 10,
-      "name": "XXX",
-      "price": 30,
+      "name": "Oh Duck",
+      "price": 25,
       "images": [
-        "images/xxx.webp",
-        "images/xxx_zoom.webp",
-        "images/xxx_1ku1.webp"
+        "images/QuotesPIC/T-Shirt_MOCKUP_black_DUCK.webp",
+        "images/QuotesPIC/T-Shirt_MOCKUP_black_DUCK_zoom.webp"
       ],
-      "description": "Xxxxxxxxxxxxxxxx.",
+      "description": "Sometimes life’s curveballs just make you quack.",
       "sizes": ["S","M","L","XL"],
       "colors": [
         { "name": "White", "code": "#ffffff" },
         { "name": "Black", "code": "#000000" }
       ],
       "featured": false,
-      "collection": "space"
+      "collection": "quotes"
     },
     {
       "id": 11,
-      "name": "XXX",
-      "price": 30,
+      "name": "Maybe Another Time",
+      "price": 25,
       "images": [
-        "images/xxx.webp",
-        "images/xxx_zoom.webp",
-        "images/xxx_1ku1.webp"
+        "images/QuotesPIC/T-Shirt_MOCKUP_black_MAYBE.webp",
+        "images/QuotesPIC/T-Shirt_MOCKUP_black_MAYBE_zoom.webp"
       ],
-      "description": "Xxxxxxxxxxxxxxxx.",
+      "description": "Reschedule the rush. Your time, your pace.",
       "sizes": ["S","M","L","XL"],
       "colors": [
         { "name": "White", "code": "#ffffff" },
         { "name": "Black", "code": "#000000" }
       ],
       "featured": false,
-      "collection": "space"
+      "collection": "quotes"
     },
     {
       "id": 12,
-      "name": "XXX",
-      "price": 30,
+      "name": "No Means No",
+      "price": 25,
       "images": [
-        "images/xxx.webp",
-        "images/xxx_zoom.webp",
-        "images/xxx_1ku1.webp"
+        "images/QuotesPIC/T-Shirt_MOCKUP_black_NO.webp",
+        "images/QuotesPIC/T-Shirt_MOCKUP_black_NO_zoom.webp"
       ],
-      "description": "Xxxxxxxxxxxxxxxx.",
+      "description": "Boundaries aren’t rude; they’re the boldest form of self-respect.",
       "sizes": ["S","M","L","XL"],
       "colors": [
         { "name": "White", "code": "#ffffff" },
         { "name": "Black", "code": "#000000" }
       ],
       "featured": false,
-      "collection": "space"
+      "collection": "quotes"
     }
   ]
 }
