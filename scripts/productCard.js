@@ -86,14 +86,12 @@ export function createProductCard(p) {
   return card;
 }
 
-// ===== Iniciace sliderů =====
 export function initializeSliders() {
   document.querySelectorAll(".product-card").forEach((card) => {
     const slides = card.querySelectorAll(".slide");
     const dots = card.querySelectorAll(".dot");
     let currentIndex = 0;
 
-    // Klik na tečku
     dots.forEach((dot) => {
       dot.addEventListener("click", () => {
         const idx = parseInt(dot.dataset.index);
@@ -102,7 +100,6 @@ export function initializeSliders() {
       });
     });
 
-    // Swipe support
     let startX, startY, endX, endY;
     const slider = card.querySelector(".slider");
     slider.addEventListener("touchstart", (e) => {
@@ -142,7 +139,6 @@ function goToSlide(slides, dots, idx) {
   dots.forEach((d, i) => d.classList.toggle("active", i === idx));
 }
 
-// ===== Iniciace modalů =====
 export function initializeModals() {
   const modal = document.getElementById("image-modal");
   const modalImg = document.getElementById("modal-img");
@@ -165,7 +161,6 @@ export function initializeModals() {
     });
   });
 
-  // Šipky v modal
   arrowLeft.addEventListener("click", () => {
     currentModalIndex =
       (currentModalIndex - 1 + currentModalImages.length) %
@@ -177,13 +172,11 @@ export function initializeModals() {
     modalImg.src = currentModalImages[currentModalIndex];
   });
 
-  // Zavření modal
   closeBtn.addEventListener("click", () => (modal.style.display = "none"));
   modal.addEventListener("click", (e) => {
     if (e.target === modal) modal.style.display = "none";
   });
 
-  // Swipe v modal
   let mStartX, mEndX;
   modal.addEventListener("touchstart", (e) => {
     mStartX = e.touches[0].clientX;
@@ -199,7 +192,6 @@ export function initializeModals() {
     modalImg.src = currentModalImages[currentModalIndex];
   });
 
-  // Keyboard navigace
   document.addEventListener("keydown", (e) => {
     if (modal.style.display === "flex") {
       if (e.key === "ArrowRight") arrowRight.click();
@@ -224,7 +216,6 @@ export function showAddToCartModal(product) {
   modal.classList.remove("hidden");
   modal.classList.add("visible");
 
-  // zavření modalu
   modal.querySelector("#continue-shopping").addEventListener("click", () => {
     modal.classList.remove("visible");
     modal.classList.add("closing");
@@ -234,12 +225,10 @@ export function showAddToCartModal(product) {
     }, 200);
   });
 
-  // přesměrování do košíku
   modal.querySelector("#modal-to-cart").addEventListener("click", () => {
     window.location.href = "cart.html";
   });
 
-  // klik mimo modal-content zavře modal
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
       modal.classList.remove("visible");
@@ -252,10 +241,9 @@ export function showAddToCartModal(product) {
   });
 }
 
-// ===== Iniciace tlačítek buy-button =====
 export function initializeBuyButtons() {
   document.querySelectorAll(".buy-button").forEach((btn) => {
-    // Odstranit předchozí click handler, pokud nějaký existuje
+ 
     const newBtn = btn.cloneNode(true);
     btn.replaceWith(newBtn);
 

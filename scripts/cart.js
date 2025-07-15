@@ -1,5 +1,3 @@
-// ====== ZÁKLADNÍ FUNKCE LOCAL STORAGE ======
-
 export function getCart() {
   return JSON.parse(localStorage.getItem('cart') || '[]');
 }
@@ -8,7 +6,6 @@ export function saveCart(cart) {
   localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-// ====== AKTUALIZACE BADGE ======
 
 export function updateBadge() {
   const cart = getCart();
@@ -27,12 +24,10 @@ export function updateBadge() {
   }
 }
 
-// ====== PŘIDÁNÍ PRODUKTU DO KOŠÍKU ======
 
 export function addToCart(product) {
   const cart = getCart();
 
-  // hledání podle id + barva + velikost
   const existing = cart.find(item =>
     item.id === product.id &&
     item.color === product.color &&
@@ -49,7 +44,6 @@ export function addToCart(product) {
   updateBadge();
 }
 
-// ====== ZOBRAZENÍ FLOATING CART BUTTONU ======
 
 function handleFloatingCartVisibility() {
   const header = document.querySelector('header');
@@ -64,7 +58,6 @@ function handleFloatingCartVisibility() {
   }
 }
 
-// ====== INIT PO NAČTENÍ STRÁNKY ======
 
 document.addEventListener('DOMContentLoaded', () => {
   updateBadge();

@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const totalEl  = document.getElementById('cart-total');
   if (!container || !totalEl) return;
 
-  // Vykreslení jedné položky
   function renderCartItem(item, container) {
     const el = document.createElement('div');
     el.className = 'cart-item';
