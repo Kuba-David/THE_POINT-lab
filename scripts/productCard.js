@@ -1,7 +1,6 @@
-// ===== Featured produkty na index.html =====
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("product-grid");
-  if (!container) return; // ← pokud #product-grid neexistuje, dál nic neproběhne
+  if (!container) return;
 
   fetch("db.json")
     .then((res) => res.json())
