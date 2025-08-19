@@ -27,7 +27,6 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   min-height: 100dvh;
   line-height: 1;
   font-size: 16px;
@@ -268,7 +267,7 @@ nav ul li a:focus {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  height: 90vh;
+  height: 80dvh;
   border-radius: 20px;
   overflow: hidden;
   margin: 0 16px 0 16px;
@@ -845,7 +844,7 @@ h1 {
   justify-content: center;
   align-items: center;
   padding-top: 16px;
-  margin: 64px 16px 0 16px;
+  margin: 64px 16px 64px 16px;
 }
 
 .form-container {
@@ -1218,7 +1217,6 @@ button:active {
   justify-content: flex-end;
   align-items: center;
   padding: 16px;
-  margin-top: 64px;
 }
 
 .footer-logo {
@@ -1288,11 +1286,11 @@ section + section .collection-inner {
 .cartPage {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .cartMain {
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -1388,7 +1386,7 @@ section + section .collection-inner {
   transition: all 0.3s ease-in-out;
 }
 .cart-item .qty-decrease:hover, .cart-item .qty-increase:hover {
-  background-color: #989898;
+  background-color: rgb(151.5, 151.5, 151.5);
 }
 .cart-item .remove-item {
   background-color: #333333;
@@ -1403,7 +1401,7 @@ section + section .collection-inner {
   transition: all 0.3s ease-in-out;
 }
 .cart-item .remove-item:hover {
-  background-color: #989898;
+  background-color: rgb(151.5, 151.5, 151.5);
 }
 .cart-item .qty {
   font-size: 16px;
