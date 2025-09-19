@@ -62,7 +62,7 @@
             <p class="fade-in"><span>We’re a brand for those who love silence... </span><br>but still have something to say.</p>
             <p class="fade-in">No mass production. <span><br>No piles of pointless stock.</span></p>
             <p class="fade-in"><span>Each tee is born only when you order it.</span><br>No waste. Just your tee<span>, made on point.</p>
-            <img class="about-dot" src="images/THEPOINT_DOT.svg" alt="THEPOINT_DOT">
+            <!-- <img class="about-dot" src="images/THEPOINT_DOT.svg" alt="THEPOINT_DOT"> -->
         </section>
 
         <section class="collection-grid" id="collection">
@@ -89,33 +89,36 @@
         </section>
 
         <section class="form-selection" id="contact">
-        <form class="form-container">
-            <h2>Wanna know more? <br>Spill the details.</h2>
+            <form class="form-container" id="contact-form" method="POST" action="send-email.php">
+                <h2>Wanna know more? <br>Spill the details.</h2>
 
-            <!-- Jméno -->
-            <label for="name">Got a name?</label>
+                <!-- Jméno -->
+                <label for="name">Got a name?</label>
                 <div class="form-icon">
                     <svg class="icon"><use href="./icons.svg#user"></use></svg>
                     <input type="text" id="name" name="name" placeholder="Type it in here..." required>
                 </div>
 
-            <!-- E-mail -->
-            <label for="email">Got an email?</label>
+                <!-- E-mail -->
+                <label for="email">Got an email?</label>
                 <div class="form-icon">
                     <svg class="icon"><use href="./icons.svg#email"></use></svg>
                     <input type="email" id="email" name="email" placeholder="Share it with us..." required>
                 </div>
 
-            <!-- Zpráva -->
-            <label for="message">Anything else on your mind?</label>
-            <div class="form-icon">
-            <svg class="icon"><use href="./icons.svg#poll"></use></svg>
-            <textarea id="message" name="message" rows="6" placeholder="But like, don’t write an essay..."></textarea>
-            </div>
+                <!-- Zpráva -->
+                <label for="message">Anything else on your mind?</label>
+                <div class="form-icon">
+                    <svg class="icon"><use href="./icons.svg#poll"></use></svg>
+                    <textarea id="message" name="message" rows="6" placeholder="But like, don’t write an essay..." required></textarea>
+                </div>
+                
+                <!-- Honeypot -->
+                <input type="text" name="honeypot" style="display:none;">
 
-            <!-- Odeslat -->
-            <button type="submit">MAKE THE POINT</button>
-        </form>
+                <!-- Odeslat -->
+                <button type="submit">MAKE THE POINT</button>
+            </form>
         </section>
 
         <div id="image-modal" class="modal">
@@ -142,8 +145,8 @@
                 </div>
             </div>
         </div>
+     </main>
 
-    </main>
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
@@ -152,6 +155,14 @@
             </div>
         </div>
     </footer>
+
+    <div class="moving-point-wrapper">
+        <?xml version="1.0" encoding="UTF-8"?>
+        <svg id="Vrstva_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36.67 36.67">
+            <path d="M16.93,0c7.65,0,16.31,3.84,19.18,11.64,1.33,3.62-.05,10.11-.87,13.15-1.91,6.07-9.02,11.12-16.4,11.88h-1.36c-1.91,0-4.1-.51-6.01-1.01C3.55,33.13,0,27.06,0,20.23c0-5.06,1.91-10.37,5.74-14.41C8.47,2.78,12.02.25,16.12,0h.82Z"/>
+        </svg>
+    </div>
+
     <script type="module" src="scripts/main.js"></script>
 </body>
 </html>

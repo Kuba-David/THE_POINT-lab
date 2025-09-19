@@ -41,3 +41,29 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+.moving-point-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: transform 10s ease-in-out; 
+}
+
+.moving-point-wrapper svg {
+    width: 600px;
+    height: 600px;
+    opacity: 0.4;
+    filter: blur(60px);
+}
+
+@media (max-width: 600px) {
+    .moving-point-wrapper svg {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+.moving-point-wrapper svg path {
+    fill: #d41116; 
+}

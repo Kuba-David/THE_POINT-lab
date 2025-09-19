@@ -56,6 +56,31 @@ a {
   color: inherit;
 }
 
+.moving-point-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: transform 10s ease-in-out;
+}
+
+.moving-point-wrapper svg {
+  width: 600px;
+  height: 600px;
+  opacity: 0.4;
+  filter: blur(60px);
+}
+
+@media (max-width: 600px) {
+  .moving-point-wrapper svg {
+    width: 300px;
+    height: 300px;
+  }
+}
+.moving-point-wrapper svg path {
+  fill: #d41116;
+}
+
 header {
   padding: 20px 30px;
   display: flex;
@@ -276,6 +301,7 @@ nav ul li a:focus {
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+  box-shadow: 0 0px 10px #212121;
 }
 
 .hero-video {
@@ -390,7 +416,7 @@ h1 {
   background: #ECECEC;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 0px 7px #2D2D2B;
+  box-shadow: 0 0px 10px #212121;
   font-family: "Sentient-Variable", serif;
   transition: all 0.3s ease-in-out;
 }
@@ -853,6 +879,7 @@ h1 {
   border-radius: 20px;
   width: 100%;
   max-width: 928px;
+  box-shadow: 0 0px 10px #212121;
 }
 
 .form-container h2 {
@@ -1124,7 +1151,7 @@ button:active {
   flex-direction: column;
   justify-content: center;
   max-height: 100%;
-  box-shadow: 0 0px 7px #2D2D2B;
+  box-shadow: 0 0px 10px #212121;
   font-family: "Sentient-Variable", serif;
   color: #2D2D2B;
   overflow: hidden;
@@ -1165,6 +1192,7 @@ button:active {
 
 .collection-tile-img {
   border-radius: 20px;
+  box-shadow: 0 0px 10px #212121;
   overflow: hidden;
 }
 
@@ -1253,6 +1281,7 @@ button:active {
   border-radius: 20px;
   overflow: hidden;
   position: relative;
+  box-shadow: 0 0px 10px #212121;
 }
 .coll-headline h2 {
   font-family: "Tanker-Regular", sans-serif;
@@ -1307,6 +1336,7 @@ section + section .collection-inner {
   width: 100%;
   max-width: 1200px;
   height: 100%;
+  box-shadow: 0 0px 10px #212121;
 }
 .cartBg h2 {
   font-size: clamp(28px, 5vw, 32px);

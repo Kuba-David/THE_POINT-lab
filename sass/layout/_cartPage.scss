@@ -22,6 +22,7 @@
     width: 100%;
     max-width: 1200px;
     height: 100%;
+    box-shadow: $box-shadow-default;
 
     h2 {
         font-size: clamp($font-size-large, 5vw, $font-size-xlarge);

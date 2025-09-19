@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, {
     threshold: 0.5,
-    rootMargin: "-10% 0px -20% 0px"
+    rootMargin: "-20% 0% 0% 20%"
   });
 
   document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
