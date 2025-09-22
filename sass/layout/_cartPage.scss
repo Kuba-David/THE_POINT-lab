@@ -27,6 +27,7 @@
     h2 {
         font-size: clamp($font-size-large, 5vw, $font-size-xlarge);
         text-align: center;
+        font-weight: $font-weight-normal;
         margin: $spacing-lg auto $spacing-xl auto;
     }
 

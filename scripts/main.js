@@ -5,6 +5,7 @@ import './contactForm.js';
 import './cart.js';
 import './cartPage.js';
 import './collection.js';
+import './checkoutPage.js';
 
 window.addEventListener('DOMContentLoaded', (event) => {
 

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE POINT | Checkout</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- GoPay inline script -->
+    <script type="text/javascript" src="https://gate.gopay.cz/gp-gw/js/embed.js"></script>
+
+</head>
+<body class="checkout-page">
+    <header class="checkout-header">
+        <a class="logo" href="index.html#home"><img class="logo" src="images/THEPOINT_LOGO.svg" alt="The Point Logo"></a>
+        <div class="secure-checkout">
+            <svg class="nav-icon"><use href="./icons.svg#lock"></use></svg>
+            <span>Secure Checkout</span>
+        </div>
+    </header>
+
+    <main class="checkout-main">
+        <div class="checkout-container">
+            <!-- Order Summary Section (visible on desktop) -->
+            <aside class="order-summary">
+                <h3>Your Purchase</h3>
+                <div id="summary-items">
+                    <!-- Items will be loaded by JavaScript -->
+                </div>
+                <div class="summary-totals">
+                    <p><span>Subtotal</span> <span id="summary-subtotal">0 €</span></p>
+                    <p><span>Shipping</span> <span id="summary-shipping">0 €</span></p>
+                    <p class="total"><span>Total</span> <strong id="summary-total">0 €</strong></p>
+                </div>
+            </aside>
+
+            <!-- Checkout Steps Section -->
+            <section class="checkout-steps">
+                <div class="progress-bar">
+                    <div class="step active" data-step="1">Address</div>
+                    <span class="progress-separator">></span>
+                    <div class="step" data-step="2">Payment</div>
+                    <span class="progress-separator">></span>
+                    <div class="step" data-step="3">Confirmation</div>
+                </div>
+
+                <!-- Step 1: Address -->
+                <div id="step-1" class="step-content active">
+                    <h2>Where is it going?</h2>
+                    <form id="address-form" class="checkout-form">
+
+                        <label for="name">Got a name?</label>
+                        <div class="form-icon">
+                            <!-- <svg class="icon"><use href="./icons.svg#user"></use></svg> -->
+                            <input type="text" id="name" name="name" placeholder="Type it in here..." required autocomplete="name">
+                        </div>
+
+                        <label for="email">Your e-mail?</label>
+                        <div class="form-icon">
+                            <!-- <svg class="icon"><use href="./icons.svg#email"></use></svg> -->
+                            <input type="email" id="email" name="email" placeholder="Share it with us..." required autocomplete="email">
+                        </div>
+                        
+                        <label for="address">And address?</label>
+                        <div class="form-icon autocomplete-container">
+                             <!-- <svg class="icon"><use href="./icons.svg#poll"></use></svg> -->
+                            <input type="text" id="address" name="address" placeholder="Start typing your street..." required autocomplete="off">
+                            <div id="address-suggestions" class="autocomplete-suggestions"></div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city" name="city" placeholder="City" required autocomplete="address-level2">
+                            </div>
+                            <div class="form-group">
+                                <label for="zip">Postal Code</label>
+                                <input type="text" id="zip" name="zip" placeholder="Postal code" required autocomplete="postal-code">
+                            </div>
+                        </div>
+
+                         <div class="form-group">
+                             <label for="country">Country</label>
+                             <input type="text" id="country" name="country" placeholder="Country" required autocomplete="country">
+                        </div>
+                        
+                        <div id="shipping-options">
+                            <h4>Shipping method</h4>
+                            <!-- Shipping options will be loaded here -->
+                        </div>
+
+                        <button type="submit" class="cta-button">Continue to payment</button>
+                    </form>
+                </div>
+
+                <!-- Step 2: Payment -->
+                <div id="step-2" class="step-content">
+                    <h2>How will you pay?</h2>
+                    <div class="payment-summary">
+                        <div class="summary-section">
+                            <span>Contact</span>
+                            <span id="summary-email-display"></span>
+                            <a href="#" data-step-target="1">Change</a>
+                        </div>
+                        <div class="summary-section">
+                            <span>Ship to</span>
+                            <span id="summary-address-display"></span>
+                            <a href="#" data-step-target="1">Change</a>
+                        </div>
+                    </div>
+                    <p class="payment-info">You will be redirected to the secure GoPay payment gateway.</p>
+                    <button id="gopay-button" class="cta-button">Pay online</button>
+                    <button id="back-to-address" class="back-button">Back to address</button>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <div class="moving-point-wrapper">
+        <?xml version="1.0" encoding="UTF-8"?>
+        <svg id="Vrstva_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36.67 36.67">
+            <path d="M16.93,0c7.65,0,16.31,3.84,19.18,11.64,1.33,3.62-.05,10.11-.87,13.15-1.91,6.07-9.02,11.12-16.4,11.88h-1.36c-1.91,0-4.1-.51-6.01-1.01C3.55,33.13,0,27.06,0,20.23c0-5.06,1.91-10.37,5.74-14.41C8.47,2.78,12.02.25,16.12,0h.82Z"/>
+        </svg>
+    </div>
+    
+    <script type="module" src="scripts/checkoutPage.js"></script>
+</body>
+</html>
+

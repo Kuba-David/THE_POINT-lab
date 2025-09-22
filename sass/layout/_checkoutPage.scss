@@ -1,0 +1,321 @@
+.checkout-page {
+    background-color: $color-primary-light;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.checkout-header {
+    padding: $spacing-md $spacing-lg;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // border-bottom: 1px solid rgba($color-secondary, 0.1);
+
+    .logo {
+        height: 50px;
+    }
+
+    .secure-checkout {
+        display: flex;
+        align-items: center;
+        gap: $spacing-sm;
+        font-family: "tanker-regular", sans-serif;
+        font-weight: $font-weight-normal;
+        color: $color-secondary;
+
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+            fill: $color-secondary;
+        }
+    }
+}
+
+.checkout-main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    padding: $spacing-lg;
+}
+
+.checkout-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    gap: $spacing-xl;
+}
+
+.order-summary {
+    width: 40%;
+    background-color: $color-primary-dark;
+    padding: $spacing-lg;
+    border-radius: $border-radius;
+    height: fit-content;
+
+    h3 {
+        margin-bottom: $spacing-lg;
+        font-family: $font-header;
+        font-size: $font-size-large;
+        font-weight: $font-weight-normal;
+        letter-spacing: $letter-spacing-tanker;
+    }
+
+    #summary-items {
+        border-top: 1px solid rgba($color-secondary, 0.1);
+        padding-top: $spacing-md;
+    }
+
+    .summary-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: $spacing-md;
+        gap: $spacing-md;
+
+        img {
+            width: 60px;
+            height: 60px;
+            border-radius: $border-radius-button;
+        }
+
+        .item-details {
+            flex-grow: 1;
+        }
+        
+        .item-price {
+            font-weight: $font-weight-bold;
+        }
+    }
+
+    .summary-totals {
+        border-top: 1px solid rgba($color-secondary, 0.1);
+        padding-top: $spacing-md;
+        margin-top: $spacing-md;
+
+        p {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: $spacing-sm;
+        }
+        
+        .total {
+            font-size: 1.2rem;
+            margin-top: $spacing-md;
+        }
+    }
+}
+
+.checkout-steps {
+    width: 60%;
+}
+
+.progress-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $spacing-xl;
+
+    .step {
+        color: $color-secondary-dark;
+        position: relative;
+
+        &.active {
+            color: $color-secondary;
+            font-weight: $font-weight-bold;
+        }
+    }
+}
+
+.step-content {
+    display: none;
+    &.active {
+        display: block;
+    }
+}
+
+h2 {
+    font-family: $font-header;
+    font-size: $font-size-xlarge;
+    font-weight: $font-weight-normal;
+    letter-spacing: $letter-spacing-tanker;
+    margin-bottom: $spacing-lg;
+}
+.checkout-point {
+    color: $color-accent;
+}
+
+// Scoped form styles for checkout
+.checkout-form {
+    label {
+        font-weight: $font-weight-bold;
+        font-family: $font-base;
+        font-size: 1rem;
+        color: $color-secondary;
+        display: block;
+        margin: $spacing-md 0 $spacing-sm;
+        padding-left: $spacing-xs;
+    }
+    
+    .form-icon {
+        position: relative;
+        margin-bottom: $spacing-md;
+    }
+
+    .icon {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: 10px;
+        left: 10px;
+        fill: $color-primary;
+    }
+    
+
+    input {
+        width: 100%;
+        padding: 10px 10px 10px 12px;
+        border: 1px solid $color-secondary;
+        border-radius: 10px;
+        font-weight: $font-weight-normal;
+        font-family: $font-base;
+        font-size: 1rem;
+        color: $color-primary;
+        box-sizing: border-box;
+
+        &:focus {
+          border-color: $color-accent;
+          border-width: 1px;
+          outline: none;
+        }
+    }
+
+    .form-row {
+        display: flex;
+        gap: $spacing-md;
+        > .form-group {
+            flex: 1;
+            label {
+                margin-top: 0;
+            }
+            input {
+                padding-left: 12px; // No icon in these inputs
+            }
+        }
+    }
+}
+
+#shipping-options {
+    display: flex;
+    flex-direction: column;
+    margin-top: $spacing-lg;
+    gap: $spacing-md;
+    h4 {
+        font-weight: $font-weight-bold;
+    }
+    .shipping-option {
+        display: flex;
+        justify-content: space-between;
+        padding: $spacing-md;
+        border: 1px solid $color-secondary-dark;
+        border-radius: $border-radius-button;
+        cursor: pointer;
+        background-color: $color-primary;
+        
+        &.selected {
+            border-color: $color-accent;
+            background-color: rgba($color-accent, 0.1);
+        }
+    }
+}
+
+
+.cta-button {
+    @include button-base;
+    margin-top: $spacing-lg;
+}
+.back-button {
+    background: none;
+    border: none;
+    color: $color-secondary-dark;
+    cursor: pointer;
+    margin-top: $spacing-md;
+    text-align: center;
+    width: 100%;
+    &:hover {
+        color: $color-secondary;
+    }
+}
+
+.payment-summary {
+    border: 1px solid rgba($color-secondary, 0.1);
+    border-radius: $border-radius-button;
+    margin-bottom: $spacing-lg;
+
+    .summary-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: $spacing-md;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid rgba($color-secondary, 0.1);
+        }
+
+        span:first-child {
+            color: $color-secondary-dark;
+        }
+        
+        a {
+            color: $color-accent;
+            text-decoration: underline;
+            font-size: 0.9rem;
+        }
+    }
+}
+.payment-info {
+    text-align: center;
+    color: $color-secondary-dark;
+}
+
+// Responsive adjustments
+@media (max-width: $breakpoint-md) {
+    .checkout-container {
+        flex-direction: column-reverse;
+    }
+    .order-summary, .checkout-steps {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .order-summary {
+        margin-top: $spacing-lg;
+    }
+}
+
+// Geoapify Autocomplete Suggestions
+.autocomplete-container {
+    position: relative;
+}
+
+.autocomplete-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: $color-secondary;
+    border-radius: $border-radius-button;
+    z-index: 1000;
+    // max-height: 200px;
+    overflow-y: auto;
+    display: none; // Hidden by default
+}
+
+.suggestion-item {
+    padding: 12px 16px;
+    cursor: pointer;
+    color: $color-primary;
+    
+    &:hover {
+        background-color: $color-secondary-dark;
+    }
+}
+
