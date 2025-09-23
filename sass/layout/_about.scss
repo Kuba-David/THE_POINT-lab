@@ -12,7 +12,7 @@
   font-weight: $font-weight-normal;
   line-height: $line-height-large;
   z-index: 20;
-  margin-bottom: $spacing-lg;
+  margin-bottom: $spacing-xl;
 }
 
 .about p:last-of-type {
@@ -45,6 +45,7 @@
 @media (min-width: $breakpoint-xs) {
   .about p {
     font-size: $font-size-xlarge;
+    margin-bottom: $spacing-xxl;
   }
   .about img {
     width: 20vh;
@@ -60,6 +61,7 @@
   }
   .about p {
     font-size: $font-size-xxlarge;
+    margin-bottom: $spacing-xxl;
   }
   .about img {
     width: 25vh;
