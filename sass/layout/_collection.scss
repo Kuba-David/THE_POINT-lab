@@ -42,7 +42,6 @@
   flex-direction: column;
   justify-content: center;
   max-height: 100%;
-  box-shadow: $box-shadow-default;
   font-family: $font-base;
   color: $color-primary;
   overflow: hidden;
@@ -67,7 +66,6 @@
 
 .collection-tile-img {
   border-radius: $border-radius;
-  box-shadow: $box-shadow-default;
 
   overflow: hidden;
 }

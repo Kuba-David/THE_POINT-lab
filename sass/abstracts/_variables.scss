@@ -2,8 +2,10 @@
 $color-primary: #2D2D2B;
 $color-primary-light: #333333;
 $color-primary-dark: #212121;
+$color-primary-transparent: transparentize($color-primary-dark, 0.5);
+$color-background-modal: transparentize($color-primary-dark, 0.01);
 $color-secondary: #ECECEC;
-$color-secondary-dark: #B1B1B1;
+$color-secondary-dark: #aeaeae;
 $color-accent: #D41116;
 $color-accent-dark: #880D10;
 

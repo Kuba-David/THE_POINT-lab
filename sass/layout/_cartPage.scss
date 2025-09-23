@@ -15,18 +15,18 @@
 }
 
 .cartBg {
-    background-color: $color-primary-dark;
+    background-color: $color-primary-transparent;
     padding: clamp($spacing-md, 4vw, $spacing-lg);
     margin: 0 auto;
     border-radius: $border-radius;
     width: 100%;
     max-width: 1200px;
     height: 100%;
-    box-shadow: $box-shadow-default;
 
     h2 {
         font-size: clamp($font-size-large, 5vw, $font-size-xlarge);
         text-align: center;
+        font-weight: $font-weight-normal;
         margin: $spacing-lg auto $spacing-xl auto;
     }
 
@@ -95,10 +95,12 @@
         }
 
         .qty-decrease, .qty-increase {
-            background-color: $color-primary-light;
+            background-color: $color-primary-dark;
             color: $color-secondary;
+            width: 30px;
+            height: 30px;
             border: none;
-            padding: 6px $spacing-sm;
+            padding: 0;
             border-radius: $border-radius-button;
             margin: 0;
             font-family: $font-base;
@@ -107,12 +109,12 @@
             transition: $transition-default;
 
             &:hover {
-                background-color: darken($color-secondary-dark, 10%);
+                background-color: $color-primary-light;
             }
         }
 
         .remove-item {
-            background-color: $color-primary-light;
+            background-color: $color-primary-dark;
             color: $color-secondary;
             width: auto;
             border: none;
@@ -124,7 +126,7 @@
             transition: $transition-default;
 
             &:hover {
-                background-color: darken($color-secondary-dark, 10%);
+                background-color: $color-primary-light;
             }
         }
         .qty {
@@ -150,12 +152,12 @@
     gap: $spacing-md;
 
     #back-button {
-        background-color: $color-primary-light;
+        background-color: $color-primary-dark;
         flex: 1;
         line-height: 1.1;
     }
     #back-button:hover {
-        background-color: $color-primary;
+        background-color: $color-primary-light;
     }
 
     #checkout-button {
