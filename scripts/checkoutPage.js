@@ -104,10 +104,16 @@ function initializeCheckoutPage() {
             goToStep(parseInt(link.dataset.stepTarget, 10));
         });
     });
-     document.getElementById('back-to-address')?.addEventListener('click', (e) => {
+    document.getElementById('back-to-address')?.addEventListener('click', (e) => {
         e.preventDefault();
         goToStep(1);
     });
+    const backToCartBtn = document.getElementById('back-to-cart');
+    if (backToCartBtn) {
+        backToCartBtn.addEventListener('click', () => {
+            window.location.href = 'cart.html';
+        });
+    }
 
     const renderSummary = () => {
         const cart = getCart();

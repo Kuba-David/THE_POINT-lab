@@ -6,7 +6,6 @@ export function saveCart(cart) {
   localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-
 export function updateBadge() {
   const cart = getCart();
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -24,10 +23,8 @@ export function updateBadge() {
   }
 }
 
-
 export function addToCart(product) {
   const cart = getCart();
-
   const existing = cart.find(item =>
     item.id === product.id &&
     item.color === product.color &&
@@ -37,13 +34,42 @@ export function addToCart(product) {
   if (existing) {
     existing.quantity += 1;
   } else {
-    cart.push({ ...product });
+    cart.push({ ...product, quantity: 1 });
   }
 
   saveCart(cart);
   updateBadge();
 }
 
+export function showAddToCartModal(product) {
+  const modal = document.getElementById("addToCartModal");
+  if (!modal) return;
+
+  modal.querySelector("#modal-product-img").src = product.image;
+  modal.querySelector("#modal-product-name").textContent = product.name;
+  modal.querySelector("#modal-product-color").textContent = product.color;
+  modal.querySelector("#modal-product-size").textContent = product.size;
+  modal.querySelector("#modal-product-price").textContent = `${product.price} €`;
+
+  modal.classList.remove("hidden");
+  modal.classList.add("visible");
+
+  const continueShoppingBtn = modal.querySelector("#continue-shopping");
+  const modalToCartBtn = modal.querySelector("#modal-to-cart");
+
+  const closeModal = () => {
+    modal.classList.remove("visible");
+    modal.classList.add("closing");
+    setTimeout(() => {
+      modal.classList.remove("closing");
+      modal.classList.add("hidden");
+    }, 200);
+  };
+
+  continueShoppingBtn.onclick = closeModal;
+  modalToCartBtn.onclick = () => { window.location.href = "cart.html"; };
+  modal.onclick = (e) => { if (e.target === modal) closeModal(); };
+}
 
 function handleFloatingCartVisibility() {
   const header = document.querySelector('header');
@@ -57,7 +83,6 @@ function handleFloatingCartVisibility() {
     floatingCart.classList.add('hidden');
   }
 }
-
 
 document.addEventListener('DOMContentLoaded', () => {
   updateBadge();

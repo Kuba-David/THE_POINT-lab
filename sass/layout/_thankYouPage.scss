@@ -1,0 +1,28 @@
+
+.thank-you-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 600px;
+  margin: auto;
+  padding: $spacing-md;
+  background-color: $color-primary-transparent;
+  border-radius: $border-radius;
+}
+
+.thank-you-container-h2 {
+  position: relative;
+  font-family: "Tanker-Regular", sans-serif;
+  font-weight: normal;
+  letter-spacing: $letter-spacing-tanker;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.thank-you-container-p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}

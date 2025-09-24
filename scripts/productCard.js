@@ -1,3 +1,5 @@
+import { showAddToCartModal, addToCart } from './cart.js';
+
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("product-grid");
   if (!container) return;
@@ -13,10 +15,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       initializeSliders();
-      initializeModals();
       initializeBuyButtons();
     })
-    .catch((err) => console.error("Chyba při načítání db:", err));
+    .catch((err) => console.error("Error loading db.json:", err));
 });
 
 export function createProductCard(p) {
@@ -44,33 +45,37 @@ export function createProductCard(p) {
     .join("");
 
   card.innerHTML = `
-    <div class="product-image">
-      <div class="slider">
-        ${p.images
-          .map(
-            (img, idx) => `
-          <div class="slide${idx === 0 ? " active" : ""}" data-index="${idx}">
-            <img src="${img}" alt="${p.name} ${idx + 1}">
-          </div>
-        `
-          )
-          .join("")}
+    <a href="product.html?id=${p.id}" class="product-link">
+      <div class="product-image">
+        <div class="slider">
+          ${p.images
+            .map(
+              (img, idx) => `
+            <div class="slide${idx === 0 ? " active" : ""}" data-index="${idx}">
+              <img src="${img}" alt="${p.name} ${idx + 1}">
+            </div>
+          `
+            )
+            .join("")}
+        </div>
+        <div class="slider-dots">
+          ${p.images
+            .map(
+              (_, idx) => `
+            <span class="dot${
+              idx === 0 ? " active" : ""
+            }" data-index="${idx}"></span>
+          `
+            )
+            .join("")}
+        </div>
       </div>
-      <div class="slider-dots">
-        ${p.images
-          .map(
-            (_, idx) => `
-          <span class="dot${
-            idx === 0 ? " active" : ""
-          }" data-index="${idx}"></span>
-        `
-          )
-          .join("")}
-      </div>
-    </div>
+    </a>
     <div class="product-info">
       <div class="product-price">${p.price} €</div>
-      <div class="product-title">${p.name}</div>
+      <a href="product.html?id=${p.id}" class="product-link">
+        <div class="product-title">${p.name}</div>
+      </a>
       <div class="product-description"><p>${p.description}</p></div>
 
       <div class="product-options">
@@ -92,7 +97,9 @@ export function initializeSliders() {
     let currentIndex = 0;
 
     dots.forEach((dot) => {
-      dot.addEventListener("click", () => {
+      dot.addEventListener("click", (e) => {
+        e.preventDefault(); // Prevent link navigation
+        e.stopPropagation(); // Stop click from bubbling to the <a> tag
         const idx = parseInt(dot.dataset.index);
         goToSlide(slides, dots, idx);
         currentIndex = idx;
@@ -102,22 +109,26 @@ export function initializeSliders() {
     let startX, startY, endX, endY;
     const slider = card.querySelector(".slider");
     slider.addEventListener("touchstart", (e) => {
+      e.stopPropagation();
       startX = e.touches[0].clientX;
       startY = e.touches[0].clientY;
     });
     slider.addEventListener("touchend", (e) => {
+      e.stopPropagation();
       endX = e.changedTouches[0].clientX;
       endY = e.changedTouches[0].clientY;
       handleSwipe();
     });
     slider.addEventListener("mousedown", (e) => {
-      startX = e.clientX;
-      startY = e.clientY;
+       e.stopPropagation();
+       startX = e.clientX;
+       startY = e.clientY;
     });
     slider.addEventListener("mouseup", (e) => {
-      endX = e.clientX;
-      endY = e.clientY;
-      handleSwipe();
+       e.stopPropagation();
+       endX = e.clientX;
+       endY = e.clientY;
+       handleSwipe();
     });
 
     function handleSwipe() {
@@ -138,115 +149,16 @@ function goToSlide(slides, dots, idx) {
   dots.forEach((d, i) => d.classList.toggle("active", i === idx));
 }
 
-export function initializeModals() {
-  const modal = document.getElementById("image-modal");
-  const modalImg = document.getElementById("modal-img");
-  const closeBtn = document.querySelector(".close");
-  const arrowLeft = document.querySelector(".modal-arrow.left");
-  const arrowRight = document.querySelector(".modal-arrow.right");
-  let currentModalImages = [];
-  let currentModalIndex = 0;
-
-  document.querySelectorAll(".product-card").forEach((card) => {
-    const slides = card.querySelectorAll(".slide");
-    const imgs = [...card.querySelectorAll(".slide img")];
-    const slider = card.querySelector(".slider");
-
-    slider.addEventListener("click", () => {
-      currentModalImages = imgs.map((img) => img.src);
-      currentModalIndex = imgs.indexOf(card.querySelector(".slide.active img"));
-      modalImg.src = currentModalImages[currentModalIndex];
-      modal.style.display = "flex";
-    });
-  });
-
-  arrowLeft.addEventListener("click", () => {
-    currentModalIndex =
-      (currentModalIndex - 1 + currentModalImages.length) %
-      currentModalImages.length;
-    modalImg.src = currentModalImages[currentModalIndex];
-  });
-  arrowRight.addEventListener("click", () => {
-    currentModalIndex = (currentModalIndex + 1) % currentModalImages.length;
-    modalImg.src = currentModalImages[currentModalIndex];
-  });
-
-  closeBtn.addEventListener("click", () => (modal.style.display = "none"));
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) modal.style.display = "none";
-  });
-
-  let mStartX, mEndX;
-  modal.addEventListener("touchstart", (e) => {
-    mStartX = e.touches[0].clientX;
-  });
-  modal.addEventListener("touchend", (e) => {
-    mEndX = e.changedTouches[0].clientX;
-    if (Math.abs(mStartX - mEndX) < 30) return;
-    currentModalIndex =
-      mStartX - mEndX > 0
-        ? (currentModalIndex + 1) % currentModalImages.length
-        : (currentModalIndex - 1 + currentModalImages.length) %
-          currentModalImages.length;
-    modalImg.src = currentModalImages[currentModalIndex];
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (modal.style.display === "flex") {
-      if (e.key === "ArrowRight") arrowRight.click();
-      else if (e.key === "ArrowLeft") arrowLeft.click();
-      else if (e.key === "Escape") modal.style.display = "none";
-    }
-  });
-}
-
-import { addToCart } from "./cart.js";
-
-export function showAddToCartModal(product) {
-  const modal = document.getElementById("addToCartModal");
-  if (!modal) return;
-
-  modal.querySelector("#modal-product-img").src = product.image;
-  modal.querySelector("#modal-product-name").textContent = product.name;
-  modal.querySelector("#modal-product-color").textContent = product.color;
-  modal.querySelector("#modal-product-size").textContent = product.size;
-  modal.querySelector("#modal-product-price").textContent = `${product.price} €`;
-
-  modal.classList.remove("hidden");
-  modal.classList.add("visible");
-
-  modal.querySelector("#continue-shopping").addEventListener("click", () => {
-    modal.classList.remove("visible");
-    modal.classList.add("closing");
-
-    setTimeout(() => {
-      modal.classList.remove("closing");
-    }, 200);
-  });
-
-  modal.querySelector("#modal-to-cart").addEventListener("click", () => {
-    window.location.href = "cart.html";
-  });
-
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.classList.remove("visible");
-      modal.classList.add("closing");
-    
-      setTimeout(() => {
-        modal.classList.remove("closing");
-      }, 200);
-    }
-  });
-}
-
 export function initializeBuyButtons() {
   document.querySelectorAll(".buy-button").forEach((btn) => {
  
     const newBtn = btn.cloneNode(true);
-    btn.replaceWith(newBtn);
+    btn.parentNode.replaceChild(newBtn, btn);
 
-    newBtn.addEventListener("click", () => {
+    newBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
       const card = newBtn.closest(".product-card");
       const id = parseInt(newBtn.dataset.id, 10);
 
@@ -287,14 +199,18 @@ export function initializeOptionSelection(card) {
   const sizeButtons = card.querySelectorAll(".size-option");
 
   colorButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       colorButtons.forEach((b) => b.classList.remove("selected"));
       btn.classList.add("selected");
     });
   });
 
   sizeButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       sizeButtons.forEach((b) => b.classList.remove("selected"));
       btn.classList.add("selected");
     });

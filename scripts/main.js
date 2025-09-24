@@ -4,8 +4,9 @@ import './about.js';
 import './contactForm.js';
 import './cart.js';
 import './cartPage.js';
-import './collection.js';
+import './collectionPage.js';
 import './checkoutPage.js';
+import './productPage.js';
 
 window.addEventListener('DOMContentLoaded', (event) => {
 

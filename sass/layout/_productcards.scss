@@ -333,7 +333,7 @@
   z-index: 9999;
   top: 0;
   left: 0;
-  background: transparentize($color-primary-light, 0.5);
+  background: $color-primary-transparent;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -367,7 +367,8 @@
     margin: 0 auto;
     border-radius: $border-radius;
     width: 100%;
-    max-width: 1200px;
+    max-width: 640px;
+;
 
 
     h2 {
@@ -408,23 +409,20 @@
 
 .modal-buttons {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  gap: $spacing-md;
+  margin-top: $spacing-lg;
 
   #continue-shopping {
-    background-color: $color-primary-light;
-    flex: 1;
+    background-color: $color-primary;
     line-height: 1.1;
-    margin: $spacing-xl 0 0 0;
   }
 
   #continue-shopping:hover {
-    background-color: $color-primary;
+    background-color: $color-primary-light;
   }
 
   #modal-to-cart {
-    margin: $spacing-xl 0 0 0;
-    flex: 3;
     line-height: 1.1;
 
   }

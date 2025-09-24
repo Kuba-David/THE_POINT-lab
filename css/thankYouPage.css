@@ -1,0 +1,21 @@
+.thank-you-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 600px;
+}
+
+.thank-you-container-h1 {
+  font-family: "Tanker-Regular", sans-serif;
+  font-weight: normal;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.thank-you-container-p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}

@@ -103,7 +103,6 @@ if (backToCollectionBtn) {
 const checkoutButton = document.getElementById('checkout-button');
 if (checkoutButton) {
     checkoutButton.addEventListener('click', () => {
-        // Change: Redirect to the new checkout page
         window.location.href = 'checkout.html';
     });
 }

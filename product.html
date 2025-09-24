@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE POINT | cart</title>
+    <title>THE POINT | lab</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="cartPage">
+<body>
     <header  id="home">
         <a class="logo" href="index.html#home"><img class="logo" src="images/THEPOINT_LOGO.svg"></a>
         <nav>
@@ -28,22 +28,46 @@
             <span></span>
             <span></span>
         </div>
-
+        <div id="floating-cart" class="floating-cart hidden">
+            <a href="cart.html" class="cart-link" aria-label="Cart">
+            <svg class="nav-icon"><use href="./icons.svg#cart"></use></svg>
+            <span class="floating-badge" id="floating-cart-badge">0</span>
+            </a>
+        </div>
     </header>
-    
-    <main class="cartMain">
-        <section class="cartBg">
-            <h2>YOU ARE MAKING YOUR POINT<span class="cartPoint">.</span></h2>
-            <div id="cart-container"></div>
-            <div id="cart-summary">
-            <span>Total <strong id="cart-total">0 €</strong></span>
-            <div class="cart-buttons">
-                <button id="checkout-button">Checkout</button>
-                <button id="back-button">Keep exploring</button>
+
+    <main class="product-page-main">
+        <section class="product-gallery">
+            <div id="main-product-image" class="main-image">
+                <!-- Main image will be loaded here by JS -->
+            </div>
+            <div id="product-gallery-thumbnails" class="thumbnails">
+                <!-- Thumbnails will be loaded here by JS -->
             </div>
         </section>
+        <section id="product-details-content" class="product-details">
+            <!-- Product details (title, price, options etc.) will be loaded here by JS -->
+        </section>
     </main>
-                
+
+    <div id="addToCartModal" class="addToCartModal hidden">
+        <div class="modal-content">
+            <h2>YOU'VE JUST MADE A&nbsp;POINT<span class="modal-point">.</span></h2>
+            <div class="modal-product">
+                <img id="modal-product-img" src="" alt="Product">
+                <div class="modal-product-details">
+                    <h4 id="modal-product-name"></h4>
+                    <p><span id="modal-product-color"></span> / <span id="modal-product-size"></span></p>
+                    <p id="modal-product-price"></p>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button id="continue-shopping">Keep exploring</button>
+                <button id="modal-to-cart" class="modal-to-cart">Take me to the cart</button>
+            </div>
+        </div>
+    </div>
+    
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
@@ -63,3 +87,4 @@
     <script type="module" src="scripts/main.js"></script>
 </body>
 </html>
+

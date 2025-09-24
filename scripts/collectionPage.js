@@ -1,7 +1,6 @@
 import {
   createProductCard,
   initializeSliders,
-  initializeModals,
   initializeBuyButtons,
   initializeOptionSelection
 } from './productCard.js';
@@ -40,16 +39,14 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       initializeSliders();
-      initializeModals();
       initializeBuyButtons();
 
       if (spinner) spinner.classList.add('hidden');
       if (wrapper) wrapper.classList.remove('collections-hidden');
     })
     .catch(err => {
-      console.error('Chyba při načítání db pro kolekce:', err);
+      console.error('Error loading db.json for collections:', err);
       if (spinner) spinner.classList.add('hidden');
       if (wrapper) wrapper.classList.remove('collections-hidden');
     });
 });
-
