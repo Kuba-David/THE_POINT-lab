@@ -4,6 +4,7 @@ $color-primary-light: #333333;
 $color-primary-dark: #212121;
 $color-primary-transparent: transparentize($color-primary-dark, 0.5);
 $color-background-modal: transparentize($color-primary-dark, 0.01);
+$color-secondary-light: #ffffff;
 $color-secondary: #ECECEC;
 $color-secondary-dark: #aeaeae;
 $color-accent: #D41116;
@@ -44,6 +45,7 @@ $breakpoint-lg: 1200px;
 // === OTHER ===
 $circle-size-small: 10px;
 $circle-size: 18px;
+$circle-size-large: 28px;
 $border-radius: 20px;
 $border-radius-button: 10px;
 $margin-section: 0px 16px 50px 16px;

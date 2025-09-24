@@ -33,9 +33,10 @@
     }
 
     .cartPoint {
-        font-size: $font-size-xxlarge;
+        font-family: "Sentinel", serif;
+        font-weight: bold;
+        font-size: 3.5rem;
         color: $color-accent;
-        line-height: 0.2;
     }
 }
 
@@ -49,7 +50,8 @@
     .cart-empty {
         font-size: $font-size-large;
         color: $color-secondary-dark;
-        margin-bottom: $spacing-xl;
+        margin-bottom: $spacing-lg;
+        margin-top: $spacing-md;
     }
 
 .cart-item {
@@ -164,5 +166,15 @@
 
     #checkout-button {
         line-height: 1.1;
+
+        &:disabled {
+            background-color: $color-primary;
+            color: $color-secondary-dark;
+            cursor: auto;
+
+            &:hover {
+                background-color: $color-primary; // Prevent hover effect
+            }
+        }
     }
 }

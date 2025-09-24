@@ -18,11 +18,19 @@
   font-weight: normal;
   letter-spacing: $letter-spacing-tanker;
   font-size: 3rem;
-  margin-bottom: 1rem;
+  margin: $spacing-lg 0 $spacing-lg 0;
 }
 
 .thank-you-container-p {
+  color: $color-secondary-dark;
   font-size: 1.2rem;
   line-height: 1.6;
   margin-bottom: 0;
+}
+
+.thanksPoint {
+  font-family: "Sentinel", serif;
+  font-weight: bold;
+  font-size: 3.5rem;
+  color: $color-accent;
 }

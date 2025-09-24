@@ -1,20 +1,24 @@
 import { getCart, saveCart, updateBadge } from './cart.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Check if we are on the cart page
-    if (!document.body.classList.contains('cartPage')) {
-        return;
-    }
+  const container = document.getElementById('cart-container');
+  const totalEl = document.getElementById('cart-total');
+  const checkoutBtn = document.getElementById('checkout-button');
+  const backToCollectionBtn = document.getElementById('back-button');
+  const summarySpan = totalEl ? totalEl.parentElement : null;
 
-    const container = document.getElementById('cart-container');
-    const totalEl = document.getElementById('cart-total');
-    if (!container || !totalEl) return;
+  if (!container || !totalEl || !checkoutBtn || !summarySpan) {
+    console.error("One or more cart elements are missing from the page.");
+    return;
+  }
 
-    function renderCartItem(item, container) {
-        const el = document.createElement('div');
-        el.className = 'cart-item';
-        el.innerHTML = `
-      <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+  function renderCartItem(item, container) {
+    const el = document.createElement('div');
+    el.className = 'cart-item';
+    el.innerHTML = `
+      <div class="cart-item-img">
+        <img src="${item.image}" alt="${item.name}">
+      </div>
       <div class="cart-item-info">
         <h4>${item.name}</h4>
         <p class="cart-item-options">
@@ -22,87 +26,73 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="tag">${item.size}</span>
         </p>
         <p class="cart-item-paragraph">${item.price} € × 
-          <button class="qty-decrease">−</button>
+          <button class="qty-decrease" aria-label="Decrease quantity">−</button>
           <span class="qty">${item.quantity}</span>
-          <button class="qty-increase">+</button>
+          <button class="qty-increase" aria-label="Increase quantity">+</button>
         </p>
         <button class="remove-item">Remove</button>
       </div>
     `;
 
-        el.querySelector('.qty-decrease').addEventListener('click', () => {
-            updateQty(item, item.quantity - 1);
-        });
+    el.querySelector('.qty-decrease').addEventListener('click', () => updateQty(item, item.quantity - 1));
+    el.querySelector('.qty-increase').addEventListener('click', () => updateQty(item, item.quantity + 1));
+    el.querySelector('.remove-item').addEventListener('click', () => updateQty(item, 0));
 
-        el.querySelector('.qty-increase').addEventListener('click', () => {
-            updateQty(item, item.quantity + 1);
-        });
+    container.appendChild(el);
+  }
 
-        el.querySelector('.remove-item').addEventListener('click', () => {
-            updateQty(item, 0);
-        });
-
-        container.appendChild(el);
+  function updateQty(targetItem, newQty) {
+    let cart = getCart();
+    if (newQty <= 0) {
+      cart = cart.filter(item =>
+        !(item.id === targetItem.id && item.color === targetItem.color && item.size === targetItem.size)
+      );
+    } else {
+      cart = cart.map(item =>
+        (item.id === targetItem.id && item.color === targetItem.color && item.size === targetItem.size)
+          ? { ...item, quantity: newQty }
+          : item
+      );
     }
-
-    function updateQty(targetItem, newQty) {
-        let cart = getCart();
-        if (newQty <= 0) {
-            cart = cart.filter(item =>
-                !(item.id === targetItem.id &&
-                    item.color === targetItem.color &&
-                    item.size === targetItem.size)
-            );
-        } else {
-            cart = cart.map(item =>
-            (item.id === targetItem.id &&
-                item.color === targetItem.color &&
-                item.size === targetItem.size)
-                ? { ...item, quantity: newQty }
-                : item
-            );
-        }
-
-        saveCart(cart);
-        updateBadge();
-        renderCart();
-    }
-
-    function renderCart() {
-        const cart = getCart();
-        const container = document.getElementById('cart-container');
-        container.innerHTML = '';
-
-        if (cart.length === 0) {
-            container.innerHTML = '<p class="cart-empty">No point at all. 😭</p>';
-            document.getElementById('cart-total').textContent = '0 €';
-            updateBadge();
-            return;
-        }
-
-        let sum = 0;
-        cart.forEach(item => {
-            renderCartItem(item, container);
-            sum += item.price * item.quantity;
-        });
-
-        document.getElementById('cart-total').textContent = `${sum.toFixed(2)} €`;
-        updateBadge();
-    }
-
+    saveCart(cart);
     renderCart();
+  }
+
+  function renderCart() {
+    const cart = getCart();
+    container.innerHTML = '';
+
+    if (cart.length === 0) {
+      container.innerHTML = '<p class="cart-empty">No point at all. 😭</p>';
+      summarySpan.style.display = 'none'; // Hide total
+      checkoutBtn.disabled = true; // Disable checkout button
+    } else {
+      summarySpan.style.display = 'block'; // Show total
+      checkoutBtn.disabled = false; // Enable checkout button
+      let sum = 0;
+      cart.forEach(item => {
+        renderCartItem(item, container);
+        sum += item.price * item.quantity;
+      });
+      totalEl.textContent = `${sum} €`;
+    }
+    updateBadge();
+  }
+
+  // Initial Render
+  renderCart();
+
+  // Button Event Listeners
+  if (backToCollectionBtn) {
+    backToCollectionBtn.addEventListener('click', () => {
+      window.location.href = 'collections.html';
+    });
+  }
+  
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener('click', () => {
+      window.location.href = 'checkout.html';
+    });
+  }
 });
 
-const backToCollectionBtn = document.getElementById('back-button');
-if (backToCollectionBtn) {
-    backToCollectionBtn.addEventListener('click', () => {
-        window.location.href = 'collections.html';
-    });
-}
-
-const checkoutButton = document.getElementById('checkout-button');
-if (checkoutButton) {
-    checkoutButton.addEventListener('click', () => {
-        window.location.href = 'checkout.html';
-    });
-}
