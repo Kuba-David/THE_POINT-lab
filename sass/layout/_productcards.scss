@@ -150,6 +150,12 @@
   font-weight: $font-weight-normal;
   line-height: $line-height-base;
   color: $color-primary-light;
+  width: 80%;
+  margin: 0; // Vynulujeme defaultní margin odstavce
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 .product-options {

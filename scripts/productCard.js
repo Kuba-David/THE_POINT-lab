@@ -73,9 +73,11 @@ export function createProductCard(p) {
     </a>
     <div class="product-info">
       <div class="product-price">${p.price} €</div>
+      
       <a href="product.html?id=${p.id}" class="product-link">
         <div class="product-title">${p.name}</div>
       </a>
+
       <div class="product-description"><p>${p.description}</p></div>
 
       <div class="product-options">

@@ -50,12 +50,13 @@ nav ul li a:focus {
     width: 24px;
     height: 24px;
     fill: $color-secondary;
+    transform: translate(-1px, 0);
   }
   .cart-badge {
     display: none;
     position: absolute;
-    top: -6px;
-    right: -6px;
+    top: -7px;
+    right: -7px;
     background: $color-accent;
     color: $color-secondary;
     border-radius: 50%;
@@ -181,7 +182,7 @@ nav ul li a:focus {
 .floating-cart {
   position: fixed;
   top: 20px;
-  right: 18px;
+  right: 16px;
   width: 50px;
   height: 50px;
   display: flex;
@@ -192,7 +193,7 @@ nav ul li a:focus {
   z-index: 5000;
   opacity: 1;
   transition: opacity 0.2s ease;
-
+  
   // --- NEW STYLES START ---
   // Make the link fill the entire circle
   .cart-link {
