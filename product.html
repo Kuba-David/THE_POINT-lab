@@ -6,7 +6,7 @@
     <title>THE POINT | lab</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="product-page">
     <header  id="home">
         <a class="logo" href="index.html#home"><img class="logo" src="images/THEPOINT_LOGO.svg"></a>
         <nav>
@@ -37,17 +37,10 @@
     </header>
 
     <main class="product-page-main">
-        <section class="product-gallery">
-            <div id="main-product-image" class="main-image">
-                <!-- Main image will be loaded here by JS -->
-            </div>
-            <div id="product-gallery-thumbnails" class="thumbnails">
-                <!-- Thumbnails will be loaded here by JS -->
-            </div>
-        </section>
-        <section id="product-details-content" class="product-details">
-            <!-- Product details (title, price, options etc.) will be loaded here by JS -->
-        </section>
+        <!-- Initially, only the spinner is here. Content is injected by JS. -->
+        <div class="spinner-container-fullpage" id="product-page-spinner">
+            <div class="spinner"></div>
+        </div>
     </main>
 
     <div id="addToCartModal" class="addToCartModal hidden">
@@ -62,8 +55,8 @@
                 </div>
             </div>
             <div class="modal-buttons">
-                <button id="continue-shopping">Keep exploring</button>
                 <button id="modal-to-cart" class="modal-to-cart">Take me to the cart</button>
+                <button id="continue-shopping">Keep exploring</button>
             </div>
         </div>
     </div>
@@ -80,7 +73,7 @@
     <div class="moving-point-wrapper">
         <?xml version="1.0" encoding="UTF-8"?>
         <svg id="Vrstva_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36.67 36.67">
-            <path d="M16.93,0c7.65,0,16.31,3.84,19.18,11.64,1.33,3.62-.05,10.11-.87,13.15-1.91,6.07-9.02,11.12-16.4,11.88h-1.36c-1.91,0-4.1-.51-6.01-1.01C3.55,33.13,0,27.06,0,20.23c0-5.06,1.91-10.37,5.74-14.41C8.47,2.78,12.02.25,16.12,0h.82Z"/>
+            <path d="M16.93,0c7.65,0,16.31,3.84,19.18,11.64,1.33,3.62-.05,10.11-.87,13.15-1.91,6.07-9.02,11.12-16.4,11.88h-1.36c-1.91,0-4.1-.51-6.01-1.01C3.55,33.13,0,27.06,0,20.23c0-5.06,1.91-10.37,5.74-14.41C8.47,2.78,12.02,.25,16.12,0h.82Z"/>
         </svg>
     </div>
 

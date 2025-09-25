@@ -1,5 +1,5 @@
 header {
-    padding: $spacing-lg;
+    padding: 20px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,7 +35,6 @@ nav ul li a {
     font-family: $font-header;
     font-size: $font-size-base;
     letter-spacing: $letter-spacing-tanker;
-    font-weight: $font-weight-normal;
     color: $color-secondary;
     text-align: center;
     align-content: center;
@@ -116,7 +115,7 @@ nav ul li a:focus {
     list-style: none;
     padding: 0;
     margin: 0 auto;
-    background-color: $color-background-modal;
+    background-color: transparentize($color-primary-dark, 0.02);
     z-index: 9000;
 
     ul {
@@ -158,7 +157,7 @@ nav ul li a:focus {
     list-style: none;
     padding: 0;
     margin: 0 auto;
-    background-color: transparentize($color-primary-dark, 0.01);
+    background-color: transparentize($color-primary-dark, 0.02);
     z-index: 9000;
 
     ul {
@@ -181,8 +180,8 @@ nav ul li a:focus {
 
 .floating-cart {
   position: fixed;
-  top: $spacing-lg;
-  right: 20px;
+  top: 20px;
+  right: 18px;
   width: 50px;
   height: 50px;
   display: flex;
@@ -193,6 +192,18 @@ nav ul li a:focus {
   z-index: 5000;
   opacity: 1;
   transition: opacity 0.2s ease;
+
+  // --- NEW STYLES START ---
+  // Make the link fill the entire circle
+  .cart-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; // ensure the link itself is also a circle
+  }
+  // --- NEW STYLES END ---
 
   &.hidden {
     opacity: 0;

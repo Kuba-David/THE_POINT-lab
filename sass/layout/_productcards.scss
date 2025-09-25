@@ -200,7 +200,7 @@
     padding: $spacing-sm;
 
     &.selected {
-      outline: 3px solid $color-primary-dark;
+      outline: 3px solid $color-accent;
       outline-offset: 1px;
       background-color: $color-primary;
       color: $color-secondary;
@@ -228,7 +228,7 @@
     padding: $spacing-sm;
 
     &.selected {
-      outline: 3px solid $color-primary-dark;
+      outline: 3px solid $color-accent;
       outline-offset: 1px;
     }
   }

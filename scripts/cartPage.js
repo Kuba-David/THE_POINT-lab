@@ -2,13 +2,19 @@ import { getCart, saveCart, updateBadge } from './cart.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.getElementById('cart-container');
+  // If this container doesn't exist, we're not on the cart page, so do nothing.
+  if (!container) {
+    return;
+  }
+
   const totalEl = document.getElementById('cart-total');
   const checkoutBtn = document.getElementById('checkout-button');
   const backToCollectionBtn = document.getElementById('back-button');
   const summarySpan = totalEl ? totalEl.parentElement : null;
 
-  if (!container || !totalEl || !checkoutBtn || !summarySpan) {
-    console.error("One or more cart elements are missing from the page.");
+  // This check is now more of a safeguard in case of partial HTML.
+  if (!totalEl || !checkoutBtn || !summarySpan) {
+    console.error("Some cart elements might be missing from the cart.html page.");
     return;
   }
 

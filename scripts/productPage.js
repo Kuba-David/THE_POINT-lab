@@ -2,8 +2,7 @@ import { showAddToCartModal, addToCart } from './cart.js';
 
 /**
  * Initializes the selection logic for color and size options within a given container.
- * This function is self-contained to avoid cross-script dependencies.
- * @param {HTMLElement} container The container element (e.g., product card or details section).
+ * @param {HTMLElement} container The container element.
  */
 function initializeOptionSelection(container) {
   const colorButtons = container.querySelectorAll(".color-dot");
@@ -11,7 +10,6 @@ function initializeOptionSelection(container) {
 
   colorButtons.forEach((btn) => {
     btn.addEventListener("click", (e) => {
-      // Prevent the click from bubbling up to the parent link
       e.preventDefault();
       e.stopPropagation();
       colorButtons.forEach((b) => b.classList.remove("selected"));
@@ -31,75 +29,65 @@ function initializeOptionSelection(container) {
 
 /**
  * Main function to initialize the product page.
- * It checks if we are on the product page by looking for a specific element.
  */
 function initializeProductPage() {
     const mainContainer = document.querySelector('.product-page-main');
-    // If this container doesn't exist, we're not on the product page, so do nothing.
-    if (!mainContainer) {
-        return;
+    const spinner = document.getElementById('product-page-spinner');
+
+    if (!mainContainer || !spinner) {
+        return; // Not on the product page
     }
 
     const params = new URLSearchParams(window.location.search);
     const productId = parseInt(params.get('id'), 10);
 
-    // If no valid ID is found in the URL, show an error.
     if (isNaN(productId)) {
-        console.error('Product ID is missing or invalid');
+        spinner.style.display = 'none';
         mainContainer.innerHTML = '<h2 class="product-not-found">Product not found.</h2>';
         return;
     }
 
-    // Fetch the product database
     fetch('db.json')
         .then(res => {
-            if (!res.ok) {
-                throw new Error(`HTTP error! status: ${res.status}`);
-            }
+            if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
             return res.json();
         })
         .then(data => {
             const product = data.products.find(p => p.id === productId); 
             
             if (product) {
-                displayProductDetails(product);
+                spinner.style.display = 'none';
+                displayProductDetails(product, mainContainer);
             } else {
-                console.error('Product not found with ID:', productId);
-                mainContainer.innerHTML = '<h2 class="product-not-found">Product not found.</h2>';
+                spinner.style.display = 'none';
+                mainContainer.innerHTML = `<h2 class="product-not-found">Product not found with ID: ${productId}</h2>`;
             }
         })
         .catch(err => {
             console.error("Error loading product data:", err);
-            mainContainer.innerHTML = '<h2>Error loading product details. Please try again later.</h2>';
+            spinner.style.display = 'none';
+            mainContainer.innerHTML = '<h2 class="product-not-found">Error loading product details. Please try again later.</h2>';
         });
 }
 
 /**
- * Renders the product details into the page's placeholder elements.
+ * Creates and renders the full product details into the main container.
  * @param {object} p The product object from the database.
+ * @param {HTMLElement} mainContainer The <main> element to inject content into.
  */
-function displayProductDetails(p) {
+function displayProductDetails(p, mainContainer) {
     document.title = `${p.name} | THE POINT`;
 
-    const mainImageContainer = document.getElementById('main-product-image');
-    const galleryContainer = document.getElementById('product-gallery-thumbnails');
-    const detailsContainer = document.getElementById('product-details-content');
+    const contentWrapper = document.createElement('div');
+    contentWrapper.className = 'product-content-wrapper';
 
-    // Check if all required containers exist
-    if (!mainImageContainer || !galleryContainer || !detailsContainer) {
-        console.error('One or more product page elements are missing from the HTML.');
-        return;
-    }
-    
-    // Render Main Image
-    mainImageContainer.innerHTML = `<img src="${p.images[0]}" alt="${p.name}">`;
-
-    // Render Gallery Thumbnails
-    galleryContainer.innerHTML = p.images.map((img, index) => `
-        <img src="${img}" alt="Thumbnail ${index + 1}" class="thumbnail ${index === 0 ? 'active' : ''}">
+    const mainImageHTML = `<img src="${p.images[0]}" alt="${p.name}">`;
+    const thumbnailsHTML = p.images.map((img, index) => `
+        <div class="thumbnail ${index === 0 ? 'active' : ''}">
+             <img src="${img}" alt="Thumbnail ${index + 1}">
+        </div>
     `).join('');
 
-    // Prepare Color and Size options HTML
     const colorOptions = p.colors.map(color => `
         <button class="color-dot" 
                 style="background-color: ${color.code}" 
@@ -115,62 +103,99 @@ function displayProductDetails(p) {
         </button>
     `).join("");
 
-    // Render Product Details
-    detailsContainer.innerHTML = `
-        <h2 class="product-page-title">${p.name}</h2>
-        <p class="product-page-description">${p.description}</p>
-        <div class="product-page-price">${p.price} €</div>
-        <div class="product-page-options">
-            <div class="option-group">
-                <span class="option-label">Colors:</span>
-                <div class="colors">${colorOptions}</div>
+    contentWrapper.innerHTML = `
+        <section class="product-image-section">
+            <div class="main-product-image">
+                ${mainImageHTML}
             </div>
-            <div class="option-group">
-                <span class="option-label">Sizes:</span>
-                <div class="sizes">${sizeOptions}</div>
+            <div class="product-gallery-thumbnails">
+                ${thumbnailsHTML}
             </div>
-        </div>
-        <section class="product-specifications">
-            <h4>Substance:</h4>
-            <p>Weight <strong>150g/m²</strong>. 100% Ringspun combed cotton.</p>
-            <p>2-layer collar with elastane. Shoulder-to-shoulder neck tape. Preshrunk. Double-stitched.</p>
-            <h4>Care:</h4>
-            <p>Wash at 30°. Iron inside out.<br>Or... just give it to your mom.</p>
         </section>
-        <button class="buy-button" id="product-page-buy-button">Make it real</button>
+        <section class="product-details-section">
+            <h2 class="product-page-title">${p.name}</h2>
+            <p class="product-page-description">${p.description}</p>
+            <div class="product-page-options">
+                <div class="option-group">
+                    <span class="option-label">Colors:</span>
+                    <div class="colors">${colorOptions}</div>
+                </div>
+                <div class="option-group">
+                    <span class="option-label">Sizes:</span>
+                    <div class="sizes">${sizeOptions}</div>
+                </div>
+            </div>
+            <section class="product-specifications">
+                <div class="product-specifications-item">
+                    <h4>Substance:</h4>
+                    <p>Weight <strong>150g/m²</strong>. 100% Ringspun combed cotton.<br>2-layer collar with elastane. Shoulder-to-shoulder neck tape. Preshrunk. Double-stitched.</p>
+                </div>
+                <div class="product-specifications-item">
+                    <h4>Care:</h4>
+                    <p>Wash at 30°. Iron inside out.<br>Or... just give it to your mom.</p>
+                </div>
+            </section>
+            <div class="product-page-price">${p.price} €</div>
+            <button class="buy-button" id="product-page-buy-button">Make it real</button>
+        </section>
     `;
 
-    // Activate all interactive elements now that they exist in the DOM
-    setupProductPageInteractivity(p);
+    mainContainer.appendChild(contentWrapper);
+    setupProductPageInteractivity(p, contentWrapper);
 }
 
 /**
  * Adds event listeners to the dynamically created product page elements.
  * @param {object} product The product object.
+ * @param {HTMLElement} wrapper The .product-content-wrapper element.
  */
-function setupProductPageInteractivity(product) {
-    const mainImage = document.querySelector('#main-product-image img');
-    const thumbnails = document.querySelectorAll('.thumbnail');
+function setupProductPageInteractivity(product, wrapper) {
+    const mainImageContainer = wrapper.querySelector('.main-product-image');
+    const mainImage = mainImageContainer.querySelector('img');
+    const thumbnails = wrapper.querySelectorAll('.thumbnail');
+    const detailsSection = wrapper.querySelector('.product-details-section');
 
     // Gallery thumbnail clicks
     thumbnails.forEach(thumb => {
         thumb.addEventListener('click', () => {
-            mainImage.src = thumb.src;
+            mainImage.src = thumb.querySelector('img').src;
             thumbnails.forEach(t => t.classList.remove('active'));
             thumb.classList.add('active');
         });
     });
 
-    const optionsContainer = document.getElementById('product-details-content');
-    initializeOptionSelection(optionsContainer);
+    // --- NEW: Image Zoom Logic ---
+    mainImageContainer.addEventListener('mousemove', (e) => {
+        const rect = mainImageContainer.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const xPercent = (x / rect.width) * 100;
+        const yPercent = (y / rect.height) * 100;
+
+        mainImage.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+    });
+
+    mainImageContainer.addEventListener('mouseenter', () => {
+        mainImage.style.transform = 'scale(2)';
+    });
+
+    mainImageContainer.addEventListener('mouseleave', () => {
+        mainImage.style.transform = 'scale(1)';
+    });
+    // --- END: Image Zoom Logic ---
+
+
+    // Initialize color/size selection
+    initializeOptionSelection(detailsSection);
     
     // Add to cart button click
-    document.getElementById('product-page-buy-button').addEventListener('click', () => {
-        const selectedColor = optionsContainer.querySelector(".color-dot.selected")?.dataset.color;
-        const selectedSize = optionsContainer.querySelector(".size-option.selected")?.dataset.size;
+    detailsSection.querySelector('#product-page-buy-button').addEventListener('click', () => {
+        const selectedColor = detailsSection.querySelector(".color-dot.selected")?.dataset.color;
+        const selectedSize = detailsSection.querySelector(".size-option.selected")?.dataset.size;
         
         if (!selectedColor || !selectedSize) {
-            alert("Please select a color and size."); // Simple alert for now
+            alert("Please select a color and size."); // For now, simple feedback
             return;
         }
 
@@ -178,7 +203,7 @@ function setupProductPageInteractivity(product) {
             id: product.id,
             name: product.name,
             price: product.price,
-            image: product.images[0], // Always use the first image for the cart
+            image: product.images[0],
             color: selectedColor,
             size: selectedSize,
             quantity: 1,
