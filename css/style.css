@@ -305,7 +305,7 @@ nav ul li a:focus {
   border-radius: 20px;
   overflow: hidden;
   margin: 0 16px 0 16px;
-  background-image: url("../images/Kosmo_man_1.webp");
+  background-image: url("/images/Kosmo_man_1.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -425,7 +425,12 @@ h1 {
   border-radius: 20px;
   overflow: hidden;
   font-family: "Sentient-Variable", serif;
+  transform: scale(1);
   transition: all 0.3s ease-in-out;
+}
+.product-card:hover {
+  box-shadow: 0 0px 10px rgba(33, 33, 33, 0.6862745098);
+  transform: scale(1.02);
 }
 
 .product-image {

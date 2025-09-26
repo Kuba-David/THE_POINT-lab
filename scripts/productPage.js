@@ -164,27 +164,74 @@ function setupProductPageInteractivity(product, wrapper) {
         });
     });
 
-    // --- NEW: Image Zoom Logic ---
-    mainImageContainer.addEventListener('mousemove', (e) => {
-        const rect = mainImageContainer.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+    // --- REVISED: Image Zoom Logic for Desktop and Mobile ---
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-        const xPercent = (x / rect.width) * 100;
-        const yPercent = (y / rect.height) * 100;
+    if (mainImageContainer && mainImage) {
+        if (isTouchDevice) {
+            // --- Mobile: Pinch-to-zoom logic ---
+            let initialDistance = 0;
+            mainImageContainer.addEventListener('touchstart', (e) => {
+                if (e.touches.length === 2) {
+                    e.preventDefault();
+                    initialDistance = Math.hypot(
+                        e.touches[0].pageX - e.touches[1].pageX,
+                        e.touches[0].pageY - e.touches[1].pageY
+                    );
+                }
+            }, { passive: false });
 
-        mainImage.style.transformOrigin = `${xPercent}% ${yPercent}%`;
-    });
+            mainImageContainer.addEventListener('touchmove', (e) => {
+                if (e.touches.length === 2) {
+                    e.preventDefault();
+                    const newDistance = Math.hypot(
+                        e.touches[0].pageX - e.touches[1].pageX,
+                        e.touches[0].pageY - e.touches[1].pageY
+                    );
+                    const scale = newDistance / initialDistance;
+                    
+                    const rect = mainImageContainer.getBoundingClientRect();
+                    const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2 - rect.left;
+                    const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2 - rect.top;
 
-    mainImageContainer.addEventListener('mouseenter', () => {
-        mainImage.style.transform = 'scale(2)';
-    });
+                    mainImage.style.transformOrigin = `${midX}px ${midY}px`;
+                    mainImage.style.transform = `scale(${scale})`;
+                }
+            }, { passive: false });
 
-    mainImageContainer.addEventListener('mouseleave', () => {
-        mainImage.style.transform = 'scale(1)';
-    });
+            mainImageContainer.addEventListener('touchend', () => {
+                mainImage.style.transform = 'scale(1)';
+                mainImage.style.transformOrigin = 'center center';
+            });
+        } else {
+            // --- Desktop: Click-to-zoom logic ---
+            let isZoomed = false;
+            mainImageContainer.style.cursor = 'zoom-in';
+
+            mainImageContainer.addEventListener('mousemove', (e) => {
+                if (!isZoomed) return;
+                const rect = mainImageContainer.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const xPercent = (x / rect.width) * 100;
+                const yPercent = (y / rect.height) * 100;
+                mainImage.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+            });
+
+            mainImageContainer.addEventListener('click', () => {
+                isZoomed = !isZoomed;
+                if (isZoomed) {
+                    mainImage.style.transform = 'scale(2)';
+                    mainImageContainer.style.cursor = 'zoom-out';
+                } else {
+                    mainImage.style.transform = 'scale(1)';
+                    mainImage.style.transformOrigin = 'center center';
+                    mainImageContainer.style.cursor = 'zoom-in';
+                }
+            });
+        }
+    }
     // --- END: Image Zoom Logic ---
-
 
     // Initialize color/size selection
     initializeOptionSelection(detailsSection);

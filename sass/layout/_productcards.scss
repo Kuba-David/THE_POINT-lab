@@ -55,7 +55,13 @@
   border-radius: $border-radius;
   overflow: hidden;
   font-family: $font-base;
+  transform: scale(1);
   transition: $transition-default;
+
+  &:hover {
+    box-shadow: $box-shadow-default;
+    transform: scale(1.02);
+  }
 }
 
 .product-image {
