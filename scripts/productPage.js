@@ -188,7 +188,8 @@ function setupProductPageInteractivity(product, wrapper) {
                         e.touches[0].pageX - e.touches[1].pageX,
                         e.touches[0].pageY - e.touches[1].pageY
                     );
-                    const scale = newDistance / initialDistance;
+                    // The calculation is inverted to reverse the zoom direction
+                    const scale = initialDistance / newDistance;
                     
                     const rect = mainImageContainer.getBoundingClientRect();
                     const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2 - rect.left;

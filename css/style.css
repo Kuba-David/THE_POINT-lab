@@ -251,10 +251,10 @@ nav ul li a:focus {
 }
 .floating-cart {
   position: fixed;
-  top: 20px;
-  right: 16px;
-  width: 50px;
-  height: 50px;
+  top: 18px;
+  right: 14px;
+  width: 54px;
+  height: 54px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -279,8 +279,8 @@ nav ul li a:focus {
 .floating-cart .floating-badge {
   display: none;
   position: absolute;
-  top: 6px;
-  right: 6px;
+  top: 8px;
+  right: 9px;
   background: #D41116;
   color: #ECECEC;
   border-radius: 50%;
