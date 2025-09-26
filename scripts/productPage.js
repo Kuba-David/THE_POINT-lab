@@ -305,5 +305,3 @@ function setupProductPageInteractivity(product, wrapper) {
 
 // Run the initialization function when the DOM is fully loaded.
 document.addEventListener("DOMContentLoaded", initializeProductPage);
-
-git
