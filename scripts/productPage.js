@@ -170,12 +170,11 @@ function setupProductPageInteractivity(product, wrapper) {
     if (mainImageContainer && mainImage) {
         if (isTouchDevice) {
             // --- Mobile: Advanced pinch-to-zoom and pan ---
-            let scale = 1;
-            let panning = false;
-            let pointX = 0;
-            let pointY = 0;
+            let scale = 1, lastScale = 1;
+            let pointX = 0, pointY = 0;
             let start = { x: 0, y: 0 };
-            let lastDoubleTap = 0;
+            let panning = false;
+            let initialDistance = 0;
 
             function setTransform() {
                 mainImage.style.transform = `translate(${pointX}px, ${pointY}px) scale(${scale})`;
@@ -184,39 +183,41 @@ function setupProductPageInteractivity(product, wrapper) {
             mainImageContainer.addEventListener('touchstart', (e) => {
                 e.preventDefault();
                 const touches = e.touches;
-
-                // Double tap to zoom/reset
-                const now = new Date().getTime();
-                if (now - lastDoubleTap < 300) {
-                    if (scale > 1) {
-                       scale = 1; pointX = 0; pointY = 0;
-                    } else {
-                       scale = 2;
-                    }
-                    setTransform();
-                }
-                lastDoubleTap = now;
-
-
                 if (touches.length === 1) {
                     panning = true;
                     start.x = touches[0].clientX - pointX;
                     start.y = touches[0].clientY - pointY;
+                } else if (touches.length === 2) {
+                    panning = false; 
+                    initialDistance = Math.hypot(
+                        touches[0].pageX - touches[1].pageX,
+                        touches[0].pageY - touches[1].pageY
+                    );
                 }
             }, { passive: false });
 
             mainImageContainer.addEventListener('touchmove', (e) => {
                 e.preventDefault();
-                if (!panning || e.touches.length !== 1) return;
-                
-                pointX = e.touches[0].clientX - start.x;
-                pointY = e.touches[0].clientY - start.y;
-                
-                setTransform();
+                const touches = e.touches;
+
+                if (panning && touches.length === 1 && scale > 1) {
+                    pointX = touches[0].clientX - start.x;
+                    pointY = touches[0].clientY - start.y;
+                    setTransform();
+                } else if (touches.length === 2) {
+                    const newDistance = Math.hypot(
+                        touches[0].pageX - touches[1].pageX,
+                        touches[0].pageY - touches[1].pageY
+                    );
+                    const scaleRatio = newDistance / initialDistance;
+                    scale = Math.min(Math.max(1, lastScale * scaleRatio), 4); // Clamp scale between 1x and 4x
+                    setTransform();
+                }
             }, { passive: false });
 
-            mainImageContainer.addEventListener('touchend', (e) => {
+            mainImageContainer.addEventListener('touchend', () => {
                 panning = false;
+                lastScale = scale;
             });
 
         } else {
