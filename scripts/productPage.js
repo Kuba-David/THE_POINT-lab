@@ -155,27 +155,40 @@ function setupProductPageInteractivity(product, wrapper) {
     const thumbnails = wrapper.querySelectorAll('.thumbnail');
     const detailsSection = wrapper.querySelector('.product-details-section');
 
+    // --- REVISED: Image Zoom Logic for Desktop and Mobile ---
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+    // State variables for mobile zoom/pan
+    let scale = 1, lastScale = 1;
+    let pointX = 0, pointY = 0;
+    let start = { x: 0, y: 0 };
+    let panning = false;
+    let initialDistance = 0;
+    let lastDoubleTap = 0;
+
+    function resetZoom() {
+        scale = 1;
+        lastScale = 1;
+        pointX = 0;
+        pointY = 0;
+        setTransform();
+    }
+
     // Gallery thumbnail clicks
     thumbnails.forEach(thumb => {
         thumb.addEventListener('click', () => {
             mainImage.src = thumb.querySelector('img').src;
             thumbnails.forEach(t => t.classList.remove('active'));
             thumb.classList.add('active');
+            if (isTouchDevice) {
+                resetZoom();
+            }
         });
     });
-
-    // --- REVISED: Image Zoom Logic for Desktop and Mobile ---
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
     if (mainImageContainer && mainImage) {
         if (isTouchDevice) {
             // --- Mobile: Advanced pinch-to-zoom and pan ---
-            let scale = 1, lastScale = 1;
-            let pointX = 0, pointY = 0;
-            let start = { x: 0, y: 0 };
-            let panning = false;
-            let initialDistance = 0;
-
             function setTransform() {
                 mainImage.style.transform = `translate(${pointX}px, ${pointY}px) scale(${scale})`;
             }
@@ -183,6 +196,15 @@ function setupProductPageInteractivity(product, wrapper) {
             mainImageContainer.addEventListener('touchstart', (e) => {
                 e.preventDefault();
                 const touches = e.touches;
+
+                // Double tap to reset zoom
+                const now = new Date().getTime();
+                if (now - lastDoubleTap < 300) {
+                    resetZoom();
+                    return; // Prevent other actions on double tap
+                }
+                lastDoubleTap = now;
+
                 if (touches.length === 1) {
                     panning = true;
                     start.x = touches[0].clientX - pointX;
@@ -203,14 +225,23 @@ function setupProductPageInteractivity(product, wrapper) {
                 if (panning && touches.length === 1 && scale > 1) {
                     pointX = touches[0].clientX - start.x;
                     pointY = touches[0].clientY - start.y;
+
+                    // Constrain panning within boundaries
+                    const rect = mainImageContainer.getBoundingClientRect();
+                    const maxX = (rect.width * scale - rect.width) / 2;
+                    const maxY = (rect.height * scale - rect.height) / 2;
+                    pointX = Math.max(-maxX, Math.min(maxX, pointX));
+                    pointY = Math.max(-maxY, Math.min(maxY, pointY));
+
                     setTransform();
                 } else if (touches.length === 2) {
+                    panning = false;
                     const newDistance = Math.hypot(
                         touches[0].pageX - touches[1].pageX,
                         touches[0].pageY - touches[1].pageY
                     );
                     const scaleRatio = newDistance / initialDistance;
-                    scale = Math.min(Math.max(1, lastScale * scaleRatio), 4); // Clamp scale between 1x and 4x
+                    scale = Math.min(Math.max(1, lastScale * scaleRatio), 4); // Clamp scale
                     setTransform();
                 }
             }, { passive: false });
