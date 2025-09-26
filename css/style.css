@@ -132,7 +132,6 @@ nav ul li a:focus {
   width: 24px;
   height: 24px;
   fill: #ECECEC;
-  transform: translate(-1px, 0);
 }
 
 .cart-badge {

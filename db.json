@@ -9,7 +9,7 @@
         "images/SpacePIC/T-Shirt_MOCKUP_black_SS_zoom.webp",
         "images/Kosmo_man_1_1ku1.webp"
       ],
-      "description": "Do you remember the days when imagination knew no limits? When Saturn's rings had a swing?",
+      "description": "Do you remember when imagination knew no boundaries and the universe was one giant playground? Deep down, that feeling is still there, quiet and patient. This design is for those moments when we allow ourselves to pause, swing on Saturn's rings, and just be. Because even as adults, it's important not to forget to look up.",
       "sizes": ["S","M","L","XL"],
       "colors": [
         { "name": "White", "code": "#ffffff" },
@@ -89,7 +89,7 @@
     },
     {
       "id": 6,
-      "name": "Cosmic Spin",
+      "name": "Cosmic Groove",
       "price": 30,
       "images": [
         "images/SpacePIC/T-Shirt_MOCKUP_black_SO.webp",
