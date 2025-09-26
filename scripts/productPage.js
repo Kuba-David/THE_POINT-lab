@@ -159,6 +159,8 @@ function setupProductPageInteractivity(product, wrapper) {
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     
     // State variables for mobile zoom/pan
+    const MIN_SCALE = 1;
+    const MAX_SCALE = 4;
     let scale = 1, lastScale = 1;
     let pointX = 0, pointY = 0;
     let start = { x: 0, y: 0 };
@@ -194,11 +196,17 @@ function setupProductPageInteractivity(product, wrapper) {
             }
 
             mainImageContainer.addEventListener('touchstart', (e) => {
-                e.preventDefault();
                 const touches = e.touches;
+                const targetIsImage = e.target === mainImage;
 
-                // Double tap to reset zoom
+                // Double tap to reset zoom (threshold increased for accessibility)
+                const DOUBLE_TAP_THRESHOLD = 400;
                 const now = new Date().getTime();
+                if (now - lastDoubleTap < DOUBLE_TAP_THRESHOLD) {
+                    resetZoom();
+                    return; // Prevent other actions on double tap
+                }
+                lastDoubleTap = now;
                 if (now - lastDoubleTap < 300) {
                     resetZoom();
                     return; // Prevent other actions on double tap
@@ -232,16 +240,14 @@ function setupProductPageInteractivity(product, wrapper) {
                     const maxY = (rect.height * scale - rect.height) / 2;
                     pointX = Math.max(-maxX, Math.min(maxX, pointX));
                     pointY = Math.max(-maxY, Math.min(maxY, pointY));
-
                     setTransform();
                 } else if (touches.length === 2) {
-                    panning = false;
                     const newDistance = Math.hypot(
                         touches[0].pageX - touches[1].pageX,
                         touches[0].pageY - touches[1].pageY
                     );
                     const scaleRatio = newDistance / initialDistance;
-                    scale = Math.min(Math.max(1, lastScale * scaleRatio), 4); // Clamp scale
+                    scale = Math.min(Math.max(MIN_SCALE, lastScale * scaleRatio), MAX_SCALE);
                     setTransform();
                 }
             }, { passive: false });
@@ -249,21 +255,6 @@ function setupProductPageInteractivity(product, wrapper) {
             mainImageContainer.addEventListener('touchend', () => {
                 panning = false;
                 lastScale = scale;
-            });
-
-        } else {
-            // --- Desktop: Click-to-zoom logic ---
-            let isZoomed = false;
-            mainImageContainer.style.cursor = 'zoom-in';
-
-            mainImageContainer.addEventListener('mousemove', (e) => {
-                if (!isZoomed) return;
-                const rect = mainImageContainer.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const xPercent = (x / rect.width) * 100;
-                const yPercent = (y / rect.height) * 100;
-                mainImage.style.transformOrigin = `${xPercent}% ${yPercent}%`;
             });
 
             mainImageContainer.addEventListener('click', () => {
