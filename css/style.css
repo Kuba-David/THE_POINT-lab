@@ -305,7 +305,7 @@ nav ul li a:focus {
   border-radius: 20px;
   overflow: hidden;
   margin: 0 16px 0 16px;
-  background-image: url("/images/Kosmo_man_1.webp");
+  background-image: url("../images/Kosmo_man_1.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -715,7 +715,7 @@ h1 {
   z-index: 9999;
   top: 0;
   left: 0;
-  background: rgba(33, 33, 33, 0.5);
+  background: rgba(33, 33, 33, 0.6);
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -890,7 +890,7 @@ h1 {
 }
 
 .form-container {
-  background: rgba(33, 33, 33, 0.5);
+  background: rgba(33, 33, 33, 0.6);
   padding: 16px;
   border-radius: 20px;
   width: 100%;
@@ -1354,7 +1354,7 @@ section + section .collection-inner {
 }
 
 .cartBg {
-  background-color: rgba(33, 33, 33, 0.5);
+  background-color: rgba(33, 33, 33, 0.6);
   padding: 16px;
   margin: 0 auto;
   border-radius: 20px;
@@ -1544,7 +1544,7 @@ section + section .collection-inner {
 
 .order-summary {
   width: 40%;
-  background-color: rgba(33, 33, 33, 0.5);
+  background-color: rgba(33, 33, 33, 0.6);
   padding: 32px;
   border-radius: 20px;
   height: -moz-fit-content;
@@ -1623,7 +1623,7 @@ section + section .collection-inner {
 
 .step-content {
   display: none;
-  background-color: rgba(33, 33, 33, 0.5);
+  background-color: rgba(33, 33, 33, 0.6);
   padding: 16px;
   border-radius: 20px;
 }
@@ -1827,7 +1827,7 @@ h2 {
   max-width: 600px;
   margin: auto;
   padding: 16px;
-  background-color: rgba(33, 33, 33, 0.5);
+  background-color: rgba(33, 33, 33, 0.6);
   border-radius: 20px;
 }
 
@@ -1954,7 +1954,7 @@ h2 {
   flex-direction: column;
   color: #ECECEC;
   padding: 16px;
-  background-color: #212121;
+  background-color: rgba(33, 33, 33, 0.6);
   border-radius: 20px;
   gap: 16px;
 }
