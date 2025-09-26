@@ -169,41 +169,56 @@ function setupProductPageInteractivity(product, wrapper) {
 
     if (mainImageContainer && mainImage) {
         if (isTouchDevice) {
-            // --- Mobile: Pinch-to-zoom logic ---
-            let initialDistance = 0;
+            // --- Mobile: Advanced pinch-to-zoom and pan ---
+            let scale = 1;
+            let panning = false;
+            let pointX = 0;
+            let pointY = 0;
+            let start = { x: 0, y: 0 };
+            let lastDoubleTap = 0;
+
+            function setTransform() {
+                mainImage.style.transform = `translate(${pointX}px, ${pointY}px) scale(${scale})`;
+            }
+
             mainImageContainer.addEventListener('touchstart', (e) => {
-                if (e.touches.length === 2) {
-                    e.preventDefault();
-                    initialDistance = Math.hypot(
-                        e.touches[0].pageX - e.touches[1].pageX,
-                        e.touches[0].pageY - e.touches[1].pageY
-                    );
+                e.preventDefault();
+                const touches = e.touches;
+
+                // Double tap to zoom/reset
+                const now = new Date().getTime();
+                if (now - lastDoubleTap < 300) {
+                    if (scale > 1) {
+                       scale = 1; pointX = 0; pointY = 0;
+                    } else {
+                       scale = 2;
+                    }
+                    setTransform();
+                }
+                lastDoubleTap = now;
+
+
+                if (touches.length === 1) {
+                    panning = true;
+                    start.x = touches[0].clientX - pointX;
+                    start.y = touches[0].clientY - pointY;
                 }
             }, { passive: false });
 
             mainImageContainer.addEventListener('touchmove', (e) => {
-                if (e.touches.length === 2) {
-                    e.preventDefault();
-                    const newDistance = Math.hypot(
-                        e.touches[0].pageX - e.touches[1].pageX,
-                        e.touches[0].pageY - e.touches[1].pageY
-                    );
-                    // The calculation is inverted to reverse the zoom direction
-                    const scale = initialDistance / newDistance;
-                    
-                    const rect = mainImageContainer.getBoundingClientRect();
-                    const midX = (e.touches[0].clientX + e.touches[1].clientX) / 2 - rect.left;
-                    const midY = (e.touches[0].clientY + e.touches[1].clientY) / 2 - rect.top;
-
-                    mainImage.style.transformOrigin = `${midX}px ${midY}px`;
-                    mainImage.style.transform = `scale(${scale})`;
-                }
+                e.preventDefault();
+                if (!panning || e.touches.length !== 1) return;
+                
+                pointX = e.touches[0].clientX - start.x;
+                pointY = e.touches[0].clientY - start.y;
+                
+                setTransform();
             }, { passive: false });
 
-            mainImageContainer.addEventListener('touchend', () => {
-                mainImage.style.transform = 'scale(1)';
-                mainImage.style.transformOrigin = 'center center';
+            mainImageContainer.addEventListener('touchend', (e) => {
+                panning = false;
             });
+
         } else {
             // --- Desktop: Click-to-zoom logic ---
             let isZoomed = false;
