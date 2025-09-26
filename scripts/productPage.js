@@ -155,18 +155,25 @@ function setupProductPageInteractivity(product, wrapper) {
     const thumbnails = wrapper.querySelectorAll('.thumbnail');
     const detailsSection = wrapper.querySelector('.product-details-section');
 
-    // --- REVISED: Image Zoom Logic for Desktop and Mobile ---
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     
-    // State variables for mobile zoom/pan
-    const MIN_SCALE = 1;
-    const MAX_SCALE = 4;
     let scale = 1, lastScale = 1;
     let pointX = 0, pointY = 0;
     let start = { x: 0, y: 0 };
     let panning = false;
     let initialDistance = 0;
-    let lastDoubleTap = 0;
+    let lastTap = 0;
+
+    function setTransform() {
+        const rect = mainImageContainer.getBoundingClientRect();
+        const maxX = Math.max(0, (mainImage.offsetWidth * scale - rect.width) / 2);
+        const maxY = Math.max(0, (mainImage.offsetHeight * scale - rect.height) / 2);
+
+        pointX = Math.max(-maxX, Math.min(maxX, pointX));
+        pointY = Math.max(-maxY, Math.min(maxY, pointY));
+        
+        mainImage.style.transform = `translate(${pointX}px, ${pointY}px) scale(${scale})`;
+    }
 
     function resetZoom() {
         scale = 1;
@@ -176,7 +183,6 @@ function setupProductPageInteractivity(product, wrapper) {
         setTransform();
     }
 
-    // Gallery thumbnail clicks
     thumbnails.forEach(thumb => {
         thumb.addEventListener('click', () => {
             mainImage.src = thumb.querySelector('img').src;
@@ -191,34 +197,23 @@ function setupProductPageInteractivity(product, wrapper) {
     if (mainImageContainer && mainImage) {
         if (isTouchDevice) {
             // --- Mobile: Advanced pinch-to-zoom and pan ---
-            function setTransform() {
-                mainImage.style.transform = `translate(${pointX}px, ${pointY}px) scale(${scale})`;
-            }
-
             mainImageContainer.addEventListener('touchstart', (e) => {
+                e.preventDefault();
                 const touches = e.touches;
-                const targetIsImage = e.target === mainImage;
-
-                // Double tap to reset zoom (threshold increased for accessibility)
-                const DOUBLE_TAP_THRESHOLD = 400;
+                
                 const now = new Date().getTime();
-                if (now - lastDoubleTap < DOUBLE_TAP_THRESHOLD) {
+                if (now - lastTap < 300 && touches.length === 1) {
                     resetZoom();
-                    return; // Prevent other actions on double tap
+                    return;
                 }
-                lastDoubleTap = now;
-                if (now - lastDoubleTap < 300) {
-                    resetZoom();
-                    return; // Prevent other actions on double tap
-                }
-                lastDoubleTap = now;
+                lastTap = now;
 
                 if (touches.length === 1) {
                     panning = true;
                     start.x = touches[0].clientX - pointX;
                     start.y = touches[0].clientY - pointY;
                 } else if (touches.length === 2) {
-                    panning = false; 
+                    panning = false;
                     initialDistance = Math.hypot(
                         touches[0].pageX - touches[1].pageX,
                         touches[0].pageY - touches[1].pageY
@@ -233,21 +228,15 @@ function setupProductPageInteractivity(product, wrapper) {
                 if (panning && touches.length === 1 && scale > 1) {
                     pointX = touches[0].clientX - start.x;
                     pointY = touches[0].clientY - start.y;
-
-                    // Constrain panning within boundaries
-                    const rect = mainImageContainer.getBoundingClientRect();
-                    const maxX = (rect.width * scale - rect.width) / 2;
-                    const maxY = (rect.height * scale - rect.height) / 2;
-                    pointX = Math.max(-maxX, Math.min(maxX, pointX));
-                    pointY = Math.max(-maxY, Math.min(maxY, pointY));
                     setTransform();
                 } else if (touches.length === 2) {
+                    panning = false;
                     const newDistance = Math.hypot(
                         touches[0].pageX - touches[1].pageX,
                         touches[0].pageY - touches[1].pageY
                     );
                     const scaleRatio = newDistance / initialDistance;
-                    scale = Math.min(Math.max(MIN_SCALE, lastScale * scaleRatio), MAX_SCALE);
+                    scale = Math.min(Math.max(1, lastScale * scaleRatio), 4);
                     setTransform();
                 }
             }, { passive: false });
@@ -255,6 +244,21 @@ function setupProductPageInteractivity(product, wrapper) {
             mainImageContainer.addEventListener('touchend', () => {
                 panning = false;
                 lastScale = scale;
+            });
+
+        } else {
+            // --- Desktop: Click-to-zoom logic ---
+            let isZoomed = false;
+            mainImageContainer.style.cursor = 'zoom-in';
+
+            mainImageContainer.addEventListener('mousemove', (e) => {
+                if (!isZoomed) return;
+                const rect = mainImageContainer.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const xPercent = (x / rect.width) * 100;
+                const yPercent = (y / rect.height) * 100;
+                mainImage.style.transformOrigin = `${xPercent}% ${yPercent}%`;
             });
 
             mainImageContainer.addEventListener('click', () => {
@@ -270,7 +274,6 @@ function setupProductPageInteractivity(product, wrapper) {
             });
         }
     }
-    // --- END: Image Zoom Logic ---
 
     // Initialize color/size selection
     initializeOptionSelection(detailsSection);
@@ -281,7 +284,7 @@ function setupProductPageInteractivity(product, wrapper) {
         const selectedSize = detailsSection.querySelector(".size-option.selected")?.dataset.size;
         
         if (!selectedColor || !selectedSize) {
-            alert("Please select a color and size."); // For now, simple feedback
+            alert("Please select a color and size.");
             return;
         }
 
@@ -303,3 +306,4 @@ function setupProductPageInteractivity(product, wrapper) {
 // Run the initialization function when the DOM is fully loaded.
 document.addEventListener("DOMContentLoaded", initializeProductPage);
 
+git
